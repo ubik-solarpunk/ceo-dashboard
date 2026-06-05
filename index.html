@@ -226,6 +226,7 @@
         
         .api-status.connected { color: #10b981; }
         .api-status.error { color: #ef4444; }
+        .api-status.warning { color: #f59e0b; }
         
         .api-detail {
             font-size: 12px;
@@ -271,6 +272,34 @@
             color: var(--muted);
         }
         
+        .trend-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            height: 60px;
+            margin-top: 12px;
+        }
+        
+        .trend-bar {
+            flex: 1;
+            background: var(--accent);
+            border-radius: 4px 4px 0 0;
+            min-width: 20px;
+        }
+        
+        .trend-labels {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        
+        .trend-label {
+            flex: 1;
+            font-size: 10px;
+            color: var(--muted);
+            text-align: center;
+        }
+        
         @media (max-width: 768px) {
             .stats { grid-template-columns: repeat(2, 1fr); }
             .api-grid { grid-template-columns: 1fr; }
@@ -289,32 +318,52 @@
         <header>
             <div class="logo">UBIK<span> CEO Dashboard</span></div>
             <div class="meta">
-                <span class="timestamp">Updated: 05 Jun 2026, 23:41 IST</span>
+                <span class="timestamp">Updated: 06 Jun 2026, 00:03 IST</span>
                 <button class="toggle" onclick="toggleTheme()">Toggle Theme</button>
             </div>
         </header>
+        
+        <!-- Key Metrics -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Active Users (24h)</div>
+                <div class="stat-value accent">31</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Events (24h)</div>
+                <div class="stat-value">1,059</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Conversion Rate</div>
+                <div class="stat-value accent">4.1%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">API Credits</div>
+                <div class="stat-value">$6,014</div>
+            </div>
+        </div>
         
         <!-- API Credits -->
         <div class="section">
             <div class="section-header">
                 <h2 class="section-title">API Credits</h2>
-                <span class="section-badge success">All Active</span>
+                <span class="section-badge warning">Monitor Usage</span>
             </div>
             <div class="api-grid">
                 <div class="api-card">
                     <div class="api-name">Claude</div>
-                    <div class="api-status connected">$2,118 remaining</div>
-                    <div class="api-detail">Spent: $393</div>
+                    <div class="api-status connected">$5,000 remaining</div>
+                    <div class="api-detail">Spent: $747 (30d)</div>
                 </div>
                 <div class="api-card">
                     <div class="api-name">OpenRouter</div>
-                    <div class="api-status connected">$3,895 remaining</div>
-                    <div class="api-detail">Used: $908</div>
+                    <div class="api-status warning">$14 remaining</div>
+                    <div class="api-detail">Used: $891 (71% of $20)</div>
                 </div>
                 <div class="api-card">
                     <div class="api-name">OpenAI</div>
-                    <div class="api-status connected">Active</div>
-                    <div class="api-detail">30d spend: $1,060</div>
+                    <div class="api-status connected">$1,000 credit</div>
+                    <div class="api-detail">API key needs refresh</div>
                 </div>
             </div>
         </div>
@@ -323,18 +372,18 @@
         <div class="section">
             <div class="section-header">
                 <h2 class="section-title">User Journey Funnel (24h)</h2>
-                <span class="section-badge">1,050 events</span>
+                <span class="section-badge">31 unique users</span>
             </div>
             <div class="funnel-container">
                 <div class="funnel-stage">
                     <span class="funnel-label">Discovery</span>
                     <div class="funnel-bar"><div class="funnel-fill" style="width: 100%"></div></div>
-                    <span class="funnel-count">390</span>
+                    <span class="funnel-count">393</span>
                 </div>
                 <div class="funnel-stage">
                     <span class="funnel-label">Activation</span>
-                    <div class="funnel-bar"><div class="funnel-fill" style="width: 74%"></div></div>
-                    <span class="funnel-count">287</span>
+                    <div class="funnel-bar"><div class="funnel-fill" style="width: 57%"></div></div>
+                    <span class="funnel-count">223</span>
                 </div>
                 <div class="funnel-stage">
                     <span class="funnel-label">Engagement</span>
@@ -346,58 +395,41 @@
                     <div class="funnel-bar"><div class="funnel-fill" style="width: 4%"></div></div>
                     <span class="funnel-count">16</span>
                 </div>
-                <div class="funnel-stage">
-                    <span class="funnel-label">Retention</span>
-                    <div class="funnel-bar"><div class="funnel-fill" style="width: 0%"></div></div>
-                    <span class="funnel-count">0</span>
-                </div>
             </div>
             <div class="conversion-rate">4.1%</div>
             <div class="conversion-label">Conversion Rate (Value/Discovery)</div>
+            <div style="margin-top: 16px; font-size: 11px; color: var(--muted);">
+                <strong>Event Definitions:</strong> Discovery=pageviews, Activation=session_validated+user_signed_in, Engagement=chat_created+messages, Value=streams_completed
+            </div>
         </div>
         
-        <!-- Company Activity -->
+        <!-- 7-Day Trend -->
         <div class="section">
             <div class="section-header">
-                <h2 class="section-title">Company Activity (24h)</h2>
-                <span class="section-badge">10 users</span>
+                <h2 class="section-title">7-Day Event Trend</h2>
+                <span class="section-badge">6,164 total</span>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Company</th>
-                        <th>Users</th>
-                        <th>Events</th>
-                        <th>Top User</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Solarpunk Technology</td>
-                        <td>5</td>
-                        <td>469</td>
-                        <td>ganesh@solarpunk.technology (238)</td>
-                    </tr>
-                    <tr>
-                        <td>AZ Gems</td>
-                        <td>2</td>
-                        <td>378</td>
-                        <td>hemanth@azgems.com (328)</td>
-                    </tr>
-                    <tr>
-                        <td>Personal Accounts</td>
-                        <td>2</td>
-                        <td>73</td>
-                        <td>lokeswaribongu@gmail.com (42)</td>
-                    </tr>
-                    <tr>
-                        <td>Zalofresh</td>
-                        <td>1</td>
-                        <td>43</td>
-                        <td>prem@zalofresh.com (43)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="trend-chart">
+                <div class="trend-bar" style="height: 32%"></div>
+                <div class="trend-bar" style="height: 19%"></div>
+                <div class="trend-bar" style="height: 94%"></div>
+                <div class="trend-bar" style="height: 69%"></div>
+                <div class="trend-bar" style="height: 68%"></div>
+                <div class="trend-bar" style="height: 68%"></div>
+                <div class="trend-bar" style="height: 68%"></div>
+            </div>
+            <div class="trend-labels">
+                <div class="trend-label">May 30</div>
+                <div class="trend-label">May 31</div>
+                <div class="trend-label">Jun 1</div>
+                <div class="trend-label">Jun 2</div>
+                <div class="trend-label">Jun 3</div>
+                <div class="trend-label">Jun 4</div>
+                <div class="trend-label">Jun 5</div>
+            </div>
+            <div style="margin-top: 12px; font-size: 12px; color: var(--muted);">
+                Peak: Jun 2 (1,465 events) | Latest: Jun 5 (1,059 events)
+            </div>
         </div>
         
         <!-- GitHub Activity -->
@@ -410,28 +442,28 @@
                 <thead>
                     <tr>
                         <th>Repository</th>
+                        <th>Open Issues</th>
                         <th>Latest Commit</th>
-                        <th>Author</th>
                         <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>ubik-webapp</td>
-                        <td>Zoho single-connect UX overhaul</td>
-                        <td>rini-solarpunk</td>
-                        <td>Jun 4</td>
+                        <td>7</td>
+                        <td>Merge PR #123 - Zoho hide-or fix</td>
+                        <td>Jun 5</td>
                     </tr>
                     <tr>
                         <td>ubik-meetings</td>
-                        <td>Silent NSIS auto-update fix</td>
-                        <td>Shubhranshu</td>
+                        <td>-</td>
+                        <td>Silent NSIS auto-update on Windows</td>
                         <td>Jun 4</td>
                     </tr>
                     <tr>
                         <td>ubik-workflows</td>
-                        <td>Neo4j database fixes</td>
-                        <td>saikiran-solarpunk</td>
+                        <td>2</td>
+                        <td>Neo4j driver database fix</td>
                         <td>Jun 3</td>
                     </tr>
                 </tbody>
@@ -448,10 +480,24 @@
                 <div class="api-card">
                     <div class="api-name">Followers</div>
                     <div class="stat-value">161</div>
+                    <div class="api-detail">+1 new (7d)</div>
                 </div>
                 <div class="api-card">
-                    <div class="api-name">Total Impressions</div>
-                    <div class="stat-value">589K+</div>
+                    <div class="api-name">Search Appearances</div>
+                    <div class="stat-value">303</div>
+                    <div class="api-detail">Last 7 days</div>
+                </div>
+            </div>
+            <div class="api-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 12px;">
+                <div class="api-card">
+                    <div class="api-name">Post Impressions</div>
+                    <div class="stat-value">4.2</div>
+                    <div class="api-detail">Last 7 days</div>
+                </div>
+                <div class="api-card">
+                    <div class="api-name">Page Visitors</div>
+                    <div class="stat-value">1.2</div>
+                    <div class="api-detail">Last 7 days</div>
                 </div>
             </div>
         </div>
@@ -463,23 +509,62 @@
             </div>
             <ul class="insights-list">
                 <li>
-                    <div class="insight-title">Conversion Bottleneck</div>
-                    <div class="insight-desc">88% drop from Activation to Engagement. Users validate sessions but don't create chats. Investigate UX friction in chat creation flow.</div>
+                    <div class="insight-title">🔥 Conversion Bottleneck Identified</div>
+                    <div class="insight-desc">85% drop from Activation (223) to Engagement (33). Users validate sessions but don't create chats. Investigate UX friction in chat creation flow - potential quick win.</div>
                 </li>
                 <li>
-                    <div class="insight-title">Retention Blindspot</div>
-                    <div class="insight-desc">Zero retention events tracked. Implement user_returned event after 7-day gap to measure stickiness.</div>
+                    <div class="insight-title">⚠️ OpenRouter Credits Low</div>
+                    <div class="insight-desc">Only $14 remaining of $20 limit (71% used). $891 total usage. Consider adding more credits before hitting limit.</div>
                 </li>
                 <li>
-                    <div class="insight-title">Hemanth@azgems Power User</div>
-                    <div class="insight-desc">328 events from single user - strongest engagement signal. Consider case study or testimonial opportunity.</div>
+                    <div class="insight-title">📈 Consistent Event Volume</div>
+                    <div class="insight-desc">Stable ~1,000 events/day for past 3 days. June 2 spike to 1,465 likely from marketing push or feature release. Monitor for patterns.</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Automation Opportunities -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Automation Opportunities</h2>
+            </div>
+            <ul class="insights-list">
+                <li>
+                    <div class="insight-title">📊 Credit Threshold Alerts</div>
+                    <div class="insight-desc">Set up automated Slack alerts when OpenRouter credits drop below $20 or Claude usage exceeds $500/month.</div>
+                </li>
+                <li>
+                    <div class="insight-title">🔄 Retention Event Tracking</div>
+                    <div class="insight-desc">Implement user_returned event after 7-day gap to measure stickiness. Currently zero retention data.</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Blind Spots -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">Blind Spots</h2>
+            </div>
+            <ul class="insights-list">
+                <li>
+                    <div class="insight-title">❌ No Retention Tracking</div>
+                    <div class="insight-desc">Cannot measure user stickiness. Need user_returned event with 7+ day threshold.</div>
+                </li>
+                <li>
+                    <div class="insight-title">❌ OpenAI Usage Unknown</div>
+                    <div class="insight-desc">API key expired/invalid. Cannot track actual usage or spend.</div>
+                </li>
+                <li>
+                    <div class="insight-title">❌ Company Attribution Missing</div>
+                    <div class="insight-desc">PostHog company property returns empty. Need to fix user signup flow to capture company data.</div>
                 </li>
             </ul>
         </div>
         
         <footer style="text-align: center; padding: 24px; color: var(--muted); font-size: 12px;">
             UBIK CEO Dashboard v1 - Auto-updates every 6 hours<br>
-            Data: PostHog, Claude Console, OpenRouter, OpenAI, GitHub, LinkedIn
+            Data: PostHog, Claude Console, OpenRouter, OpenAI, GitHub, LinkedIn<br>
+            <a href="https://github.com/ubik-solarpunk/ceo-dashboard" style="color: var(--accent);">View Source</a>
         </footer>
     </div>
 </body>
