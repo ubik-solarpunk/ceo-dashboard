@@ -56,7 +56,8 @@
     .section-header::before { content: ''; width: 3px; height: 1.25rem; background: var(--primary); }
     .section-title { font-family: var(--font-display); font-size: 1rem; font-weight: 600; }
     .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
     .card { background: var(--card); border: 1px solid var(--border); padding: 1.25rem; }
     .card-header { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 1rem; }
     table { width: 100%; border-collapse: collapse; font-size: 0.8125rem; }
@@ -77,6 +78,7 @@
     .stat:last-child { margin-bottom: 0; }
     .stat-label { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 0.25rem; }
     .stat-value { font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; }
+    .stat-sub { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-foreground); margin-top: 0.25rem; }
     .funnel-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
     .funnel-row:last-child { border-bottom: none; }
     .funnel-label { font-weight: 500; }
@@ -88,6 +90,11 @@
     .chip.good { background: var(--good); color: var(--good-foreground); border-color: var(--good); }
     .chip.warn { background: var(--warn); color: var(--warn-foreground); border-color: var(--warn); }
     .chip.dim { color: var(--muted-foreground); }
+    .commit-row { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+    .commit-row:last-child { border-bottom: none; }
+    .commit-repo { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--primary); }
+    .commit-msg { font-size: 0.8125rem; margin-top: 0.125rem; }
+    .commit-date { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted-foreground); }
     footer { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted-foreground); }
     footer a { color: var(--primary); text-decoration: none; }
     .dark .logo-light { display: none; }
@@ -104,12 +111,13 @@
         </div>
         <div class="brand-text">
           <h1>CEO Dashboard</h1>
-          <div class="timestamp" id="timestamp">05 Jun 2026 · 11:16 IST</div>
+          <div class="timestamp" id="timestamp">05 Jun 2026 · 11:52 IST</div>
         </div>
       </div>
       <button class="toggle-btn" onclick="toggleTheme()">LIGHT</button>
     </header>
 
+    <!-- API Credits -->
     <section>
       <div class="section-header"><div class="section-title">API Credits</div></div>
       <div class="card">
@@ -124,6 +132,7 @@
       </div>
     </section>
 
+    <!-- Usage by User & Quick Stats -->
     <section>
       <div class="grid-2">
         <div class="card">
@@ -143,29 +152,59 @@
       </div>
     </section>
 
+    <!-- PostHog Analytics -->
     <section>
-      <div class="section-header"><div class="section-title">OpenRouter API Keys</div></div>
-      <div class="card">
-        <table>
-          <thead><tr><th>Key Name</th><th>Status</th><th>Usage</th></tr></thead>
-          <tbody>
-            <tr><td>Ubik</td><td><span class="chip good">Active</span></td><td style="font-family:var(--font-mono)">$891.46</td></tr>
-            <tr><td>jha-opencode</td><td><span class="chip warn">11h ago</span></td><td class="spent">—</td></tr>
-            <tr><td>Hemanth-openrouter</td><td><span class="chip dim">Inactive</span></td><td class="spent">—</td></tr>
-            <tr><td>jclaw-hermes</td><td><span class="chip dim">Inactive</span></td><td class="spent">—</td></tr>
-          </tbody>
-        </table>
+      <div class="section-header"><div class="section-title">PostHog Analytics (7d)</div></div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="stat"><div class="stat-label">Total Events</div><div class="stat-value">6,205</div></div>
+        </div>
+        <div class="card">
+          <div class="stat"><div class="stat-label">Sessions Validated</div><div class="stat-value">1,442</div></div>
+        </div>
+        <div class="card">
+          <div class="stat"><div class="stat-label">Users Signed In</div><div class="stat-value">50</div></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 1rem;">
+        <div class="card-header">User Journey Funnel</div>
+        <div class="funnel-row"><div class="funnel-label">Discovery</div><div class="funnel-bar-bg"><div class="funnel-bar" style="width:100%"></div></div><div class="funnel-count">1,815</div></div>
+        <div class="funnel-row"><div class="funnel-label">Validation</div><div class="funnel-bar-bg"><div class="funnel-bar" style="width:79%"></div></div><div class="funnel-count">1,442</div></div>
+        <div class="funnel-row"><div class="funnel-label">Sign In</div><div class="funnel-bar-bg"><div class="funnel-bar bottleneck" style="width:3%"></div></div><div class="funnel-count">50</div></div>
+        <div class="funnel-row"><div class="funnel-label">Chat Active</div><div class="funnel-bar-bg"><div class="funnel-bar" style="width:4%"></div></div><div class="funnel-count">78</div></div>
       </div>
     </section>
 
+    <!-- GitHub Activity -->
     <section>
-      <div class="section-header"><div class="section-title">PostHog Funnel</div></div>
+      <div class="section-header"><div class="section-title">GitHub Activity (Recent Commits)</div></div>
       <div class="card">
-        <div class="funnel-row"><div class="funnel-label">Discovery</div><div class="funnel-bar-bg"><div class="funnel-bar" style="width:100%"></div></div><div class="funnel-count">1,247</div></div>
-        <div class="funnel-row"><div class="funnel-label">Activation</div><div class="funnel-bar-bg"><div class="funnel-bar" style="width:68%"></div></div><div class="funnel-count">847</div></div>
-        <div class="funnel-row"><div class="funnel-label">Engagement</div><div class="funnel-bar-bg"><div class="funnel-bar" style="width:42%"></div></div><div class="funnel-count">524</div></div>
-        <div class="funnel-row"><div class="funnel-label">Value</div><div class="funnel-bar-bg"><div class="funnel-bar bottleneck" style="width:18%"></div></div><div class="funnel-count">225</div></div>
-        <div class="funnel-row"><div class="funnel-label">Retention</div><div class="funnel-bar-bg"><div class="funnel-bar" style="width:12%"></div></div><div class="funnel-count">150</div></div>
+        <div class="commit-row"><div class="commit-repo">ubik-webapp</div><div class="commit-msg">feat(integrations): Zoho single-connect UX overhaul</div><div class="commit-date">Jun 4, 2026</div></div>
+        <div class="commit-row"><div class="commit-repo">ubik-meetings</div><div class="commit-msg">fix(updater): silent NSIS auto-update on Windows</div><div class="commit-date">Jun 4, 2026</div></div>
+        <div class="commit-row"><div class="commit-repo">ubik-workflows</div><div class="commit-msg">fix(graphiti): Neo4j database fallback + tracing</div><div class="commit-date">Jun 3, 2026</div></div>
+      </div>
+    </section>
+
+    <!-- LinkedIn & OpenRouter -->
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">LinkedIn (Solarpunk)</div>
+          <div class="stat"><div class="stat-label">Followers</div><div class="stat-value">161</div></div>
+          <div class="stat"><div class="stat-label">Total Impressions</div><div class="stat-value">589K</div></div>
+        </div>
+        <div class="card">
+          <div class="card-header">OpenRouter Keys</div>
+          <table>
+            <thead><tr><th>Key</th><th>Status</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr><td>Ubik</td><td><span class="chip good">Active</span></td><td style="font-family:var(--font-mono)">$891.46</td></tr>
+              <tr><td>jha-opencode</td><td><span class="chip warn">11h ago</span></td><td class="spent">—</td></tr>
+              <tr><td>Hemanth</td><td><span class="chip dim">Inactive</span></td><td class="spent">—</td></tr>
+              <tr><td>jclaw-hermes</td><td><span class="chip dim">Inactive</span></td><td class="spent">—</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
