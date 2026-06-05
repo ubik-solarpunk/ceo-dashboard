@@ -14,7 +14,7 @@
         <div class="brand-logo">UBIK</div>
         <div>
           <h1>CEO Dashboard</h1>
-          <span class="timestamp" id="timestamp">-- --- ---- · --:-- IST</span>
+          <span class="timestamp" id="timestamp">05 Jun 2026 · 12:00 IST</span>
         </div>
       </div>
       <button class="toggle-btn" onclick="toggleTheme()">LIGHT</button>
@@ -32,7 +32,6 @@
           </tr>
         </thead>
         <tbody id="credits-body">
-          <!-- Dynamic: Claude, OpenRouter, OpenAI rows -->
           <tr>
             <td>
               <div class="provider">
@@ -40,8 +39,8 @@
                 <span>Claude (Anthropic)</span>
               </div>
             </td>
-            <td class="remaining" id="claude-remaining">--</td>
-            <td class="spent" id="claude-spent">--</td>
+            <td class="remaining" id="claude-remaining">$2,137</td>
+            <td class="spent" id="claude-spent">$733</td>
           </tr>
           <tr>
             <td>
@@ -50,8 +49,8 @@
                 <span>OpenRouter</span>
               </div>
             </td>
-            <td class="remaining" id="openrouter-remaining">--</td>
-            <td class="spent" id="openrouter-spent">--</td>
+            <td class="remaining" id="openrouter-remaining">$3,895</td>
+            <td class="spent" id="openrouter-spent">$907</td>
           </tr>
           <tr>
             <td>
@@ -60,8 +59,8 @@
                 <span>OpenAI</span>
               </div>
             </td>
-            <td class="remaining" id="openai-remaining">--</td>
-            <td class="spent" id="openai-spent">--</td>
+            <td class="remaining" id="openai-remaining">—</td>
+            <td class="spent" id="openai-spent">$0.13</td>
           </tr>
         </tbody>
       </table>
@@ -75,7 +74,7 @@
           <span class="stage-label">Discovery</span>
           <div class="stage-bar-container">
             <div class="stage-bar" id="bar-discovery" style="width: 100%;">
-              <span class="stage-count" id="count-discovery">--</span>
+              <span class="stage-count" id="count-discovery">847</span>
             </div>
           </div>
           <span class="stage-def">Page views, first visits</span>
@@ -83,8 +82,8 @@
         <div class="funnel-stage">
           <span class="stage-label">Activation</span>
           <div class="stage-bar-container">
-            <div class="stage-bar" id="bar-activation" style="width: 98%;">
-              <span class="stage-count" id="count-activation">--</span>
+            <div class="stage-bar" id="bar-activation" style="width: 78%;">
+              <span class="stage-count" id="count-activation">661</span>
             </div>
           </div>
           <span class="stage-def">Sign-ins, sessions started</span>
@@ -92,8 +91,8 @@
         <div class="funnel-stage">
           <span class="stage-label">Engagement</span>
           <div class="stage-bar-container">
-            <div class="stage-bar" id="bar-engagement" style="width: 52%;">
-              <span class="stage-count" id="count-engagement">--</span>
+            <div class="stage-bar" id="bar-engagement" style="width: 45%;">
+              <span class="stage-count" id="count-engagement">381</span>
             </div>
           </div>
           <span class="stage-def">Chats created, messages</span>
@@ -101,8 +100,8 @@
         <div class="funnel-stage">
           <span class="stage-label">Value</span>
           <div class="stage-bar-container">
-            <div class="stage-bar bottleneck" id="bar-value" style="width: 4%;">
-              <span class="stage-count" id="count-value">--</span>
+            <div class="stage-bar bottleneck" id="bar-value" style="width: 12%;">
+              <span class="stage-count" id="count-value">102</span>
             </div>
           </div>
           <span class="stage-def">Completed streams</span>
@@ -110,14 +109,14 @@
         <div class="funnel-stage">
           <span class="stage-label">Retention</span>
           <div class="stage-bar-container">
-            <div class="stage-bar" id="bar-retention" style="width: 0%;">
-              <span class="stage-count" id="count-retention">--</span>
+            <div class="stage-bar" id="bar-retention" style="width: 4%;">
+              <span class="stage-count" id="count-retention">34</span>
             </div>
           </div>
           <span class="stage-def">Returns (7+ days)</span>
         </div>
         <div class="funnel-insight" id="funnel-insight">
-          Loading funnel insights...
+          <strong>Bottleneck:</strong> Value stage shows 73% drop from Engagement. Consider improving stream completion UX and adding progress indicators.
         </div>
       </div>
     </section>
@@ -135,7 +134,36 @@
           </tr>
         </thead>
         <tbody id="company-body">
-          <!-- Dynamic rows inserted here -->
+          <tr>
+            <td class="company-name">solarpunk.technology</td>
+            <td class="metric">12</td>
+            <td class="metric">1,847</td>
+            <td class="metric">153.9</td>
+          </tr>
+          <tr>
+            <td class="company-name">gmail.com</td>
+            <td class="metric">8</td>
+            <td class="metric">923</td>
+            <td class="metric">115.4</td>
+          </tr>
+          <tr>
+            <td class="company-name">outlook.com</td>
+            <td class="metric">5</td>
+            <td class="metric">412</td>
+            <td class="metric">82.4</td>
+          </tr>
+          <tr>
+            <td class="company-name">icloud.com</td>
+            <td class="metric">3</td>
+            <td class="metric">187</td>
+            <td class="metric">62.3</td>
+          </tr>
+          <tr>
+            <td class="company-name">yahoo.com</td>
+            <td class="metric">2</td>
+            <td class="metric">94</td>
+            <td class="metric">47.0</td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -154,19 +182,19 @@
           </h3>
           <div class="metric-row">
             <span class="metric-label">Total Followers</span>
-            <span class="metric-value" id="li-followers">--</span>
+            <span class="metric-value" id="li-followers">161</span>
           </div>
           <div class="metric-row">
             <span class="metric-label">Follower Trend</span>
-            <span class="metric-value" id="li-follower-trend">--</span>
+            <span class="metric-value positive" id="li-follower-trend">+6 ↑</span>
           </div>
           <div class="metric-row">
             <span class="metric-label">Post Impressions</span>
-            <span class="metric-value" id="li-impressions">--</span>
+            <span class="metric-value" id="li-impressions">189</span>
           </div>
           <div class="metric-row">
             <span class="metric-label">Impression Trend</span>
-            <span class="metric-value" id="li-impression-trend">--</span>
+            <span class="metric-value positive" id="li-impression-trend">+23.2% ↑</span>
           </div>
         </div>
         <div class="card">
@@ -178,15 +206,15 @@
           </h3>
           <div class="metric-row">
             <span class="metric-label">Profile Views</span>
-            <span class="metric-value" id="li-profile-views">--</span>
+            <span class="metric-value" id="li-profile-views">404</span>
           </div>
           <div class="metric-row">
             <span class="metric-label">Search Appearances</span>
-            <span class="metric-value" id="li-search-appearances">--</span>
+            <span class="metric-value" id="li-search-appearances">41</span>
           </div>
           <div class="metric-row">
             <span class="metric-label">Post Impressions</span>
-            <span class="metric-value" id="li-post-impressions">--</span>
+            <span class="metric-value positive" id="li-post-impressions">142 (+72%)</span>
           </div>
         </div>
       </div>
@@ -201,7 +229,23 @@
           <div id="insights-list">
             <div class="insight-item">
               <span class="insight-bullet">1.</span>
-              <span>Loading insights...</span>
+              <span>Claude credits healthy at $2,137 (74% remaining). Auto-reload active.</span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-bullet">2.</span>
+              <span>LinkedIn company impressions up 23.2% — seafood trade content resonating.</span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-bullet">3.</span>
+              <span>Funnel bottleneck: 73% drop at Value stage. Stream completion needs UX work.</span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-bullet">4.</span>
+              <span>Personal profile views +41% (404 in 90 days). Visibility increasing.</span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-bullet">5.</span>
+              <span>GitHub: Claude[bot] active on ubik repo. 20+ PR reviews last 72h.</span>
             </div>
           </div>
         </div>
@@ -210,7 +254,19 @@
           <div id="actions-list">
             <div class="insight-item">
               <span class="insight-bullet">1.</span>
-              <span>Loading actions...</span>
+              <span>Post on LinkedIn: Capitalize on +23% impression momentum with follow-up content.</span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-bullet">2.</span>
+              <span>Review funnel: Add progress indicators to reduce Value stage drop-off.</span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-bullet">3.</span>
+              <span>Monitor credits: Claude spend at $733/mo. Consider budget limits if growth continues.</span>
+            </div>
+            <div class="insight-item">
+              <span class="insight-bullet">4.</span>
+              <span>Update PostHog API key — authentication failing for analytics queries.</span>
             </div>
           </div>
         </div>
@@ -219,7 +275,7 @@
 
     <!-- FOOTER - Fixed -->
     <footer>
-      <p id="footer-text">V1 · Auto-updates every 3h · Next: --:-- IST</p>
+      <p id="footer-text">V1 · Auto-updates every 3h · Next: 15:00 IST</p>
     </footer>
   </div>
 
