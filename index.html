@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UBIK CEO Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER - Fixed -->
+    <header>
+      <div class="brand">
+        <div class="brand-logo">UBIK</div>
+        <div>
+          <h1>CEO Dashboard</h1>
+          <span class="timestamp" id="timestamp">-- --- ---- · --:-- IST</span>
+        </div>
+      </div>
+      <button class="toggle-btn" onclick="toggleTheme()">LIGHT</button>
+    </header>
+
+    <!-- SECTION 1: API CREDITS - Fixed layout, dynamic data -->
+    <section id="api-credits">
+      <h2>API Credits (From Console)</h2>
+      <table class="ubik-table">
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>Remaining</th>
+            <th>Spent</th>
+          </tr>
+        </thead>
+        <tbody id="credits-body">
+          <!-- Dynamic: Claude, OpenRouter, OpenAI rows -->
+          <tr>
+            <td>
+              <div class="provider">
+                <div class="provider-icon" style="background: #D97706;">C</div>
+                <span>Claude (Anthropic)</span>
+              </div>
+            </td>
+            <td class="remaining" id="claude-remaining">--</td>
+            <td class="spent" id="claude-spent">--</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="provider">
+                <div class="provider-icon" style="background: #2563EB;">OR</div>
+                <span>OpenRouter</span>
+              </div>
+            </td>
+            <td class="remaining" id="openrouter-remaining">--</td>
+            <td class="spent" id="openrouter-spent">--</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="provider">
+                <div class="provider-icon" style="background: #10B981;">O</div>
+                <span>OpenAI</span>
+              </div>
+            </td>
+            <td class="remaining" id="openai-remaining">--</td>
+            <td class="spent" id="openai-spent">--</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 2: FUNNEL - Fixed layout, dynamic data -->
+    <section id="funnel">
+      <h2>User Journey Funnel (24h)</h2>
+      <div class="funnel-container">
+        <div class="funnel-stage">
+          <span class="stage-label">Discovery</span>
+          <div class="stage-bar-container">
+            <div class="stage-bar" id="bar-discovery" style="width: 100%;">
+              <span class="stage-count" id="count-discovery">--</span>
+            </div>
+          </div>
+          <span class="stage-def">Page views, first visits</span>
+        </div>
+        <div class="funnel-stage">
+          <span class="stage-label">Activation</span>
+          <div class="stage-bar-container">
+            <div class="stage-bar" id="bar-activation" style="width: 98%;">
+              <span class="stage-count" id="count-activation">--</span>
+            </div>
+          </div>
+          <span class="stage-def">Sign-ins, sessions started</span>
+        </div>
+        <div class="funnel-stage">
+          <span class="stage-label">Engagement</span>
+          <div class="stage-bar-container">
+            <div class="stage-bar" id="bar-engagement" style="width: 52%;">
+              <span class="stage-count" id="count-engagement">--</span>
+            </div>
+          </div>
+          <span class="stage-def">Chats created, messages</span>
+        </div>
+        <div class="funnel-stage">
+          <span class="stage-label">Value</span>
+          <div class="stage-bar-container">
+            <div class="stage-bar bottleneck" id="bar-value" style="width: 4%;">
+              <span class="stage-count" id="count-value">--</span>
+            </div>
+          </div>
+          <span class="stage-def">Completed streams</span>
+        </div>
+        <div class="funnel-stage">
+          <span class="stage-label">Retention</span>
+          <div class="stage-bar-container">
+            <div class="stage-bar" id="bar-retention" style="width: 0%;">
+              <span class="stage-count" id="count-retention">--</span>
+            </div>
+          </div>
+          <span class="stage-def">Returns (7+ days)</span>
+        </div>
+        <div class="funnel-insight" id="funnel-insight">
+          Loading funnel insights...
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: COMPANY ACTIVITY - Fixed layout, dynamic data -->
+    <section id="company-activity">
+      <h2>Company Activity (24h)</h2>
+      <table class="ubik-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Users</th>
+            <th>Events</th>
+            <th>Events/User</th>
+          </tr>
+        </thead>
+        <tbody id="company-body">
+          <!-- Dynamic rows inserted here -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: LINKEDIN ANALYTICS - Fixed layout, dynamic data -->
+    <section id="linkedin">
+      <h2>LinkedIn Analytics</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+            </svg>
+            Company Page
+            <span class="badge">Solarpunk</span>
+          </h3>
+          <div class="metric-row">
+            <span class="metric-label">Total Followers</span>
+            <span class="metric-value" id="li-followers">--</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">Follower Trend</span>
+            <span class="metric-value" id="li-follower-trend">--</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">Post Impressions</span>
+            <span class="metric-value" id="li-impressions">--</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">Impression Trend</span>
+            <span class="metric-value" id="li-impression-trend">--</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+            </svg>
+            Personal Profile
+          </h3>
+          <div class="metric-row">
+            <span class="metric-label">Profile Views</span>
+            <span class="metric-value" id="li-profile-views">--</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">Search Appearances</span>
+            <span class="metric-value" id="li-search-appearances">--</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">Post Impressions</span>
+            <span class="metric-value" id="li-post-impressions">--</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INSIGHTS - Fixed layout, dynamic data -->
+    <section id="insights">
+      <h2>Insights & Actions</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Top Insights</h3>
+          <div id="insights-list">
+            <div class="insight-item">
+              <span class="insight-bullet">1.</span>
+              <span>Loading insights...</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Recommended Actions</h3>
+          <div id="actions-list">
+            <div class="insight-item">
+              <span class="insight-bullet">1.</span>
+              <span>Loading actions...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER - Fixed -->
+    <footer>
+      <p id="footer-text">V1 · Auto-updates every 3h · Next: --:-- IST</p>
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const btn = document.querySelector('.toggle-btn');
+      if (html.classList.contains('light')) {
+        html.classList.remove('light');
+        html.classList.add('dark');
+        btn.textContent = 'LIGHT';
+      } else {
+        html.classList.remove('dark');
+        html.classList.add('light');
+        btn.textContent = 'DARK';
+      }
+    }
+  </script>
+</body>
+</html>
