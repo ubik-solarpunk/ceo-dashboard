@@ -1,0 +1,410 @@
+/* UBIK CEO Dashboard - Fixed Layout
+ * Uses ubik.css tokens - DO NOT MODIFY THIS FILE
+ * Layout is fixed, only content changes
+ */
+
+/* Import UBIK design system */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+/* UBIK Tokens - copied from ubik.css for CDN compatibility */
+:root {
+  /* Dark theme default */
+  --background:             oklch(0.1288 0.0406 264.6952);
+  --foreground:             oklch(0.9842 0.0034 247.8575);
+  --card:                   oklch(0.1288 0.0406 264.6952);
+  --card-foreground:        oklch(0.9842 0.0034 247.8575);
+  --shell:                  oklch(0.1600 0.0340 265.00);
+  --well:                   oklch(0.2100 0.0340 265.00);
+  --muted:                  oklch(0.2077 0.0398 265.7549);
+  --muted-foreground:       oklch(0.7000 0.0150 260.00);
+  
+  --primary:                oklch(0.6231 0.188 259.8145);
+  --primary-foreground:     oklch(1 0 0);
+  
+  --destructive:            oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(0.9842 0.0034 247.8575);
+  --good:                   oklch(0.7000 0.1600 152.00);
+  --good-foreground:        oklch(0.2077 0.0398 265.7549);
+  --warn:                   oklch(0.7800 0.1500 70.00);
+  --warn-foreground:        oklch(0.2500 0.0500 60.00);
+  
+  --border:                 oklch(0.3200 0.0220 260.00);
+  --border-strong:          oklch(0.4400 0.0200 260.00);
+  
+  --chart-1:                oklch(0.6231 0.188 259.8145);
+  --chart-4:                oklch(0.6368 0.2078 25.3313);
+  
+  /* Fonts */
+  --font-sans:    "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Noto Sans", ui-sans-serif, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  
+  /* ZERO radius - brand signature */
+  --radius: 0;
+  
+  /* Spacing */
+  --spacing: 0.25rem;
+  --gutter:  1.5rem;
+  --max:     60rem;
+  
+  /* Type sizes */
+  --ubik-h1-size:  2.5rem;
+  --ubik-h2-size:  1.5rem;
+  --ubik-h3-size:  1.125rem;
+  --ubik-body-size: 0.875rem;
+  --ubik-label-size: 0.6875rem;
+}
+
+/* Light theme */
+.light {
+  --background:             oklch(1 0 0);
+  --foreground:             oklch(0.2077 0.0398 265.7549);
+  --card:                   oklch(1 0 0);
+  --card-foreground:        oklch(0.2077 0.0398 265.7549);
+  --shell:                  oklch(0.9762 0.0048 247.86);
+  --well:                   oklch(0.9752 0.0083 247.86);
+  --muted:                  oklch(0.9842 0.0034 247.8575);
+  --muted-foreground:       oklch(0.5000 0.0150 260.00);
+  
+  --primary:                oklch(0.5461 0.2152 262.8809);
+  --primary-foreground:     oklch(1 0 0);
+  
+  --border:                 oklch(0.8950 0.0130 256.00);
+  --border-strong:          oklch(0.7900 0.0180 256.00);
+  
+  --chart-1:                oklch(0.5461 0.2152 262.8809);
+}
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--ubik-body-size);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--gutter);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--destructive);
+  background: var(--well);
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--destructive);
+}
+
+.brand-text h1 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.timestamp {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+}
+
+.toggle-btn {
+  background: var(--well);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.toggle-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Section headers */
+h2 {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+/* Tables */
+.ubik-table {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.ubik-table th,
+.ubik-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.ubik-table th {
+  font-size: 0.625rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+}
+
+.ubik-table tr:last-child td {
+  border-bottom: none;
+}
+
+.ubik-table tr.total {
+  background: var(--well);
+  font-weight: 600;
+}
+
+.ubik-table td:last-child,
+.ubik-table th:last-child {
+  text-align: right;
+}
+
+/* Funnel */
+.funnel-container {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+}
+
+.funnel-stage {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.stage-label {
+  width: 6rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+}
+
+.stage-bar-container {
+  flex: 1;
+  height: 2rem;
+  background: var(--well);
+}
+
+.stage-bar {
+  height: 100%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.75rem;
+  min-width: 2.5rem;
+}
+
+.stage-bar.bottleneck {
+  background: var(--destructive);
+}
+
+.stage-count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-foreground);
+}
+
+.stage-def {
+  width: 12rem;
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+}
+
+.funnel-insight {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: color-mix(in oklch, var(--destructive) 10%, transparent);
+  border-left: 3px solid var(--destructive);
+  font-size: 0.8125rem;
+}
+
+/* Cards grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card .badge {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.125rem 0.5rem;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.metric-row:last-child {
+  border-bottom: none;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.metric-value.positive { color: var(--good); }
+.metric-value.negative { color: var(--destructive); }
+
+/* Provider icons */
+.provider {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.provider-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--primary-foreground);
+}
+
+.remaining { color: var(--good); font-weight: 600; }
+.spent { color: var(--muted-foreground); }
+
+/* Company favicon */
+.company-name {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.company-favicon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--primary-foreground);
+}
+
+/* Insight items */
+.insight-item {
+  display: flex;
+  gap: 0.625rem;
+  margin-bottom: 0.625rem;
+  font-size: 0.8125rem;
+}
+
+.insight-item:last-child {
+  margin-bottom: 0;
+}
+
+.insight-bullet {
+  color: var(--destructive);
+  font-weight: 700;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+footer p {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .funnel-stage {
+    flex-wrap: wrap;
+  }
+  
+  .stage-def {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding-left: 7rem;
+  }
+}
