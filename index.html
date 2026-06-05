@@ -4,294 +4,351 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UBIK CEO Dashboard</title>
-  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --surface: #111113;
+      --card: #18181b;
+      --border: #27272a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #2563EB;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .brand { display: flex; align-items: center; gap: 16px; }
+    
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      background: var(--accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    
+    h1 { font-size: 24px; font-weight: 600; }
+    
+    .timestamp {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      display: block;
+    }
+    
+    .toggle-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    
+    .card h2 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    
+    table { width: 100%; border-collapse: collapse; }
+    
+    th, td {
+      text-align: left;
+      padding: 12px 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    
+    td { font-size: 14px; }
+    
+    tr:last-child td { border-bottom: none; }
+    
+    .provider { display: flex; align-items: center; gap: 12px; }
+    
+    .provider-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .remaining { color: var(--success); font-weight: 600; }
+    .spent { color: var(--text-muted); }
+    
+    .user-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .user-row:last-child { border-bottom: none; }
+    .user-name { font-weight: 500; }
+    .user-spend { font-weight: 600; color: var(--accent); }
+    .user-keys { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    
+    .stat { margin-bottom: 16px; }
+    .stat:last-child { margin-bottom: 0; }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+    .stat-value { font-size: 28px; font-weight: 700; }
+    .stat-change { font-size: 12px; margin-top: 4px; }
+    .stat-change.up { color: var(--success); }
+    .stat-change.down { color: var(--danger); }
+    
+    .progress-bar {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+    
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    
+    .note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: var(--surface);
+      border-radius: 6px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <!-- HEADER - Fixed -->
     <header>
       <div class="brand">
-        <div class="brand-logo">UBIK</div>
+        <div class="brand-logo">U</div>
         <div>
-          <h1>CEO Dashboard</h1>
-          <span class="timestamp" id="timestamp">05 Jun 2026 · 09:45 IST</span>
+          <h1>UBIK CEO Dashboard</h1>
+          <span class="timestamp" id="timestamp">05 Jun 2026 · 11:16 IST</span>
         </div>
       </div>
       <button class="toggle-btn" onclick="toggleTheme()">LIGHT</button>
     </header>
 
-    <!-- SECTION 1: API CREDITS - Fixed layout, dynamic data -->
-    <section id="api-credits">
-      <h2>API Credits (From Console)</h2>
-      <table class="ubik-table">
+    <!-- SECTION 1: API CREDITS -->
+    <section class="grid">
+      <div class="card">
+        <h2>API Credits</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Remaining</th>
+              <th>Spent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="provider">
+                  <div class="provider-icon" style="background: #D97706;">C</div>
+                  <span>Claude</span>
+                </div>
+              </td>
+              <td class="remaining">$2,137</td>
+              <td class="spent">$733</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="provider">
+                  <div class="provider-icon" style="background: #2563EB;">OR</div>
+                  <span>OpenRouter</span>
+                </div>
+              </td>
+              <td class="remaining">$3,895</td>
+              <td class="spent">$907</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="provider">
+                  <div class="provider-icon" style="background: #10a37f;">O</div>
+                  <span>OpenAI</span>
+                </div>
+              </td>
+              <td class="remaining">—</td>
+              <td class="spent">3.11K req</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SECTION 2: QUICK STATS -->
+      <div class="card">
+        <h2>Quick Stats</h2>
+        <div class="stat">
+          <div class="stat-label">Total API Spend (Claude)</div>
+          <div class="stat-value">$747.62</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Total API Spend (OpenRouter)</div>
+          <div class="stat-value">$891.46</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Active Users</div>
+          <div class="stat-value">5</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: USAGE BY USER -->
+    <section class="card" style="margin-bottom: 24px;">
+      <h2>Usage by User (Claude API Keys)</h2>
+      <div class="user-row">
+        <div>
+          <div class="user-name">GANE ROGER</div>
+          <div class="user-keys">claude_code_key_ganesh_gsse, local</div>
+        </div>
+        <div class="user-spend">$393.35</div>
+      </div>
+      <div class="user-row">
+        <div>
+          <div class="user-name">Sai Kiran</div>
+          <div class="user-keys">claude_code_key_sai_tsrx, ubik-workflows</div>
+        </div>
+        <div class="user-spend">$184.63</div>
+      </div>
+      <div class="user-row">
+        <div>
+          <div class="user-name">Rini Rathore</div>
+          <div class="user-keys">claude_code_key_rini_hjfl</div>
+        </div>
+        <div class="user-spend">$120.95</div>
+      </div>
+      <div class="user-row">
+        <div>
+          <div class="user-name">Priya Chaurasiya</div>
+          <div class="user-keys">claude_code_key_priya_ydvw</div>
+        </div>
+        <div class="user-spend">$46.44</div>
+      </div>
+      <div class="user-row">
+        <div>
+          <div class="user-name">Shubhranshu Jha</div>
+          <div class="user-keys">claude_code_key_shubhranshu_utzj, PR review, Jha-claw</div>
+        </div>
+        <div class="user-spend">$2.25</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: OPENROUTER KEYS -->
+    <section class="card" style="margin-bottom: 24px;">
+      <h2>OpenRouter API Keys</h2>
+      <table>
         <thead>
           <tr>
-            <th>Provider</th>
-            <th>Remaining</th>
-            <th>Spent</th>
+            <th>Key Name</th>
+            <th>Status</th>
+            <th>Usage</th>
           </tr>
         </thead>
-        <tbody id="credits-body">
+        <tbody>
           <tr>
-            <td>
-              <div class="provider">
-                <div class="provider-icon" style="background: #D97706;">C</div>
-                <span>Claude (Anthropic)</span>
-              </div>
-            </td>
-            <td class="remaining" id="claude-remaining">$2,137</td>
-            <td class="spent" id="claude-spent">$733</td>
+            <td>Ubik</td>
+            <td style="color: var(--success);">Active</td>
+            <td>$891.46</td>
           </tr>
           <tr>
-            <td>
-              <div class="provider">
-                <div class="provider-icon" style="background: #2563EB;">OR</div>
-                <span>OpenRouter</span>
-              </div>
-            </td>
-            <td class="remaining" id="openrouter-remaining">$3,895</td>
-            <td class="spent" id="openrouter-spent">$907</td>
+            <td>jha-opencode</td>
+            <td style="color: var(--warning);">11h ago</td>
+            <td>—</td>
           </tr>
           <tr>
-            <td>
-              <div class="provider">
-                <div class="provider-icon" style="background: #10B981;">O</div>
-                <span>OpenAI</span>
-              </div>
-            </td>
-            <td class="remaining" id="openai-remaining">—</td>
-            <td class="spent" id="openai-spent">$0.13</td>
+            <td>Hemanth-openrouter</td>
+            <td style="color: var(--text-muted);">Inactive</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>jclaw-hermes</td>
+            <td style="color: var(--text-muted);">Inactive</td>
+            <td>—</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <!-- SECTION 2: FUNNEL - Fixed layout, dynamic data -->
-    <section id="funnel">
-      <h2>User Journey Funnel (24h)</h2>
-      <div class="funnel-container">
-        <div class="funnel-stage">
-          <span class="stage-label">Discovery</span>
-          <div class="stage-bar-container">
-            <div class="stage-bar" id="bar-discovery" style="width: 100%;">
-              <span class="stage-count" id="count-discovery">847</span>
-            </div>
-          </div>
-          <span class="stage-def">Page views, first visits</span>
-        </div>
-        <div class="funnel-stage">
-          <span class="stage-label">Activation</span>
-          <div class="stage-bar-container">
-            <div class="stage-bar" id="bar-activation" style="width: 78%;">
-              <span class="stage-count" id="count-activation">661</span>
-            </div>
-          </div>
-          <span class="stage-def">Sign-ins, sessions started</span>
-        </div>
-        <div class="funnel-stage">
-          <span class="stage-label">Engagement</span>
-          <div class="stage-bar-container">
-            <div class="stage-bar" id="bar-engagement" style="width: 45%;">
-              <span class="stage-count" id="count-engagement">381</span>
-            </div>
-          </div>
-          <span class="stage-def">Chats created, messages</span>
-        </div>
-        <div class="funnel-stage">
-          <span class="stage-label">Value</span>
-          <div class="stage-bar-container">
-            <div class="stage-bar bottleneck" id="bar-value" style="width: 12%;">
-              <span class="stage-count" id="count-value">102</span>
-            </div>
-          </div>
-          <span class="stage-def">Completed streams</span>
-        </div>
-        <div class="funnel-stage">
-          <span class="stage-label">Retention</span>
-          <div class="stage-bar-container">
-            <div class="stage-bar" id="bar-retention" style="width: 4%;">
-              <span class="stage-count" id="count-retention">34</span>
-            </div>
-          </div>
-          <span class="stage-def">Returns (7+ days)</span>
-        </div>
-        <div class="funnel-insight" id="funnel-insight">
-          <strong>Bottleneck:</strong> Value stage shows 73% drop from Engagement. Consider improving stream completion UX and adding progress indicators.
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: COMPANY ACTIVITY - Fixed layout, dynamic data -->
-    <section id="company-activity">
-      <h2>Company Activity (24h)</h2>
-      <table class="ubik-table">
-        <thead>
-          <tr>
-            <th>Company</th>
-            <th>Users</th>
-            <th>Events</th>
-            <th>Events/User</th>
-          </tr>
-        </thead>
-        <tbody id="company-body">
-          <tr>
-            <td class="company-name">solarpunk.technology</td>
-            <td class="metric">12</td>
-            <td class="metric">1,847</td>
-            <td class="metric">153.9</td>
-          </tr>
-          <tr>
-            <td class="company-name">gmail.com</td>
-            <td class="metric">8</td>
-            <td class="metric">923</td>
-            <td class="metric">115.4</td>
-          </tr>
-          <tr>
-            <td class="company-name">outlook.com</td>
-            <td class="metric">5</td>
-            <td class="metric">412</td>
-            <td class="metric">82.4</td>
-          </tr>
-          <tr>
-            <td class="company-name">icloud.com</td>
-            <td class="metric">3</td>
-            <td class="metric">187</td>
-            <td class="metric">62.3</td>
-          </tr>
-          <tr>
-            <td class="company-name">yahoo.com</td>
-            <td class="metric">2</td>
-            <td class="metric">94</td>
-            <td class="metric">47.0</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- SECTION 4: LINKEDIN ANALYTICS - Fixed layout, dynamic data -->
-    <section id="linkedin">
-      <h2>LinkedIn Analytics</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2">
-              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
-            </svg>
-            Company Page
-            <span class="badge">Solarpunk</span>
-          </h3>
-          <div class="metric-row">
-            <span class="metric-label">Total Followers</span>
-            <span class="metric-value" id="li-followers">161</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">Follower Trend</span>
-            <span class="metric-value positive" id="li-follower-trend">+6 →</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">Post Impressions</span>
-            <span class="metric-value" id="li-impressions">189</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">Impression Trend</span>
-            <span class="metric-value positive" id="li-impression-trend">+23.2% ↑</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2">
-              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
-            </svg>
-            Personal Profile
-          </h3>
-          <div class="metric-row">
-            <span class="metric-label">Profile Views</span>
-            <span class="metric-value" id="li-profile-views">404</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">Search Appearances</span>
-            <span class="metric-value" id="li-search-appearances">41</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">Post Impressions</span>
-            <span class="metric-value positive" id="li-post-impressions">142 (+72%)</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5: INSIGHTS - Fixed layout, dynamic data -->
-    <section id="insights">
-      <h2>Insights & Actions</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Top Insights</h3>
-          <div id="insights-list">
-            <div class="insight-item">
-              <span class="insight-bullet">1.</span>
-              <span>Claude credits healthy at $2,137 (74% remaining). Auto-reload active.</span>
-            </div>
-            <div class="insight-item">
-              <span class="insight-bullet">2.</span>
-              <span>LinkedIn company impressions up 23.2% — seafood trade content resonating.</span>
-            </div>
-            <div class="insight-item">
-              <span class="insight-bullet">3.</span>
-              <span>Funnel bottleneck: 73% drop at Value stage. Stream completion needs UX work.</span>
-            </div>
-            <div class="insight-item">
-              <span class="insight-bullet">4.</span>
-              <span>Personal profile views +41% (404 in 90 days). Visibility increasing.</span>
-            </div>
-            <div class="insight-item">
-              <span class="insight-bullet">5.</span>
-              <span>GitHub: Active development on ubik repo. 5 merged PRs in last 72h.</span>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Recommended Actions</h3>
-          <div id="actions-list">
-            <div class="insight-item">
-              <span class="insight-bullet">1.</span>
-              <span>Post on LinkedIn: Capitalize on +23% impression momentum with follow-up content.</span>
-            </div>
-            <div class="insight-item">
-              <span class="insight-bullet">2.</span>
-              <span>Review funnel: Add progress indicators to reduce Value stage drop-off.</span>
-            </div>
-            <div class="insight-item">
-              <span class="insight-bullet">3.</span>
-              <span>Monitor credits: Claude spend at $733/mo. Consider budget limits if growth continues.</span>
-            </div>
-            <div class="insight-item">
-              <span class="insight-bullet">4.</span>
-              <span>Update PostHog API key — authentication failing for analytics queries.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER - Fixed -->
-    <footer>
-      <p id="footer-text">V1 · Auto-updates every 3h · Next: 12:45 IST</p>
+    <footer style="text-align: center; color: var(--text-muted); font-size: 12px; padding-top: 24px; border-top: 1px solid var(--border);">
+      UBIK CEO Dashboard v1 · Updated every 6 hours · 
+      <a href="https://github.com/ubik-solarpunk/ceo-dashboard" style="color: var(--accent); text-decoration: none;">GitHub</a>
     </footer>
   </div>
 
   <script>
     function toggleTheme() {
-      const html = document.documentElement;
-      const btn = document.querySelector('.toggle-btn');
-      if (html.classList.contains('light')) {
-        html.classList.remove('light');
-        html.classList.add('dark');
-        btn.textContent = 'LIGHT';
-      } else {
-        html.classList.remove('dark');
-        html.classList.add('light');
-        btn.textContent = 'DARK';
-      }
+      document.documentElement.classList.toggle('dark');
     }
   </script>
 </body>
