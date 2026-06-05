@@ -1,0 +1,313 @@
+/* ===========================================================================
+   ubik Design System — single token source of truth
+   ---------------------------------------------------------------------------
+   ONE file. ONE color space (oklch). ONE display face (Space Grotesk).
+   Consumed as var(--token) directly — NOT hsl(var(--token)). For alpha use
+   color-mix(in oklch, var(--token) N%, transparent).
+
+   Supersedes the forked pair `colors_and_type.css` (oklch / Space Grotesk)
+   and `tokens.css` (HSL / Montserrat). Montserrat is removed. HSL is removed.
+   Everything the components need (good / warn / support / shell / well /
+   border-strong / motion / density) now lives here, in oklch.
+
+   Drop-in:
+     1. Copy this file + the fonts/ folder to your destination.
+     2. <link rel="stylesheet" href="ubik.css">   (load FIRST, before app CSS)
+     3. Read AGENTS.md before generating UI. It is the spec.
+   =========================================================================== */
+
+/* ─── FONTS ─────────────────────────────────────────────────────────────
+   Noto Sans + IBM Plex Mono ship locally (brand TTFs in fonts/).
+   Space Grotesk is still CDN — request brand TTFs to drop this dependency. */
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
+  src: url("fonts/NotoSans-VariableFont_wdth_wght.ttf") format("truetype-variations");
+}
+@font-face {
+  font-family: "Noto Sans";
+  font-style: italic;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
+  src: url("fonts/NotoSans-Italic-VariableFont_wdth_wght.ttf") format("truetype-variations");
+}
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/IBMPlexMono-Regular.ttf")  format("truetype"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/IBMPlexMono-Medium.ttf")   format("truetype"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/IBMPlexMono-SemiBold.ttf") format("truetype"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/IBMPlexMono-Bold.ttf")     format("truetype"); }
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+/* ===========================================================================
+   LIGHT THEME — the default
+   =========================================================================== */
+:root {
+  /* ── surfaces · four deliberate tiers, not six ──────────────────────────
+     background → page / app canvas        card → opaque "paper"
+     shell      → chrome behind cards       well → recessed (forms, agent panels)
+     muted      → disabled / skeleton ONLY. Rare. Never as a text-on-fill color. */
+  --background:             oklch(1 0 0);
+  --foreground:             oklch(0.2077 0.0398 265.7549);
+  --card:                   oklch(1 0 0);
+  --card-foreground:        oklch(0.2077 0.0398 265.7549);
+  --popover:                oklch(1 0 0);
+  --popover-foreground:     oklch(0.2077 0.0398 265.7549);
+  --shell:                  oklch(0.9762 0.0048 247.86);
+  --well:                   oklch(0.9752 0.0083 247.86);
+  --well-foreground:        oklch(0.4200 0.0300 255.00);
+  --muted:                  oklch(0.9842 0.0034 247.8575);
+  --muted-foreground:       oklch(0.5000 0.0150 260.00);   /* de-tinted neutral — secondary text ONLY, not labels */
+
+  /* ── brand / interactive ─────────────────────────────────────────────── */
+  --primary:                oklch(0.5461 0.2152 262.8809);   /* UBIK BLUE */
+  --primary-foreground:     oklch(1 0 0);
+  --secondary:              oklch(0.9683 0.0069 247.8956);
+  --secondary-foreground:   oklch(0.2795 0.0368 260.031);
+  --accent:                 oklch(0.9705 0.0142 254.6042);   /* pale blue wash */
+  --accent-foreground:      oklch(0.5461 0.2152 262.8809);
+
+  /* ── functional · pills + in-state signals (NOT charts, NOT CTAs) ──────
+     info = primary blue   ok = good (green)   warn = amber
+     alert = destructive (red)   support = yellow accent */
+  --destructive:            oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(1 0 0);
+  --good:                   oklch(0.5500 0.1400 152.00);
+  --good-foreground:        oklch(1 0 0);
+  --warn:                   oklch(0.7500 0.1650 65.00);
+  --warn-foreground:        oklch(0.3200 0.0700 60.00);
+  --support:               oklch(0.8200 0.1600 85.00);
+  --support-foreground:    oklch(0.4200 0.0900 55.00);
+  /* attention = legacy alias of warn. Kept so older markup resolves. */
+  --attention:              oklch(0.7500 0.1650 65.00);
+  --attention-foreground:   oklch(0.3200 0.0700 60.00);
+
+  /* ── lines & focus · hairline borders carry structure, not shadows ────── */
+  --border:                 oklch(0.8950 0.0130 256.00);   /* stronger hairline — structure comes from lines, not grey fills */
+  --border-strong:          oklch(0.7900 0.0180 256.00);
+  --input:                  oklch(0.994 0 0);
+  --ring:                   oklch(0.5461 0.2152 262.8809);
+
+  /* ── chart palette · sequential blue-stepped, restrained ───────────────
+     Categorical data needs a documented extension — see AGENTS.md. */
+  --chart-1:                oklch(0.5461 0.2152 262.8809);   /* ubik blue · primary series */
+  --chart-2:                oklch(0.6800 0.1600 262.00);     /* mid blue */
+  --chart-3:                oklch(0.8100 0.0900 259.00);     /* pale blue */
+  --chart-4:                oklch(0.6368 0.2078 25.3313);    /* red · negative series only */
+  --chart-5:                oklch(0.5540 0.0460 257.42);     /* slate · neutral / comparison */
+
+  /* ── intensity ramp · sequential blue. The ONE legit low-emphasis fill (heatmaps). ── */
+  --heat-0:                 oklch(0.9620 0.0080 255.00);
+  --heat-1:                 color-mix(in oklch, var(--primary) 16%, var(--background));
+  --heat-2:                 color-mix(in oklch, var(--primary) 34%, var(--background));
+  --heat-3:                 color-mix(in oklch, var(--primary) 58%, var(--background));
+  --heat-4:                 var(--primary);
+
+  /* ── sidebar ───────────────────────────────────────────────────────────── */
+  --sidebar:                      oklch(0.9913 0.0013 286.376);
+  --sidebar-foreground:           oklch(0.3717 0.0392 257.287);
+  --sidebar-primary:              oklch(0.5461 0.2152 262.8809);
+  --sidebar-primary-foreground:   oklch(1 0 0);
+  --sidebar-accent:               oklch(0.9683 0.0069 247.8956);
+  --sidebar-accent-foreground:    oklch(0.2077 0.0398 265.7549);
+  --sidebar-border:               oklch(0.9683 0.0069 247.8956);
+  --sidebar-ring:                 oklch(0.5461 0.2152 262.8809);
+
+  /* ── type · Noto Sans body · Space Grotesk display · IBM Plex Mono mono ──
+     --font-heading is an alias of --font-display so legacy system.css works.
+     There is exactly ONE display face: Space Grotesk. */
+  --font-sans:    "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Noto Sans", ui-sans-serif, sans-serif;
+  --font-heading: "Space Grotesk", "Noto Sans", ui-sans-serif, sans-serif;
+  --font-serif:   "Space Grotesk", "Noto Sans", ui-sans-serif, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ── shape · ZERO radius. The brand signature. Non-negotiable. ─────────── */
+  --radius:    0rem;
+  --radius-sm: 0rem;
+  --radius-md: 0rem;
+  --radius-lg: 0rem;
+  --radius-xl: 0rem;
+
+  /* ── tracking ──────────────────────────────────────────────────────────── */
+  --tracking-normal:  -0.01em;
+  --tracking-tighter: -0.06em;
+  --tracking-tight:   -0.035em;
+  --tracking-wide:     0.015em;
+  --tracking-wider:    0.04em;
+  --tracking-widest:   0.09em;
+
+  /* ── motion · spring > linear · <300ms · transform/opacity only ────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:  cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+  --dur-slow: 280ms;
+
+  /* ── shadow ladder · rare and deliberate; borders are the default ──────── */
+  --shadow-2xs: 0 1px 2px 0 oklch(0 0 0 / 0.03);
+  --shadow-xs:  0 1px 2px 0 oklch(0 0 0 / 0.04);
+  --shadow-sm:  0 1px 2px 0 oklch(0 0 0 / 0.06);
+  --shadow:     0 1px 2px 0 oklch(0 0 0 / 0.06);
+  --shadow-md:  0 4px 12px -2px oklch(0 0 0 / 0.08);
+  --shadow-lg:  0 10px 30px -8px oklch(0 0 0 / 0.14);
+  --shadow-xl:  0 18px 50px -12px oklch(0 0 0 / 0.18);
+  --shadow-2xl: 0 30px 80px -16px oklch(0 0 0 / 0.22);
+
+  /* ── spacing base ──────────────────────────────────────────────────────── */
+  --spacing: 0.25rem;   /* 4px grid */
+  --gutter:  1.5rem;    /* 24px page gutter */
+  --max:     60rem;
+
+  /* ── density · operator-workbench panel rows ───────────────────────────── */
+  --panel-row-y:           0.625rem;
+  --panel-row-gap:         0.5rem;
+  --panel-row-content-gap: 0.5rem;
+  --panel-chip-padding-x:  0.5rem;
+  --panel-chip-padding-y:  0.25rem;
+  --panel-icon-button-size: 1.75rem;
+
+  /* ── semantic type sizes ───────────────────────────────────────────────── */
+  --ubik-h1-size:  2.5rem;   --ubik-h1-weight: 500; --ubik-h1-line: 1.1;  --ubik-h1-track: -0.025em;
+  --ubik-h2-size:  1.5rem;   --ubik-h2-weight: 600; --ubik-h2-line: 1.25; --ubik-h2-track: -0.02em;
+  --ubik-h3-size:  1.125rem; --ubik-h3-weight: 600; --ubik-h3-line: 1.35;
+  --ubik-body-size: 0.875rem; --ubik-body-line: 1.55;
+  --ubik-micro-size: 0.75rem;
+  --ubik-label-size: 0.6875rem;  --ubik-label-track: 0.12em;
+  --ubik-eyebrow-size: 0.75rem;  --ubik-eyebrow-track: 0.14em;
+}
+
+/* ===========================================================================
+   DARK THEME — deep navy, brighter blue primary
+   =========================================================================== */
+.dark {
+  --background:             oklch(0.1288 0.0406 264.6952);
+  --foreground:             oklch(0.9842 0.0034 247.8575);
+  --card:                   oklch(0.1288 0.0406 264.6952);
+  --card-foreground:        oklch(0.9842 0.0034 247.8575);
+  --popover:                oklch(0.1288 0.0406 264.6952);
+  --popover-foreground:     oklch(0.9842 0.0034 247.8575);
+  --shell:                  oklch(0.1600 0.0340 265.00);
+  --well:                   oklch(0.2100 0.0340 265.00);
+  --well-foreground:        oklch(0.8000 0.0200 255.00);
+  --muted:                  oklch(0.2077 0.0398 265.7549);
+  --muted-foreground:       oklch(0.7000 0.0150 260.00);   /* de-tinted neutral */
+
+  --primary:                oklch(0.6231 0.188 259.8145);
+  --primary-foreground:     oklch(1 0 0);
+  --secondary:              oklch(0.2077 0.0398 265.7549);
+  --secondary-foreground:   oklch(0.9842 0.0034 247.8575);
+  --accent:                 oklch(0.2795 0.0368 260.031);
+  --accent-foreground:      oklch(0.6231 0.188 259.8145);
+
+  --destructive:            oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(0.9842 0.0034 247.8575);
+  --good:                   oklch(0.7000 0.1600 152.00);
+  --good-foreground:        oklch(0.2077 0.0398 265.7549);
+  --warn:                   oklch(0.7800 0.1500 70.00);
+  --warn-foreground:        oklch(0.2500 0.0500 60.00);
+  --support:               oklch(0.8300 0.1500 80.00);
+  --support-foreground:    oklch(0.2500 0.0500 55.00);
+  --attention:              oklch(0.7800 0.1500 70.00);
+  --attention-foreground:   oklch(0.2500 0.0500 60.00);
+
+  --border:                 oklch(0.3200 0.0220 260.00);   /* stronger hairline */
+  --border-strong:          oklch(0.4400 0.0200 260.00);
+  --input:                  oklch(0.2077 0.0398 265.7549);
+  --ring:                   oklch(0.6231 0.188 259.8145);
+
+  --heat-0:                 oklch(0.2000 0.0200 264.00);
+  --heat-1:                 color-mix(in oklch, var(--primary) 22%, var(--background));
+  --heat-2:                 color-mix(in oklch, var(--primary) 42%, var(--background));
+  --heat-3:                 color-mix(in oklch, var(--primary) 64%, var(--background));
+  --heat-4:                 var(--primary);
+
+  --chart-1:                oklch(0.6231 0.188 259.8145);
+  --chart-2:                oklch(0.7400 0.1300 258.00);
+  --chart-3:                oklch(0.8500 0.0700 255.00);
+  --chart-4:                oklch(0.6368 0.2078 25.3313);
+  --chart-5:                oklch(0.4455 0.0374 257.2808);
+
+  --sidebar:                      oklch(0.1288 0.0406 264.6952);
+  --sidebar-foreground:           oklch(0.7107 0.0351 256.7878);
+  --sidebar-primary:              oklch(0.6231 0.188 259.8145);
+  --sidebar-primary-foreground:   oklch(1 0 0);
+  --sidebar-accent:               oklch(0.2077 0.0398 265.7549);
+  --sidebar-accent-foreground:    oklch(0.9842 0.0034 247.8575);
+  --sidebar-border:               oklch(0.2795 0.0368 260.031);
+  --sidebar-ring:                 oklch(0.6231 0.188 259.8145);
+
+  --shadow-2xs: 0 4px 20px 0 oklch(0 0 0 / 0.20);
+  --shadow-xs:  0 4px 20px 0 oklch(0 0 0 / 0.20);
+  --shadow-sm:  0 4px 20px 0 oklch(0 0 0 / 0.40);
+  --shadow:     0 4px 20px 0 oklch(0 0 0 / 0.40);
+  --shadow-md:  0 4px 20px 0 oklch(0 0 0 / 0.45);
+  --shadow-lg:  0 10px 30px -8px oklch(0 0 0 / 0.55);
+  --shadow-xl:  0 18px 50px -12px oklch(0 0 0 / 0.60);
+  --shadow-2xl: 0 30px 80px -16px oklch(0 0 0 / 0.65);
+}
+
+/* ===========================================================================
+   BASE
+   =========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--ubik-body-size);
+  line-height: var(--ubik-body-line);
+  letter-spacing: var(--tracking-normal);
+  font-feature-settings: "ss01" on, "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--primary); color: var(--primary-foreground); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ===========================================================================
+   SEMANTIC TYPE ROLES — drop-in classes
+   =========================================================================== */
+.ubik-h1 { font-family: var(--font-display); font-size: var(--ubik-h1-size); font-weight: var(--ubik-h1-weight); line-height: var(--ubik-h1-line); letter-spacing: var(--ubik-h1-track); color: var(--foreground); }
+.ubik-h2 { font-family: var(--font-display); font-size: var(--ubik-h2-size); font-weight: var(--ubik-h2-weight); line-height: var(--ubik-h2-line); letter-spacing: var(--ubik-h2-track); color: var(--foreground); }
+.ubik-h3 { font-family: var(--font-display); font-size: var(--ubik-h3-size); font-weight: var(--ubik-h3-weight); line-height: var(--ubik-h3-line); color: var(--foreground); }
+
+.ubik-eyebrow { font-family: var(--font-mono); font-size: var(--ubik-eyebrow-size); font-weight: 500; letter-spacing: var(--ubik-eyebrow-track); text-transform: uppercase; color: var(--foreground); }
+.ubik-label   { font-family: var(--font-mono); font-size: var(--ubik-label-size); font-weight: 500; letter-spacing: var(--ubik-label-track); text-transform: uppercase; color: var(--foreground); }
+/* Opt-in de-emphasis. Use ONLY when hierarchy genuinely needs a label to recede. */
+.ubik-eyebrow.dim, .ubik-label.dim { color: var(--muted-foreground); }
+
+.ubik-body  { font-family: var(--font-sans); font-size: var(--ubik-body-size); }
+.ubik-micro { font-family: var(--font-sans); font-size: var(--ubik-micro-size); color: var(--muted-foreground); }
+.ubik-mono  { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+/* Every number renders mono + tabular. */
+.ubik-num   { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.ubik-wordmark { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; text-transform: lowercase; }
+
+/* Delta chip — change indicator. Blue by default (brand-forward, palette stays tight).
+   Red is opt-in for genuine negative movement; green is NOT used for deltas. */
+.ubik-delta {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500;
+  letter-spacing: 0.04em; font-variant-numeric: tabular-nums;
+  padding: 0.1rem 0.35rem; white-space: nowrap;
+  color: var(--primary);
+  background: color-mix(in oklch, var(--primary) 8%, transparent);
+  border: 1px solid color-mix(in oklch, var(--primary) 18%, transparent);
+}
+.ubik-delta-down {
+  color: var(--destructive);
+  background: color-mix(in oklch, var(--destructive) 8%, transparent);
+  border-color: color-mix(in oklch, var(--destructive) 18%, transparent);
+}
