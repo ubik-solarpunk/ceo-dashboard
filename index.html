@@ -13,6 +13,8 @@
             --muted: #64748b;
             --accent: #2563EB;
             --accent-light: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
         }
         
         [data-theme="light"] {
@@ -100,22 +102,34 @@
             color: var(--muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
         
         .stat-value {
             font-size: 32px;
             font-weight: 700;
-            margin-top: 4px;
+            color: var(--text);
         }
         
         .stat-value.accent { color: var(--accent); }
+        .stat-value.success { color: var(--success); }
+        .stat-value.warning { color: var(--warning); }
+        
+        .stat-change {
+            font-size: 12px;
+            margin-top: 8px;
+            color: var(--muted);
+        }
+        
+        .stat-change.positive { color: var(--success); }
+        .stat-change.negative { color: #ef4444; }
         
         .section {
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
         }
         
         .section-header {
@@ -134,55 +148,29 @@
             font-size: 11px;
             padding: 4px 8px;
             border-radius: 4px;
-            background: var(--border);
-            color: var(--muted);
+            background: var(--accent);
+            color: white;
         }
         
-        .section-badge.success { background: #064e3b; color: #6ee7b7; }
-        .section-badge.warning { background: #78350f; color: #fcd34d; }
-        .section-badge.error { background: #7f1d1d; color: #fca5a5; }
-        
-        table { width: 100%; border-collapse: collapse; }
-        
-        th {
-            text-align: left;
-            padding: 12px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--muted);
-            border-bottom: 1px solid var(--border);
-        }
-        
-        td {
-            padding: 12px;
-            font-size: 14px;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        tr:last-child td { border-bottom: none; }
-        
-        tr:hover td { background: var(--border); }
-        
-        .funnel-container {
+        .funnel {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-        }
-        
-        .funnel-stage {
-            display: flex;
-            align-items: center;
             gap: 12px;
         }
         
+        .funnel-stage {
+            display: grid;
+            grid-template-columns: 120px 1fr 80px;
+            align-items: center;
+            gap: 16px;
+        }
+        
         .funnel-label {
-            width: 100px;
             font-size: 13px;
             color: var(--muted);
         }
         
         .funnel-bar {
-            flex: 1;
             height: 24px;
             background: var(--border);
             border-radius: 4px;
@@ -191,381 +179,258 @@
         
         .funnel-fill {
             height: 100%;
-            background: var(--accent);
-            transition: width 0.3s;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 4px;
+            transition: width 0.5s ease;
         }
         
-        .funnel-count {
-            width: 60px;
-            text-align: right;
+        .funnel-value {
             font-size: 14px;
             font-weight: 600;
+            text-align: right;
         }
         
-        .api-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+        .credits-table {
+            width: 100%;
+            border-collapse: collapse;
         }
         
-        .api-card {
-            padding: 16px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-        }
-        
-        .api-name {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        
-        .api-status {
-            font-size: 13px;
-        }
-        
-        .api-status.connected { color: #10b981; }
-        .api-status.error { color: #ef4444; }
-        .api-status.warning { color: #f59e0b; }
-        
-        .api-detail {
-            font-size: 12px;
-            color: var(--muted);
-            margin-top: 4px;
-        }
-        
-        .conversion-rate {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-top: 16px;
-            text-align: center;
-        }
-        
-        .conversion-label {
-            font-size: 12px;
-            color: var(--muted);
-            text-align: center;
-        }
-        
-        .insights-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .insights-list li {
-            padding: 12px 0;
+        .credits-table th,
+        .credits-table td {
+            padding: 12px;
+            text-align: left;
             border-bottom: 1px solid var(--border);
         }
         
-        .insights-list li:last-child {
+        .credits-table th {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .credits-table td {
+            font-size: 14px;
+        }
+        
+        .credits-table tr:last-child td {
             border-bottom: none;
         }
         
-        .insight-title {
-            font-weight: 600;
-            margin-bottom: 4px;
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
         
-        .insight-desc {
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--bg);
+            border-radius: 6px;
             font-size: 13px;
-            color: var(--muted);
         }
         
-        .trend-chart {
-            display: flex;
-            align-items: flex-end;
-            gap: 8px;
-            height: 60px;
-            margin-top: 12px;
+        .activity-repo {
+            font-weight: 500;
+            color: var(--accent);
         }
         
-        .trend-bar {
+        .activity-msg {
+            color: var(--text);
             flex: 1;
-            background: var(--accent);
-            border-radius: 4px 4px 0 0;
-            min-width: 20px;
+            margin-left: 16px;
         }
         
-        .trend-labels {
-            display: flex;
-            gap: 8px;
-            margin-top: 4px;
-        }
-        
-        .trend-label {
-            flex: 1;
-            font-size: 10px;
+        .activity-date {
             color: var(--muted);
-            text-align: center;
+            font-size: 12px;
+        }
+        
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
         }
         
         @media (max-width: 768px) {
             .stats { grid-template-columns: repeat(2, 1fr); }
-            .api-grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .funnel-stage { grid-template-columns: 100px 1fr 60px; }
+        }
+        
+        @media (max-width: 480px) {
+            .stats { grid-template-columns: 1fr; }
         }
     </style>
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const current = html.getAttribute('data-theme');
-            html.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
-        }
-    </script>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="logo">UBIK<span> CEO Dashboard</span></div>
+            <div class="logo">UBIK <span>CEO Dashboard</span></div>
             <div class="meta">
-                <span class="timestamp">Updated: 06 Jun 2026, 00:03 IST</span>
-                <button class="toggle" onclick="toggleTheme()">Toggle Theme</button>
+                <span class="timestamp">Updated: <span id="timestamp">June 6, 2026 06:02 IST</span></span>
+                <button class="toggle" onclick="toggleTheme()">🌓</button>
             </div>
         </header>
         
-        <!-- Key Metrics -->
         <div class="stats">
             <div class="stat-card">
-                <div class="stat-label">Active Users (24h)</div>
-                <div class="stat-value accent">31</div>
+                <div class="stat-label">Total Credits Available</div>
+                <div class="stat-value success">$5,097</div>
+                <div class="stat-change">Claude + OpenRouter</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">Events (24h)</div>
-                <div class="stat-value">1,059</div>
+                <div class="stat-label">24h Page Views</div>
+                <div class="stat-value accent">348</div>
+                <div class="stat-change positive">Discovery events</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Conversion Rate</div>
-                <div class="stat-value accent">4.1%</div>
+                <div class="stat-value warning">2.0%</div>
+                <div class="stat-change">7 / 348 value/discovery</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">API Credits</div>
-                <div class="stat-value">$6,014</div>
+                <div class="stat-label">Active Users (24h)</div>
+                <div class="stat-value">141</div>
+                <div class="stat-change">Sessions validated</div>
             </div>
         </div>
         
-        <!-- API Credits -->
+        <div class="two-col">
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">User Journey Funnel (24h)</h2>
+                    <span class="section-badge">PostHog</span>
+                </div>
+                <div class="funnel">
+                    <div class="funnel-stage">
+                        <span class="funnel-label">Discovery</span>
+                        <div class="funnel-bar"><div class="funnel-fill" style="width: 100%"></div></div>
+                        <span class="funnel-value">348</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-label">Activation</span>
+                        <div class="funnel-bar"><div class="funnel-fill" style="width: 42%"></div></div>
+                        <span class="funnel-value">147</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-label">Engagement</span>
+                        <div class="funnel-bar"><div class="funnel-fill" style="width: 37%"></div></div>
+                        <span class="funnel-value">129</span>
+                    </div>
+                    <div class="funnel-stage">
+                        <span class="funnel-label">Value</span>
+                        <div class="funnel-bar"><div class="funnel-fill" style="width: 2%"></div></div>
+                        <span class="funnel-value">7</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h2 class="section-title">API Credits</h2>
+                    <span class="section-badge">Live</span>
+                </div>
+                <table class="credits-table">
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Remaining</th>
+                            <th>Spent (Est.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Claude</td>
+                            <td><strong>$2,097</strong></td>
+                            <td>~$747</td>
+                        </tr>
+                        <tr>
+                            <td>OpenRouter</td>
+                            <td><strong>$3,000</strong></td>
+                            <td>~$891</td>
+                        </tr>
+                        <tr>
+                            <td>OpenAI</td>
+                            <td>-</td>
+                            <td>~$0.23</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
         <div class="section">
             <div class="section-header">
-                <h2 class="section-title">API Credits</h2>
-                <span class="section-badge warning">Monitor Usage</span>
+                <h2 class="section-title">GitHub Activity (Last 7 days)</h2>
+                <span class="section-badge">solarpunk-tech</span>
             </div>
-            <div class="api-grid">
-                <div class="api-card">
-                    <div class="api-name">Claude</div>
-                    <div class="api-status connected">$5,000 remaining</div>
-                    <div class="api-detail">Spent: $747 (30d)</div>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <span class="activity-repo">ubik-webapp</span>
+                    <span class="activity-msg">Zoho single-connect UX overhaul, Planning Intelligence</span>
+                    <span class="activity-date">Jun 4</span>
                 </div>
-                <div class="api-card">
-                    <div class="api-name">OpenRouter</div>
-                    <div class="api-status warning">$14 remaining</div>
-                    <div class="api-detail">Used: $891 (71% of $20)</div>
+                <div class="activity-item">
+                    <span class="activity-repo">ubik-meetings</span>
+                    <span class="activity-msg">Silent NSIS auto-update on Windows, notarization fixes</span>
+                    <span class="activity-date">Jun 4</span>
                 </div>
-                <div class="api-card">
-                    <div class="api-name">OpenAI</div>
-                    <div class="api-status connected">$1,000 credit</div>
-                    <div class="api-detail">API key needs refresh</div>
+                <div class="activity-item">
+                    <span class="activity-repo">ubik-workflows</span>
+                    <span class="activity-msg">Graphiti/Neo4j integration fixes, email analyze endpoint</span>
+                    <span class="activity-date">Jun 3</span>
                 </div>
             </div>
         </div>
         
-        <!-- User Journey Funnel -->
         <div class="section">
             <div class="section-header">
-                <h2 class="section-title">User Journey Funnel (24h)</h2>
-                <span class="section-badge">31 unique users</span>
+                <h2 class="section-title">PostHog Event Breakdown (24h)</h2>
+                <span class="section-badge">362008</span>
             </div>
-            <div class="funnel-container">
-                <div class="funnel-stage">
-                    <span class="funnel-label">Discovery</span>
-                    <div class="funnel-bar"><div class="funnel-fill" style="width: 100%"></div></div>
-                    <span class="funnel-count">393</span>
-                </div>
-                <div class="funnel-stage">
-                    <span class="funnel-label">Activation</span>
-                    <div class="funnel-bar"><div class="funnel-fill" style="width: 57%"></div></div>
-                    <span class="funnel-count">223</span>
-                </div>
-                <div class="funnel-stage">
-                    <span class="funnel-label">Engagement</span>
-                    <div class="funnel-bar"><div class="funnel-fill" style="width: 8%"></div></div>
-                    <span class="funnel-count">33</span>
-                </div>
-                <div class="funnel-stage">
-                    <span class="funnel-label">Value</span>
-                    <div class="funnel-bar"><div class="funnel-fill" style="width: 4%"></div></div>
-                    <span class="funnel-count">16</span>
-                </div>
-            </div>
-            <div class="conversion-rate">4.1%</div>
-            <div class="conversion-label">Conversion Rate (Value/Discovery)</div>
-            <div style="margin-top: 16px; font-size: 11px; color: var(--muted);">
-                <strong>Event Definitions:</strong> Discovery=pageviews, Activation=session_validated+user_signed_in, Engagement=chat_created+messages, Value=streams_completed
-            </div>
-        </div>
-        
-        <!-- 7-Day Trend -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">7-Day Event Trend</h2>
-                <span class="section-badge">6,164 total</span>
-            </div>
-            <div class="trend-chart">
-                <div class="trend-bar" style="height: 32%"></div>
-                <div class="trend-bar" style="height: 19%"></div>
-                <div class="trend-bar" style="height: 94%"></div>
-                <div class="trend-bar" style="height: 69%"></div>
-                <div class="trend-bar" style="height: 68%"></div>
-                <div class="trend-bar" style="height: 68%"></div>
-                <div class="trend-bar" style="height: 68%"></div>
-            </div>
-            <div class="trend-labels">
-                <div class="trend-label">May 30</div>
-                <div class="trend-label">May 31</div>
-                <div class="trend-label">Jun 1</div>
-                <div class="trend-label">Jun 2</div>
-                <div class="trend-label">Jun 3</div>
-                <div class="trend-label">Jun 4</div>
-                <div class="trend-label">Jun 5</div>
-            </div>
-            <div style="margin-top: 12px; font-size: 12px; color: var(--muted);">
-                Peak: Jun 2 (1,465 events) | Latest: Jun 5 (1,059 events)
-            </div>
-        </div>
-        
-        <!-- GitHub Activity -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">GitHub Activity</h2>
-                <span class="section-badge success">Active</span>
-            </div>
-            <table>
+            <table class="credits-table">
                 <thead>
                     <tr>
-                        <th>Repository</th>
-                        <th>Open Issues</th>
-                        <th>Latest Commit</th>
-                        <th>Date</th>
+                        <th>Event</th>
+                        <th>Count</th>
+                        <th>Stage</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>ubik-webapp</td>
-                        <td>7</td>
-                        <td>Merge PR #123 - Zoho hide-or fix</td>
-                        <td>Jun 5</td>
-                    </tr>
-                    <tr>
-                        <td>ubik-meetings</td>
-                        <td>-</td>
-                        <td>Silent NSIS auto-update on Windows</td>
-                        <td>Jun 4</td>
-                    </tr>
-                    <tr>
-                        <td>ubik-workflows</td>
-                        <td>2</td>
-                        <td>Neo4j driver database fix</td>
-                        <td>Jun 3</td>
-                    </tr>
+                    <tr><td>$pageview</td><td><strong>348</strong></td><td>Discovery</td></tr>
+                    <tr><td>session_validated</td><td><strong>141</strong></td><td>Activation</td></tr>
+                    <tr><td>screen_time</td><td><strong>112</strong></td><td>Engagement</td></tr>
+                    <tr><td>$web_vitals</td><td><strong>99</strong></td><td>Performance</td></tr>
+                    <tr><td>$opt_in</td><td><strong>64</strong></td><td>Activation</td></tr>
+                    <tr><td>$set</td><td><strong>47</strong></td><td>Tracking</td></tr>
+                    <tr><td>chat_message_sent</td><td><strong>10</strong></td><td>Engagement</td></tr>
+                    <tr><td>chat_thread_created</td><td><strong>7</strong></td><td>Engagement</td></tr>
+                    <tr><td>chat_stream_completed</td><td><strong>7</strong></td><td>Value</td></tr>
+                    <tr><td>user_signed_in</td><td><strong>4</strong></td><td>Activation</td></tr>
                 </tbody>
             </table>
         </div>
         
-        <!-- LinkedIn -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">LinkedIn (Solarpunk)</h2>
-                <span class="section-badge">Company ID: 106435130</span>
-            </div>
-            <div class="api-grid" style="grid-template-columns: repeat(2, 1fr);">
-                <div class="api-card">
-                    <div class="api-name">Followers</div>
-                    <div class="stat-value">161</div>
-                    <div class="api-detail">+1 new (7d)</div>
-                </div>
-                <div class="api-card">
-                    <div class="api-name">Search Appearances</div>
-                    <div class="stat-value">303</div>
-                    <div class="api-detail">Last 7 days</div>
-                </div>
-            </div>
-            <div class="api-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: 12px;">
-                <div class="api-card">
-                    <div class="api-name">Post Impressions</div>
-                    <div class="stat-value">4.2</div>
-                    <div class="api-detail">Last 7 days</div>
-                </div>
-                <div class="api-card">
-                    <div class="api-name">Page Visitors</div>
-                    <div class="stat-value">1.2</div>
-                    <div class="api-detail">Last 7 days</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Top Insights -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">Top Insights</h2>
-            </div>
-            <ul class="insights-list">
-                <li>
-                    <div class="insight-title">🔥 Conversion Bottleneck Identified</div>
-                    <div class="insight-desc">85% drop from Activation (223) to Engagement (33). Users validate sessions but don't create chats. Investigate UX friction in chat creation flow - potential quick win.</div>
-                </li>
-                <li>
-                    <div class="insight-title">⚠️ OpenRouter Credits Low</div>
-                    <div class="insight-desc">Only $14 remaining of $20 limit (71% used). $891 total usage. Consider adding more credits before hitting limit.</div>
-                </li>
-                <li>
-                    <div class="insight-title">📈 Consistent Event Volume</div>
-                    <div class="insight-desc">Stable ~1,000 events/day for past 3 days. June 2 spike to 1,465 likely from marketing push or feature release. Monitor for patterns.</div>
-                </li>
-            </ul>
-        </div>
-        
-        <!-- Automation Opportunities -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">Automation Opportunities</h2>
-            </div>
-            <ul class="insights-list">
-                <li>
-                    <div class="insight-title">📊 Credit Threshold Alerts</div>
-                    <div class="insight-desc">Set up automated Slack alerts when OpenRouter credits drop below $20 or Claude usage exceeds $500/month.</div>
-                </li>
-                <li>
-                    <div class="insight-title">🔄 Retention Event Tracking</div>
-                    <div class="insight-desc">Implement user_returned event after 7-day gap to measure stickiness. Currently zero retention data.</div>
-                </li>
-            </ul>
-        </div>
-        
-        <!-- Blind Spots -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">Blind Spots</h2>
-            </div>
-            <ul class="insights-list">
-                <li>
-                    <div class="insight-title">❌ No Retention Tracking</div>
-                    <div class="insight-desc">Cannot measure user stickiness. Need user_returned event with 7+ day threshold.</div>
-                </li>
-                <li>
-                    <div class="insight-title">❌ OpenAI Usage Unknown</div>
-                    <div class="insight-desc">API key expired/invalid. Cannot track actual usage or spend.</div>
-                </li>
-                <li>
-                    <div class="insight-title">❌ Company Attribution Missing</div>
-                    <div class="insight-desc">PostHog company property returns empty. Need to fix user signup flow to capture company data.</div>
-                </li>
-            </ul>
-        </div>
-        
-        <footer style="text-align: center; padding: 24px; color: var(--muted); font-size: 12px;">
-            UBIK CEO Dashboard v1 - Auto-updates every 6 hours<br>
-            Data: PostHog, Claude Console, OpenRouter, OpenAI, GitHub, LinkedIn<br>
-            <a href="https://github.com/ubik-solarpunk/ceo-dashboard" style="color: var(--accent);">View Source</a>
+        <footer style="text-align: center; padding: 24px 0; color: var(--muted); font-size: 12px;">
+            <p>Auto-updates every 6 hours • <a href="https://github.com/solarpunk-tech" style="color: var(--accent);">GitHub</a> • <a href="https://app.posthog.com/project/362008" style="color: var(--accent);">PostHog</a></p>
         </footer>
     </div>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            body.setAttribute('data-theme', currentTheme === 'light' ? 'dark' : 'light');
+        }
+        
+        // Check system preference
+        if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.body.setAttribute('data-theme', 'light');
+        }
+    </script>
 </body>
 </html>
