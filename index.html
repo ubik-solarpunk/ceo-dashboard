@@ -255,6 +255,19 @@
             gap: 24px;
         }
         
+        .conversion-rate {
+            background: var(--accent);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-top: 16px;
+            text-align: center;
+        }
+        
+        .conversion-rate strong {
+            font-size: 20px;
+        }
+        
         @media (max-width: 768px) {
             .stats { grid-template-columns: repeat(2, 1fr); }
             .two-col { grid-template-columns: 1fr; }
@@ -271,7 +284,7 @@
         <header>
             <div class="logo">UBIK <span>CEO Dashboard</span></div>
             <div class="meta">
-                <span class="timestamp">Updated: <span id="timestamp">June 6, 2026 12:30 IST</span></span>
+                <span class="timestamp">Updated: <span id="timestamp">June 6, 2026 18:00 IST</span></span>
                 <button class="toggle" onclick="toggleTheme()">🌓</button>
             </div>
         </header>
@@ -283,14 +296,14 @@
                 <div class="stat-change">Claude + OpenRouter</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">Claude Tokens (June)</div>
-                <div class="stat-value accent">1.14B</div>
-                <div class="stat-change">1.13B in / 6.9M out</div>
+                <div class="stat-label">Total Events (24h)</div>
+                <div class="stat-value accent">130</div>
+                <div class="stat-change">PostHog Project 362008</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">OpenAI Usage (7d)</div>
-                <div class="stat-value warning">$0.13</div>
-                <div class="stat-change">26M tokens / 3,110 reqs</div>
+                <div class="stat-label">Conversion Rate</div>
+                <div class="stat-value warning">13.3%</div>
+                <div class="stat-change">Value / Discovery</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">LinkedIn Followers</div>
@@ -309,23 +322,26 @@
                     <div class="funnel-stage">
                         <span class="funnel-label">Discovery</span>
                         <div class="funnel-bar"><div class="funnel-fill" style="width: 100%"></div></div>
-                        <span class="funnel-value">348</span>
+                        <span class="funnel-value">30</span>
                     </div>
                     <div class="funnel-stage">
                         <span class="funnel-label">Activation</span>
-                        <div class="funnel-bar"><div class="funnel-fill" style="width: 42%"></div></div>
-                        <span class="funnel-value">147</span>
+                        <div class="funnel-bar"><div class="funnel-fill" style="width: 3%"></div></div>
+                        <span class="funnel-value">1</span>
                     </div>
                     <div class="funnel-stage">
                         <span class="funnel-label">Engagement</span>
-                        <div class="funnel-bar"><div class="funnel-fill" style="width: 37%"></div></div>
-                        <span class="funnel-value">129</span>
+                        <div class="funnel-bar"><div class="funnel-fill" style="width: 23%"></div></div>
+                        <span class="funnel-value">7</span>
                     </div>
                     <div class="funnel-stage">
                         <span class="funnel-label">Value</span>
-                        <div class="funnel-bar"><div class="funnel-fill" style="width: 2%"></div></div>
-                        <span class="funnel-value">7</span>
+                        <div class="funnel-bar"><div class="funnel-fill" style="width: 13%"></div></div>
+                        <span class="funnel-value">4</span>
                     </div>
+                </div>
+                <div class="conversion-rate">
+                    <strong>Conversion Rate: 13.3%</strong> (4 value / 30 discovery)
                 </div>
             </div>
             
@@ -371,8 +387,8 @@
             <div class="activity-list">
                 <div class="activity-item">
                     <span class="activity-repo">ubik-webapp</span>
-                    <span class="activity-msg">Zoho single-connect UX overhaul, Planning Intelligence</span>
-                    <span class="activity-date">Jun 4</span>
+                    <span class="activity-msg">Merge PR #123: Zoho single-connect UX overhaul (Jun 5)</span>
+                    <span class="activity-date">Jun 5</span>
                 </div>
                 <div class="activity-item">
                     <span class="activity-repo">ubik-meetings</span>
@@ -381,7 +397,7 @@
                 </div>
                 <div class="activity-item">
                     <span class="activity-repo">ubik-workflows</span>
-                    <span class="activity-msg">Graphiti/Neo4j integration fixes, email analyze endpoint</span>
+                    <span class="activity-msg">Graphiti/Neo4j integration fixes, OpenAI embedder</span>
                     <span class="activity-date">Jun 3</span>
                 </div>
             </div>
@@ -390,7 +406,7 @@
         <div class="section">
             <div class="section-header">
                 <h2 class="section-title">PostHog Event Breakdown (24h)</h2>
-                <span class="section-badge">362008</span>
+                <span class="section-badge">130 total events</span>
             </div>
             <table class="credits-table">
                 <thead>
@@ -401,16 +417,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>$pageview</td><td><strong>348</strong></td><td>Discovery</td></tr>
-                    <tr><td>session_validated</td><td><strong>141</strong></td><td>Activation</td></tr>
-                    <tr><td>screen_time</td><td><strong>112</strong></td><td>Engagement</td></tr>
-                    <tr><td>$web_vitals</td><td><strong>99</strong></td><td>Performance</td></tr>
-                    <tr><td>$opt_in</td><td><strong>64</strong></td><td>Activation</td></tr>
-                    <tr><td>$set</td><td><strong>47</strong></td><td>Tracking</td></tr>
-                    <tr><td>chat_message_sent</td><td><strong>10</strong></td><td>Engagement</td></tr>
-                    <tr><td>chat_thread_created</td><td><strong>7</strong></td><td>Engagement</td></tr>
-                    <tr><td>chat_stream_completed</td><td><strong>7</strong></td><td>Value</td></tr>
-                    <tr><td>user_signed_in</td><td><strong>4</strong></td><td>Activation</td></tr>
+                    <tr><td>session_validated</td><td><strong>43</strong></td><td>Activation</td></tr>
+                    <tr><td>$pageview</td><td><strong>30</strong></td><td>Discovery</td></tr>
+                    <tr><td>$web_vitals</td><td><strong>21</strong></td><td>Performance</td></tr>
+                    <tr><td>screen_time</td><td><strong>8</strong></td><td>Engagement</td></tr>
+                    <tr><td>$opt_in</td><td><strong>8</strong></td><td>Activation</td></tr>
+                    <tr><td>$set</td><td><strong>6</strong></td><td>Tracking</td></tr>
+                    <tr><td>chat_message_sent</td><td><strong>4</strong></td><td>Engagement</td></tr>
+                    <tr><td>chat_stream_completed</td><td><strong>4</strong></td><td>Value</td></tr>
+                    <tr><td>chat_thread_created</td><td><strong>3</strong></td><td>Engagement</td></tr>
+                    <tr><td>cta_clicked</td><td><strong>1</strong></td><td>Engagement</td></tr>
+                    <tr><td>user_signed_in</td><td><strong>1</strong></td><td>Activation</td></tr>
                 </tbody>
             </table>
         </div>
