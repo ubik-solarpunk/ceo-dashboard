@@ -135,32 +135,6 @@
             font-weight: 600;
         }
         
-        /* Activity */
-        .activity-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.9em;
-        }
-        .activity-item:last-child {
-            border-bottom: none;
-        }
-        .activity-repo {
-            color: #60a5fa;
-        }
-        .activity-msg {
-            color: #a1a1aa;
-            max-width: 200px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        .activity-time {
-            color: #71717a;
-            font-size: 0.85em;
-        }
-        
         /* Pages */
         .page-item {
             display: flex;
@@ -221,7 +195,7 @@
 <body>
     <div class="header">
         <h1>UBIK CEO Dashboard</h1>
-        <div class="timestamp">Last updated: June 7, 2026 at 6:05 AM UTC • Auto-updates every 6 hours</div>
+        <div class="timestamp">Last updated: June 7, 2026 at 12:02 PM IST • Auto-updates every 6 hours</div>
     </div>
     
     <div class="grid">
@@ -244,8 +218,8 @@
                     </tr>
                     <tr>
                         <td>🔄 OpenRouter</td>
-                        <td class="positive">$1.00</td>
-                        <td>$0.00</td>
+                        <td class="positive">$2,986.02</td>
+                        <td>$908.98</td>
                     </tr>
                     <tr>
                         <td>🧠 OpenAI</td>
@@ -254,12 +228,12 @@
                     </tr>
                     <tr class="total-row">
                         <td>TOTAL</td>
-                        <td>$2,084.77</td>
-                        <td>$785.86</td>
+                        <td>$5,069.79</td>
+                        <td>$1,694.84</td>
                     </tr>
                 </tbody>
             </table>
-            <div class="subtext" style="margin-top: 12px;">OpenRouter org balance: ~$3,000+ (see billing page)</div>
+            <div class="subtext" style="margin-top: 12px;">OpenRouter org balance: $3,895 total credits</div>
         </div>
         
         <!-- User Journey Funnel -->
@@ -268,22 +242,22 @@
             <div class="funnel-stage">
                 <span class="funnel-label">Discovery</span>
                 <div class="funnel-bar"><div class="funnel-fill" style="width: 100%"></div></div>
-                <span class="funnel-count">53</span>
+                <span class="funnel-count">67</span>
             </div>
             <div class="funnel-stage">
                 <span class="funnel-label">Activation</span>
-                <div class="funnel-bar"><div class="funnel-fill" style="width: 91%"></div></div>
-                <span class="funnel-count">58</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width: 76%"></div></div>
+                <span class="funnel-count">51</span>
             </div>
             <div class="funnel-stage">
                 <span class="funnel-label">Engagement</span>
-                <div class="funnel-bar"><div class="funnel-fill" style="width: 43%"></div></div>
-                <span class="funnel-count">24</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width: 87%"></div></div>
+                <span class="funnel-count">58</span>
             </div>
             <div class="funnel-stage">
                 <span class="funnel-label">Value</span>
-                <div class="funnel-bar"><div class="funnel-fill" style="width: 2%"></div></div>
-                <span class="funnel-count">1</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width: 55%"></div></div>
+                <span class="funnel-count">37</span>
             </div>
             <div class="funnel-stage">
                 <span class="funnel-label">Retention</span>
@@ -292,7 +266,7 @@
             </div>
             <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);">
                 <span style="color: #71717a;">Conversion Rate:</span>
-                <span class="positive" style="font-weight: 700; margin-left: 8px;">1.9%</span>
+                <span class="positive" style="font-weight: 700; margin-left: 8px;">55.2%</span>
                 <span class="subtext">(value/discovery)</span>
             </div>
         </div>
@@ -300,17 +274,17 @@
         <!-- Session Stats -->
         <div class="card">
             <h2>Session Analytics (24h)</h2>
-            <div class="metric metric-small positive">12</div>
+            <div class="metric metric-small positive">9</div>
             <div class="subtext">Unique Users</div>
-            <div class="metric metric-small" style="margin-top: 16px;">190</div>
+            <div class="metric metric-small" style="margin-top: 16px;">236</div>
             <div class="subtext">Total Events</div>
             <div style="margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                 <div>
-                    <div style="font-size: 1.2em; font-weight: 600;">39</div>
+                    <div style="font-size: 1.2em; font-weight: 600;">49</div>
                     <div class="subtext">Sessions Validated</div>
                 </div>
                 <div>
-                    <div style="font-size: 1.2em; font-weight: 600;">17</div>
+                    <div style="font-size: 1.2em; font-weight: 600;">21</div>
                     <div class="subtext">Opt-ins</div>
                 </div>
             </div>
@@ -320,24 +294,24 @@
         <div class="card">
             <h2>Top Pages (24h)</h2>
             <div class="page-item">
+                <span class="page-url">app.theubik.com/ (chat)</span>
+                <span class="page-views">10 views</span>
+            </div>
+            <div class="page-item">
+                <span class="page-url">app.theubik.com/meetings</span>
+                <span class="page-views">9 views</span>
+            </div>
+            <div class="page-item">
                 <span class="page-url">staging.theubik.com/meetings</span>
                 <span class="page-views">7 views</span>
             </div>
             <div class="page-item">
-                <span class="page-url">app.theubik.com/meetings</span>
-                <span class="page-views">5 views</span>
+                <span class="page-url">staging.theubik.com/</span>
+                <span class="page-views">4 views</span>
             </div>
             <div class="page-item">
-                <span class="page-url">app.theubik.com/ (chat)</span>
-                <span class="page-views">5 views</span>
-            </div>
-            <div class="page-item">
-                <span class="page-url">theubik.com/</span>
-                <span class="page-views">3 views</span>
-            </div>
-            <div class="page-item">
-                <span class="page-url">theubik.com/blog</span>
-                <span class="page-views">3 views</span>
+                <span class="page-url">staging.theubik.com/inbox</span>
+                <span class="page-views">4 views</span>
             </div>
         </div>
         
@@ -346,40 +320,42 @@
             <h2>GitHub Activity</h2>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
                 <div>
-                    <div class="metric metric-small">7</div>
+                    <div class="metric metric-small">10</div>
                     <div class="subtext">Open PRs</div>
                 </div>
                 <div>
-                    <div class="metric metric-small">7</div>
+                    <div class="metric metric-small">10</div>
                     <div class="subtext">Open Issues</div>
                 </div>
             </div>
-            <div class="activity-item">
-                <span class="activity-repo">ubik-webapp</span>
-                <span class="activity-time">Jun 6</span>
+            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9em;">
+                <span style="color: #60a5fa;">ubik-webapp</span>
+                <span style="color: #71717a;">Jun 6</span>
             </div>
-            <div class="activity-item">
-                <span class="activity-repo">ubik-meetings</span>
-                <span class="activity-time">Jun 4</span>
+            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9em;">
+                <span style="color: #60a5fa;">ubik-meetings</span>
+                <span style="color: #71717a;">Jun 4</span>
             </div>
-            <div class="activity-item">
-                <span class="activity-repo">ubik-workflows</span>
-                <span class="activity-time">Jun 3</span>
+            <div style="display: flex; justify-content: space-between; padding: 8px 0; font-size: 0.9em;">
+                <span style="color: #60a5fa;">ubik-workflows</span>
+                <span style="color: #71717a;">Jun 3</span>
             </div>
         </div>
         
-        <!-- OpenAI Usage -->
+        <!-- LinkedIn -->
         <div class="card">
-            <h2>OpenAI API Usage (7d)</h2>
-            <div class="metric metric-small">$0.13</div>
-            <div class="subtext">Total Spend</div>
-            <div style="margin-top: 16px;">
-                <div style="font-size: 1.2em; font-weight: 600;">26.1M</div>
-                <div class="subtext">Total Tokens</div>
-            </div>
-            <div style="margin-top: 8px;">
-                <div style="font-size: 1.2em; font-weight: 600;">3,110</div>
-                <div class="subtext">Total Requests</div>
+            <h2>LinkedIn Company Page</h2>
+            <div class="metric metric-small positive">161</div>
+            <div class="subtext">Followers</div>
+            <div style="margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div>
+                    <div style="font-size: 1.2em; font-weight: 600;">22</div>
+                    <div class="subtext">Impressions</div>
+                </div>
+                <div>
+                    <div style="font-size: 1.2em; font-weight: 600;">22</div>
+                    <div class="subtext">Views</div>
+                </div>
             </div>
         </div>
         
@@ -387,16 +363,16 @@
         <div class="card insight-card full-width">
             <h2>Top 3 Insights</h2>
             <div class="insight-item">
-                <div class="insight-title">1. Strong Activation Rate 🎯</div>
-                <div class="insight-text">109% activation rate (58/53) suggests users who land on the site are highly motivated to sign in. The product-market fit signal is strong.</div>
+                <div class="insight-title">1. High Engagement Signal 📈</div>
+                <div class="insight-text">58 engagement events (screen_time + opt_in) from 67 page views indicates strong user interest. Users who land are actively exploring the product.</div>
             </div>
             <div class="insight-item">
-                <div class="insight-title">2. Meetings Feature Driving Traffic 📅</div>
-                <div class="insight-text">The /meetings page is the top visited URL, indicating this feature is resonating with users. Consider doubling down on meeting-related functionality.</div>
+                <div class="insight-title">2. Meetings Feature Dominates 📅</div>
+                <div class="insight-text">app.theubik.com/meetings and staging/meetings combined for 16 views - the most visited feature area. This validates the meetings-first strategy.</div>
             </div>
             <div class="insight-item">
-                <div class="insight-title">3. Low Value Conversion ⚠️</div>
-                <div class="insight-text">Only 1 value event in 24h (1.9% conversion) suggests users are exploring but not completing core actions. Need to investigate what's blocking task completion.</div>
+                <div class="insight-title">3. Credit Consumption on Track 💰</div>
+                <div class="insight-text">$785.73 Claude spend this month (resets Jul 1) with $2,083.77 remaining. At current pace, will use ~$1,571/month - well within budget.</div>
             </div>
         </div>
         
@@ -409,12 +385,12 @@
                     <div class="subtext">Auto-notify when Claude credits drop below $500</div>
                 </div>
                 <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px;">
-                    <div style="font-weight: 600; color: #22c55e; margin-bottom: 4px;">Conversion Alert</div>
-                    <div class="subtext">Alert if value conversion drops below 1% for 3 consecutive runs</div>
+                    <div style="font-weight: 600; color: #22c55e; margin-bottom: 4px;">User Milestone</div>
+                    <div class="subtext">Alert when daily unique users hit 20+</div>
                 </div>
                 <div style="background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px;">
-                    <div style="font-weight: 600; color: #22c55e; margin-bottom: 4px;">User Milestone</div>
-                    <div class="subtext">Celebrate when unique daily users hit 20+</div>
+                    <div style="font-weight: 600; color: #22c55e; margin-bottom: 4px;">GitHub PR Watch</div>
+                    <div class="subtext">Notify when PRs are ready for review or merged</div>
                 </div>
             </div>
         </div>
@@ -424,16 +400,16 @@
             <h2>Blind Spots</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
                 <div>
-                    <div style="color: #f59e0b; font-weight: 600; margin-bottom: 4px;">⚠️ LinkedIn Analytics</div>
-                    <div class="subtext">Company page metrics (followers, impressions) not captured due to auth issues with existing Chrome session.</div>
-                </div>
-                <div>
                     <div style="color: #f59e0b; font-weight: 600; margin-bottom: 4px;">⚠️ Per-User API Costs</div>
                     <div class="subtext">Claude usage by key/user breakdown requires manual scraping of /settings/keys page.</div>
                 </div>
                 <div>
                     <div style="color: #f59e0b; font-weight: 600; margin-bottom: 4px;">⚠️ Revenue Tracking</div>
                     <div class="subtext">No subscription/revenue events in PostHog. Need to add payment events.</div>
+                </div>
+                <div>
+                    <div style="color: #f59e0b; font-weight: 600; margin-bottom: 4px;">⚠️ Retention Events</div>
+                    <div class="subtext">No "user_returned" events being tracked. Need to implement return user detection.</div>
                 </div>
             </div>
         </div>
