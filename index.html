@@ -6,549 +6,439 @@
     <title>UBIK CEO Dashboard</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
+        body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: #e4e4e7;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
             min-height: 100vh;
             padding: 20px;
         }
         .header {
             text-align: center;
-            padding: 20px 0 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
             margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .header h1 {
-            font-size: 2.5em;
-            background: linear-gradient(90deg, #00d4ff, #7c3aed, #f472b6);
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
-        .timestamp {
-            color: #71717a;
-            font-size: 0.9em;
-        }
-        .auto-update {
-            color: #22c55e;
-            font-size: 0.8em;
-            margin-top: 5px;
+        .header .timestamp {
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
             max-width: 1600px;
             margin: 0 auto;
         }
         .card {
             background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 16px;
             padding: 24px;
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
         .card h2 {
-            font-size: 0.85em;
+            font-size: 1.1rem;
+            color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #71717a;
             margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
-        .card h2::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #22c55e;
-        }
-        .metric {
-            font-size: 2.5em;
+        .card h2 .icon { font-size: 1.5rem; }
+        .big-number {
+            font-size: 3rem;
             font-weight: 700;
-            margin: 8px 0;
+            background: linear-gradient(90deg, #34d399, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .metric-small {
-            font-size: 1.8em;
-        }
-        .subtext {
-            color: #71717a;
-            font-size: 0.9em;
-        }
-        .positive { color: #22c55e; }
-        .warning { color: #f59e0b; }
-        .negative { color: #ef4444; }
-        
-        /* Credits Table */
-        .credits-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .credits-table th, .credits-table td {
-            padding: 12px 8px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .credits-table th {
-            color: #71717a;
-            font-weight: 500;
-            font-size: 0.85em;
-        }
-        .credits-table td {
-            font-size: 0.95em;
-        }
-        .credits-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        /* Funnel */
-        .funnel-container {
-            margin: 20px 0;
-        }
-        .funnel-stage {
+        .metric-row {
             display: flex;
-            align-items: center;
-            margin: 8px 0;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .funnel-label {
-            width: 100px;
-            font-size: 0.85em;
-            color: #a1a1aa;
-        }
-        .funnel-bar-container {
-            flex: 1;
-            height: 24px;
-            background: rgba(255,255,255,0.05);
+        .metric-row:last-child { border-bottom: none; }
+        .metric-label { color: #94a3b8; }
+        .metric-value { font-weight: 600; color: #e2e8f0; }
+        .metric-value.positive { color: #34d399; }
+        .metric-value.negative { color: #f87171; }
+        .progress-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
             border-radius: 4px;
             overflow: hidden;
-            margin: 0 12px;
+            margin-top: 8px;
         }
-        .funnel-bar {
+        .progress-fill {
             height: 100%;
             border-radius: 4px;
             transition: width 0.5s ease;
         }
-        .funnel-value {
-            width: 50px;
+        .funnel-stage {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 12px 0;
+        }
+        .funnel-label {
+            width: 100px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+        .funnel-bar {
+            flex: 1;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .funnel-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .funnel-count {
+            width: 60px;
             text-align: right;
             font-weight: 600;
-            font-size: 0.9em;
-        }
-        .funnel-discovery .funnel-bar { background: linear-gradient(90deg, #00d4ff, #0099cc); }
-        .funnel-activation .funnel-bar { background: linear-gradient(90deg, #7c3aed, #6d28d9); }
-        .funnel-engagement .funnel-bar { background: linear-gradient(90deg, #f472b6, #db2777); }
-        .funnel-value-stage .funnel-bar { background: linear-gradient(90deg, #22c55e, #16a34a); }
-        .funnel-retention .funnel-bar { background: linear-gradient(90deg, #f59e0b, #d97706); }
-        
-        /* GitHub Activity */
-        .commit-list {
-            list-style: none;
-        }
-        .commit-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.9em;
-        }
-        .commit-list li:last-child {
-            border-bottom: none;
-        }
-        .commit-date {
-            color: #71717a;
-            font-size: 0.8em;
-            margin-left: 8px;
-        }
-        .commit-repo {
-            color: #00d4ff;
-            font-size: 0.8em;
-        }
-        
-        /* LinkedIn */
-        .linkedin-metrics {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            text-align: center;
-        }
-        .linkedin-metric {
-            padding: 16px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 8px;
-        }
-        .linkedin-metric .value {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #0a66c2;
-        }
-        .linkedin-metric .label {
-            font-size: 0.75em;
-            color: #71717a;
-            margin-top: 4px;
-        }
-        
-        /* User Breakdown */
-        .user-breakdown {
-            margin-top: 16px;
         }
         .user-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.9em;
+            align-items: center;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            margin: 6px 0;
         }
-        .user-row:last-child {
-            border-bottom: none;
+        .user-name { font-weight: 500; }
+        .user-spend { color: #f59e0b; font-weight: 600; }
+        .github-commit {
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            margin: 6px 0;
+            font-size: 0.85rem;
         }
-        .user-name {
-            color: #a1a1aa;
-        }
-        .user-amount {
-            font-weight: 600;
-        }
-        
-        /* Event Breakdown */
-        .event-list {
-            list-style: none;
-        }
-        .event-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            font-size: 0.85em;
-        }
-        .event-name {
-            color: #a1a1aa;
-        }
-        .event-count {
-            font-weight: 600;
-            color: #00d4ff;
-        }
-        
-        /* Footer */
-        .footer {
+        .github-commit .repo { color: #60a5fa; font-weight: 600; }
+        .github-commit .date { color: #64748b; font-size: 0.75rem; }
+        .conversion-rate {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #71717a;
-            font-size: 0.8em;
-        }
-        .footer a {
-            color: #00d4ff;
-            text-decoration: none;
-        }
-        
-        /* Full-width cards */
-        .card-full {
-            grid-column: 1 / -1;
-        }
-        
-        /* Conversion rate highlight */
-        .conversion-highlight {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(244, 114, 182, 0.2));
-            border: 1px solid rgba(124, 58, 237, 0.3);
+            padding: 20px;
+            background: rgba(96, 165, 250, 0.1);
             border-radius: 12px;
-            padding: 16px;
             margin-top: 16px;
-            text-align: center;
         }
-        .conversion-highlight .rate {
-            font-size: 2em;
+        .conversion-rate .value {
+            font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(90deg, #7c3aed, #f472b6);
+            color: #60a5fa;
+        }
+        .conversion-rate .label {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+        .total-credits {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.1), rgba(96, 165, 250, 0.1));
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+        .total-credits .value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #34d399, #60a5fa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .conversion-highlight .label {
-            color: #a1a1aa;
-            font-size: 0.85em;
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #64748b;
+            font-size: 0.85rem;
         }
-        
-        /* Status indicator */
-        .status-dot {
+        .badge {
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            margin-right: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
-        .status-active { background: #22c55e; }
-        .status-warning { background: #f59e0b; }
-        .status-inactive { background: #ef4444; }
+        .badge-green { background: rgba(52, 211, 153, 0.2); color: #34d399; }
+        .badge-blue { background: rgba(96, 165, 250, 0.2); color: #60a5fa; }
+        .badge-yellow { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>UBIK CEO Dashboard</h1>
-        <div class="timestamp">Last updated: <span id="timestamp">Sunday, June 08, 2026 at 14:20 PM IST</span></div>
-        <div class="auto-update"><span class="status-dot status-active"></span>Auto-updates every 6 hours</div>
+        <h1>🚀 UBIK CEO Dashboard</h1>
+        <div class="timestamp">Updated: June 8, 2026 at 18:00 IST • 6-Hour Snapshot</div>
     </div>
-    
+
     <div class="grid">
-        <!-- API Credits Summary -->
+        <!-- API Credits -->
         <div class="card">
-            <h2>API Credits Summary</h2>
-            <table class="credits-table">
-                <thead>
-                    <tr>
-                        <th>Provider</th>
-                        <th>Remaining</th>
-                        <th>Spent</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Claude</strong></td>
-                        <td class="positive">$2,065</td>
-                        <td>$804</td>
-                    </tr>
-                    <tr>
-                        <td><strong>OpenRouter</strong></td>
-                        <td class="warning">~$26</td>
-                        <td>$100</td>
-                    </tr>
-                    <tr>
-                        <td><strong>OpenAI</strong></td>
-                        <td>—</td>
-                        <td>$0.00</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
-                <div class="subtext">Total Credits Available</div>
-                <div class="metric positive">$2,091</div>
+            <h2><span class="icon">💰</span> API Credits</h2>
+            
+            <div class="metric-row">
+                <span class="metric-label">Claude Balance</span>
+                <span class="metric-value positive">$2,031.09</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Claude Spent (June)</span>
+                <span class="metric-value">$822.28</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">OpenRouter Balance</span>
+                <span class="metric-value positive">~$9,800</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">OpenAI Spent (June)</span>
+                <span class="metric-value">$0.00</span>
+            </div>
+            
+            <div class="total-credits">
+                <div class="value">$11,831</div>
+                <div class="label">Total Credits Available</div>
             </div>
         </div>
-        
-        <!-- User Journey Funnel -->
-        <div class="card">
-            <h2>User Journey Funnel (24h)</h2>
-            <div class="funnel-container">
-                <div class="funnel-stage funnel-discovery">
-                    <div class="funnel-label">Discovery</div>
-                    <div class="funnel-bar-container">
-                        <div class="funnel-bar" style="width: 100%;"></div>
-                    </div>
-                    <div class="funnel-value">82</div>
-                </div>
-                <div class="funnel-stage funnel-activation">
-                    <div class="funnel-label">Activation</div>
-                    <div class="funnel-bar-container">
-                        <div class="funnel-bar" style="width: 66%;"></div>
-                    </div>
-                    <div class="funnel-value">54</div>
-                </div>
-                <div class="funnel-stage funnel-engagement">
-                    <div class="funnel-label">Engagement</div>
-                    <div class="funnel-bar-container">
-                        <div class="funnel-bar" style="width: 38%;"></div>
-                    </div>
-                    <div class="funnel-value">31</div>
-                </div>
-                <div class="funnel-stage funnel-value-stage">
-                    <div class="funnel-label">Value</div>
-                    <div class="funnel-bar-container">
-                        <div class="funnel-bar" style="width: 0%;"></div>
-                    </div>
-                    <div class="funnel-value">0</div>
-                </div>
-                <div class="funnel-stage funnel-retention">
-                    <div class="funnel-label">Retention</div>
-                    <div class="funnel-bar-container">
-                        <div class="funnel-bar" style="width: 0%;"></div>
-                    </div>
-                    <div class="funnel-value">0</div>
-                </div>
-            </div>
-            <div class="conversion-highlight">
-                <div class="rate">0.0%</div>
-                <div class="label">Conversion Rate (Value ÷ Discovery)</div>
-            </div>
-        </div>
-        
-        <!-- PostHog Metrics -->
-        <div class="card">
-            <h2>PostHog Analytics</h2>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 16px;">
-                <div>
-                    <div class="subtext">Total Events (24h)</div>
-                    <div class="metric metric-small">214</div>
-                </div>
-                <div>
-                    <div class="subtext">Unique Events</div>
-                    <div class="metric metric-small">7</div>
-                </div>
-            </div>
-            <h3 style="font-size: 0.85em; color: #71717a; margin: 16px 0 8px;">Top Events</h3>
-            <ul class="event-list">
-                <li><span class="event-name">$pageview</span><span class="event-count">82</span></li>
-                <li><span class="event-name">session_validated</span><span class="event-count">37</span></li>
-                <li><span class="event-name">screen_time</span><span class="event-count">31</span></li>
-                <li><span class="event-name">$web_vitals</span><span class="event-count">28</span></li>
-                <li><span class="event-name">$opt_in</span><span class="event-count">17</span></li>
-                <li><span class="event-name">$set</span><span class="event-count">17</span></li>
-                <li><span class="event-name">pricing_viewed</span><span class="event-count">2</span></li>
-            </ul>
-        </div>
-        
+
         <!-- Claude Usage by User -->
         <div class="card">
-            <h2>Claude Usage by User</h2>
-            <div class="user-breakdown">
-                <div class="user-row">
-                    <span class="user-name">Gane Roger (ganesh_gsse)</span>
-                    <span class="user-amount">$393</span>
-                </div>
-                <div class="user-row">
-                    <span class="user-name">Sai Kiran (sai_tsrx, ubik-workflows)</span>
-                    <span class="user-amount">$185</span>
-                </div>
-                <div class="user-row">
-                    <span class="user-name">Rini Rathore (rini_hjfl)</span>
-                    <span class="user-amount">$121</span>
-                </div>
-                <div class="user-row">
-                    <span class="user-name">Priya Chaurasiya (priya_ydvw)</span>
-                    <span class="user-amount">$46</span>
-                </div>
-                <div class="user-row">
-                    <span class="user-name">Shubhranshu Jha</span>
-                    <span class="user-amount">$2</span>
-                </div>
+            <h2><span class="icon">👥</span> Claude Usage by User</h2>
+            
+            <div class="user-row">
+                <span class="user-name">🇮🇳 GANE ROGER</span>
+                <span class="user-spend">$393.62</span>
             </div>
-            <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1);">
-                <div class="subtext">Total Estimated Spend</div>
-                <div class="metric metric-small">$747</div>
+            <div class="user-row">
+                <span class="user-name">🇮🇳 Sai Kiran</span>
+                <span class="user-spend">$235.15</span>
+            </div>
+            <div class="user-row">
+                <span class="user-name">🇮🇳 Rini Rathore</span>
+                <span class="user-spend">$123.18</span>
+            </div>
+            <div class="user-row">
+                <span class="user-name">🇮🇳 Priya Chaurasiya</span>
+                <span class="user-spend">$83.07</span>
+            </div>
+            <div class="user-row">
+                <span class="user-name">🇮🇳 Shubhranshu Jha</span>
+                <span class="user-spend">$3.82</span>
+            </div>
+            
+            <div class="metric-row" style="margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
+                <span class="metric-label">Total Team Spend</span>
+                <span class="metric-value" style="color: #f59e0b;">$838.84</span>
             </div>
         </div>
-        
+
+        <!-- User Journey Funnel -->
+        <div class="card">
+            <h2><span class="icon">📊</span> User Journey Funnel (24h)</h2>
+            
+            <div class="funnel-stage">
+                <span class="funnel-label">Discovery</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width: 100%; background: linear-gradient(90deg, #34d399, #60a5fa);">432</div></div>
+                <span class="funnel-count">432</span>
+            </div>
+            <div class="funnel-stage">
+                <span class="funnel-label">Activation</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width: 65%; background: linear-gradient(90deg, #60a5fa, #a78bfa);">282</div></div>
+                <span class="funnel-count">282</span>
+            </div>
+            <div class="funnel-stage">
+                <span class="funnel-label">Engagement</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width: 51%; background: linear-gradient(90deg, #a78bfa, #f472b6);">222</div></div>
+                <span class="funnel-count">222</span>
+            </div>
+            <div class="funnel-stage">
+                <span class="funnel-label">Value</span>
+                <div class="funnel-bar"><div class="funnel-fill" style="width: 6%; background: linear-gradient(90deg, #f472b6, #fb7185);">25</div></div>
+                <span class="funnel-count">25</span>
+            </div>
+            
+            <div class="conversion-rate">
+                <div class="value">5.8%</div>
+                <div class="label">Conversion Rate (Value / Discovery)</div>
+            </div>
+        </div>
+
+        <!-- PostHog Events -->
+        <div class="card">
+            <h2><span class="icon">📈</span> PostHog Events (24h)</h2>
+            
+            <div class="metric-row">
+                <span class="metric-label">Page Views</span>
+                <span class="metric-value">432</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Sessions Validated</span>
+                <span class="metric-value">279</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Screen Time Events</span>
+                <span class="metric-value">187</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Opt-ins</span>
+                <span class="metric-value">90</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Chat Messages Sent</span>
+                <span class="metric-value">25</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Chat Streams Completed</span>
+                <span class="metric-value">25</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Chat Threads Created</span>
+                <span class="metric-value">10</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Unique Users</span>
+                <span class="metric-value positive">29</span>
+            </div>
+        </div>
+
         <!-- LinkedIn Analytics -->
         <div class="card">
-            <h2>LinkedIn Analytics</h2>
-            <div class="linkedin-metrics">
-                <div class="linkedin-metric">
-                    <div class="value">161</div>
-                    <div class="label">Followers</div>
-                </div>
-                <div class="linkedin-metric">
-                    <div class="value">33</div>
-                    <div class="label">Visitors</div>
-                </div>
-                <div class="linkedin-metric">
-                    <div class="value">189</div>
-                    <div class="label">Impressions</div>
-                </div>
+            <h2><span class="icon">🔗</span> LinkedIn Company Page</h2>
+            
+            <div class="metric-row">
+                <span class="metric-label">Total Followers</span>
+                <span class="metric-value">165</span>
             </div>
-            <div style="margin-top: 16px; font-size: 0.85em; color: #71717a;">
-                23.2% impression change, 22.2% visitor change (last 7 days)
+            <div class="metric-row">
+                <span class="metric-label">Search Appearances (7d)</span>
+                <span class="metric-value positive">337 <span class="badge badge-green">+42%</span></span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">New Followers (7d)</span>
+                <span class="metric-value positive">6 <span class="badge badge-green">+50%</span></span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Post Impressions (7d)</span>
+                <span class="metric-value">158 <span class="badge badge-green">+13%</span></span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Page Visitors (7d)</span>
+                <span class="metric-value">31 <span class="badge badge-green">+6%</span></span>
             </div>
         </div>
-        
+
         <!-- GitHub Activity -->
         <div class="card">
-            <h2>GitHub Activity (Solarpunk Tech)</h2>
-            <ul class="commit-list">
-                <li>
-                    <span class="commit-repo">ubik-webapp</span>: Staging → Main: Meetings folders + left-nav improvements
-                    <span class="commit-date">Jun 6</span>
-                </li>
-                <li>
-                    <span class="commit-repo">ubik-webapp</span>: feat(integrations): Zoho single-connect UX overhaul
-                    <span class="commit-date">Jun 4</span>
-                </li>
-                <li>
-                    <span class="commit-repo">ubik-meetings</span>: fix(updater): silent NSIS auto-update on Windows
-                    <span class="commit-date">Jun 4</span>
-                </li>
-                <li>
-                    <span class="commit-repo">ubik-workflows</span>: fix(graphiti): use Neo4jDriver(database=) via graph_driver
-                    <span class="commit-date">Jun 3</span>
-                </li>
-                <li>
-                    <span class="commit-repo">the-ubik-landing</span>: Multiple PR merges for landing page
-                    <span class="commit-date">Jun 2</span>
-                </li>
-            </ul>
+            <h2><span class="icon">🐙</span> GitHub Activity</h2>
+            
+            <div class="github-commit">
+                <span class="repo">ubik-workflows</span>
+                <div>Packaging Details Tracker — engine, REST API, schema</div>
+                <span class="date">Jun 8, 2026 (today)</span>
+            </div>
+            <div class="github-commit">
+                <span class="repo">ubik-webapp</span>
+                <div>Staging → Main: Meetings folders + left-nav</div>
+                <span class="date">Jun 6, 2026</span>
+            </div>
+            <div class="github-commit">
+                <span class="repo">ubik-meetings</span>
+                <div>Silent NSIS auto-update on Windows</div>
+                <span class="date">Jun 4, 2026</span>
+            </div>
+            
+            <div class="metric-row" style="margin-top: 12px;">
+                <span class="metric-label">Open Issues (ubik-webapp)</span>
+                <span class="metric-value">7</span>
+            </div>
         </div>
-        
-        <!-- Linear Issues -->
-        <div class="card">
-            <h2>Linear Issues (Active)</h2>
-            <ul class="commit-list">
-                <li>
-                    <span style="color: #f59e0b;">[In Progress]</span> #130: feat(wf2): Packaging Tracker UI
-                </li>
-                <li>
-                    <span style="color: #f59e0b;">[In Progress]</span> #119: SOC 2 Type 2 compliance hardening
-                </li>
-                <li>
-                    <span style="color: #22c55e;">[Open]</span> #104: Seafood market intelligence dashboard
-                </li>
-                <li>
-                    <span style="color: #22c55e;">[Open]</span> #93: feat(shell): rename nav labels, phosphor icons
-                </li>
-                <li>
-                    <span style="color: #22c55e;">[Open]</span> #83: jha-email-ui v0
-                </li>
-            </ul>
-        </div>
-        
+
         <!-- OpenAI Usage -->
         <div class="card">
-            <h2>OpenAI Usage</h2>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: center;">
-                <div>
-                    <div class="subtext">Requests</div>
-                    <div class="metric metric-small">3,385</div>
-                </div>
-                <div>
-                    <div class="subtext">Tokens</div>
-                    <div class="metric metric-small">12.2M</div>
-                </div>
-                <div>
-                    <div class="subtext">Cost</div>
-                    <div class="metric metric-small">$0.00</div>
-                </div>
+            <h2><span class="icon">🤖</span> OpenAI Usage (June)</h2>
+            
+            <div class="metric-row">
+                <span class="metric-label">Total Spend</span>
+                <span class="metric-value">$0.00</span>
             </div>
-            <div style="margin-top: 16px; font-size: 0.85em; color: #71717a;">
-                Date range: May 29 - Jun 5, 2026
+            <div class="metric-row">
+                <span class="metric-label">Total Tokens</span>
+                <span class="metric-value">12,238,651</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Total Requests</span>
+                <span class="metric-value">3,385</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Primary User</span>
+                <span class="metric-value">Shubhranshu Jha</span>
             </div>
         </div>
-        
-        <!-- Event Definitions (Full Width) -->
-        <div class="card card-full">
-            <h2>Funnel Event Definitions</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
-                <div style="padding: 12px; background: rgba(0,212,255,0.1); border-radius: 8px;">
-                    <strong style="color: #00d4ff;">Discovery</strong>
-                    <p style="font-size: 0.85em; color: #a1a1aa; margin-top: 4px;">Page views, first visits, marketing touchpoints</p>
+
+        <!-- Key Insights -->
+        <div class="card" style="grid-column: span 2;">
+            <h2><span class="icon">💡</span> Key Insights & Recommendations</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                <div style="padding: 16px; background: rgba(52, 211, 153, 0.1); border-radius: 12px;">
+                    <h3 style="color: #34d399; margin-bottom: 8px;">✅ Strong Progress</h3>
+                    <ul style="color: #94a3b8; font-size: 0.9rem; padding-left: 16px;">
+                        <li>5.8% conversion rate (25 value events from 432 discovery)</li>
+                        <li>29 unique users in 24h with 10 chat threads created</li>
+                        <li>LinkedIn search appearances up 42% (337)</li>
+                        <li>Active development: ubik-workflows updated today</li>
+                    </ul>
                 </div>
-                <div style="padding: 12px; background: rgba(124,58,237,0.1); border-radius: 8px;">
-                    <strong style="color: #7c3aed;">Activation</strong>
-                    <p style="font-size: 0.85em; color: #a1a1aa; margin-top: 4px;">Sign-ins, sessions validated, opt-ins</p>
+                <div style="padding: 16px; background: rgba(245, 158, 11, 0.1); border-radius: 12px;">
+                    <h3 style="color: #f59e0b; margin-bottom: 8px;">⚠️ Attention Needed</h3>
+                    <ul style="color: #94a3b8; font-size: 0.9rem; padding-left: 16px;">
+                        <li>Claude spend trending high: $822/month with 2 weeks left</li>
+                        <li>Low LinkedIn follower count (165) vs search appearances (337)</li>
+                        <li>2 exceptions tracked in PostHog - investigate</li>
+                        <li>OpenAI tokens high (12M) but $0 spend - verify</li>
+                    </ul>
                 </div>
-                <div style="padding: 12px; background: rgba(244,114,182,0.1); border-radius: 8px;">
-                    <strong style="color: #f472b6;">Engagement</strong>
-                    <p style="font-size: 0.85em; color: #a1a1aa; margin-top: 4px;">Chats created, messages sent, screen time</p>
-                </div>
-                <div style="padding: 12px; background: rgba(34,197,94,0.1); border-radius: 8px;">
-                    <strong style="color: #22c55e;">Value</strong>
-                    <p style="font-size: 0.85em; color: #a1a1aa; margin-top: 4px;">Completed streams, tasks, uploads</p>
-                </div>
-                <div style="padding: 12px; background: rgba(245,158,11,0.1); border-radius: 8px;">
-                    <strong style="color: #f59e0b;">Retention</strong>
-                    <p style="font-size: 0.85em; color: #a1a1aa; margin-top: 4px;">Returns (7+ days), subscriptions, upgrades</p>
+                <div style="padding: 16px; background: rgba(96, 165, 250, 0.1); border-radius: 12px;">
+                    <h3 style="color: #60a5fa; margin-bottom: 8px;">🎯 Action Items</h3>
+                    <ul style="color: #94a3b8; font-size: 0.9rem; padding-left: 16px;">
+                        <li><strong>Dev Team:</strong> Monitor Claude costs per user</li>
+                        <li><strong>Marketing:</strong> Boost LinkedIn follower conversion</li>
+                        <li><strong>Product:</strong> Analyze 2 exception events</li>
+                        <li><strong>Ops:</strong> Review OpenAI token usage patterns</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="footer">
-        <p><strong>Dashboard:</strong> <a href="https://ubik-solarpunk.github.io/ceo-dashboard/">https://ubik-solarpunk.github.io/ceo-dashboard/</a></p>
-        <p style="margin-top: 8px;">Auto-updates every 6 hours • Data from Claude, OpenRouter, OpenAI, PostHog, LinkedIn, GitHub</p>
+        <p>UBIK CEO Dashboard • Auto-updates every 6 hours • <a href="https://github.com/ubik-solarpunk/ceo-dashboard" style="color: #60a5fa;">View on GitHub</a></p>
+        <p style="margin-top: 8px;">Data sources: Claude, OpenRouter, OpenAI, PostHog, LinkedIn, GitHub</p>
     </div>
 </body>
 </html>
