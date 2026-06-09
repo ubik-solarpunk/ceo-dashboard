@@ -190,252 +190,268 @@
         .badge-green { background: rgba(52, 211, 153, 0.2); color: #34d399; }
         .badge-blue { background: rgba(96, 165, 250, 0.2); color: #60a5fa; }
         .badge-yellow { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .insight-card {
+            background: rgba(96, 165, 250, 0.05);
+            border-left: 3px solid #60a5fa;
+            padding: 12px 16px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .insight-card h4 {
+            color: #60a5fa;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+        .insight-card p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>🚀 UBIK CEO Dashboard</h1>
-        <div class="timestamp">Updated: June 9, 2026 at 06:03 IST • 6-Hour Snapshot</div>
+        <div class="timestamp">Updated: June 9, 2026 at 12:02 IST • 6-Hour Snapshot</div>
     </div>
 
     <div class="grid">
-        <!-- API Credits -->
+        <!-- API Credits Summary -->
         <div class="card">
             <h2><span class="icon">💰</span> API Credits</h2>
-            
-            <div class="metric-row">
-                <span class="metric-label">Claude Balance</span>
-                <span class="metric-value positive">$2,031.09</span>
-            </div>
-            <div class="metric-row">
-                <span class="metric-label">Claude Spent (Lifetime Keys)</span>
-                <span class="metric-value">$838.49</span>
-            </div>
-            <div class="metric-row">
-                <span class="metric-label">OpenRouter Balance</span>
-                <span class="metric-value positive">$9,876.54</span>
-            </div>
-            <div class="metric-row">
-                <span class="metric-label">OpenAI Spent (June)</span>
-                <span class="metric-value">$0.00</span>
-            </div>
-            
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <td style="padding: 12px 0; color: #94a3b8;">Provider</td>
+                    <td style="padding: 12px 0; text-align: right; color: #94a3b8;">Remaining</td>
+                    <td style="padding: 12px 0; text-align: right; color: #94a3b8;">Spent</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 10px 0;">Claude</td>
+                    <td style="padding: 10px 0; text-align: right; color: #34d399; font-weight: 600;">$2,031</td>
+                    <td style="padding: 10px 0; text-align: right; color: #f59e0b;">$839</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 10px 0;">OpenRouter</td>
+                    <td style="padding: 10px 0; text-align: right; color: #34d399; font-weight: 600;">$9,876</td>
+                    <td style="padding: 10px 0; text-align: right; color: #f59e0b;">~$3,500</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0;">OpenAI</td>
+                    <td style="padding: 10px 0; text-align: right; color: #34d399; font-weight: 600;">Prepaid</td>
+                    <td style="padding: 10px 0; text-align: right; color: #f59e0b;">$0</td>
+                </tr>
+            </table>
             <div class="total-credits">
-                <div class="value">$11,908</div>
+                <div class="value">$11,907</div>
                 <div class="label">Total Credits Available</div>
-            </div>
-        </div>
-
-        <!-- Claude Usage by User -->
-        <div class="card">
-            <h2><span class="icon">👥</span> Claude Usage by User</h2>
-            
-            <div class="user-row">
-                <span class="user-name">🇮🇳 GANE ROGER</span>
-                <span class="user-spend">$392.99</span>
-            </div>
-            <div class="user-row">
-                <span class="user-name">🇮🇳 Sai Kiran</span>
-                <span class="user-spend">$235.07</span>
-            </div>
-            <div class="user-row">
-                <span class="user-name">🇮🇳 Rini Rathore</span>
-                <span class="user-spend">$123.18</span>
-            </div>
-            <div class="user-row">
-                <span class="user-name">🇮🇳 Priya Chaurasiya</span>
-                <span class="user-spend">$85.30</span>
-            </div>
-            <div class="user-row">
-                <span class="user-name">🇮🇳 Shubhranshu Jha</span>
-                <span class="user-spend">$1.95</span>
-            </div>
-            
-            <div class="metric-row" style="margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
-                <span class="metric-label">Total Team Spend</span>
-                <span class="metric-value" style="color: #f59e0b;">$838.49</span>
             </div>
         </div>
 
         <!-- User Journey Funnel -->
         <div class="card">
             <h2><span class="icon">📊</span> User Journey Funnel (24h)</h2>
-            
             <div class="funnel-stage">
-                <span class="funnel-label">Discovery</span>
-                <div class="funnel-bar"><div class="funnel-fill" style="width: 100%; background: linear-gradient(90deg, #34d399, #60a5fa);">311</div></div>
-                <span class="funnel-count">311</span>
+                <div class="funnel-label">Discovery</div>
+                <div class="funnel-bar">
+                    <div class="funnel-fill" style="width: 100%; background: linear-gradient(90deg, #34d399, #10b981);">303</div>
+                </div>
+                <div class="funnel-count">303</div>
             </div>
             <div class="funnel-stage">
-                <span class="funnel-label">Activation</span>
-                <div class="funnel-bar"><div class="funnel-fill" style="width: 0.3%; background: linear-gradient(90deg, #60a5fa, #a78bfa);">1</div></div>
-                <span class="funnel-count">1</span>
+                <div class="funnel-label">Activation</div>
+                <div class="funnel-bar">
+                    <div class="funnel-fill" style="width: 0.7%; background: linear-gradient(90deg, #60a5fa, #3b82f6);">2</div>
+                </div>
+                <div class="funnel-count">2</div>
             </div>
             <div class="funnel-stage">
-                <span class="funnel-label">Engagement</span>
-                <div class="funnel-bar"><div class="funnel-fill" style="width: 8.4%; background: linear-gradient(90deg, #a78bfa, #f472b6);">26</div></div>
-                <span class="funnel-count">26</span>
+                <div class="funnel-label">Engagement</div>
+                <div class="funnel-bar">
+                    <div class="funnel-fill" style="width: 6.9%; background: linear-gradient(90deg, #a78bfa, #8b5cf6);">21</div>
+                </div>
+                <div class="funnel-count">21</div>
             </div>
             <div class="funnel-stage">
-                <span class="funnel-label">Value</span>
-                <div class="funnel-bar"><div class="funnel-fill" style="width: 4.5%; background: linear-gradient(90deg, #f472b6, #fb7185);">14</div></div>
-                <span class="funnel-count">14</span>
+                <div class="funnel-label">Value</div>
+                <div class="funnel-bar">
+                    <div class="funnel-fill" style="width: 4%; background: linear-gradient(90deg, #f59e0b, #d97706);">12</div>
+                </div>
+                <div class="funnel-count">12</div>
             </div>
             <div class="funnel-stage">
-                <span class="funnel-label">Retention</span>
-                <div class="funnel-bar"><div class="funnel-fill" style="width: 0%; background: linear-gradient(90deg, #fb7185, #f87171);">0</div></div>
-                <span class="funnel-count">0</span>
+                <div class="funnel-label">Retention</div>
+                <div class="funnel-bar">
+                    <div class="funnel-fill" style="width: 0%; background: linear-gradient(90deg, #f87171, #ef4444);">0</div>
+                </div>
+                <div class="funnel-count">0</div>
             </div>
-            
             <div class="conversion-rate">
-                <div class="value">4.5%</div>
-                <div class="label">Conversion Rate (Value / Discovery)</div>
+                <div class="value">3.96%</div>
+                <div class="label">Conversion Rate (value/discovery)</div>
+            </div>
+            <div style="margin-top: 12px; font-size: 0.75rem; color: #64748b; line-height: 1.6;">
+                <strong>Event Definitions:</strong><br>
+                • Discovery: Page views ($pageview)<br>
+                • Activation: Sign-ins, sessions validated<br>
+                • Engagement: Chats created, messages sent<br>
+                • Value: Completed streams<br>
+                • Retention: Returns (7+ days)
             </div>
         </div>
 
-        <!-- PostHog Events -->
+        <!-- Claude Usage by Key -->
         <div class="card">
-            <h2><span class="icon">📈</span> PostHog Events (24h)</h2>
-            
-            <div class="metric-row">
-                <span class="metric-label">Page Views ($pageview)</span>
-                <span class="metric-value">311</span>
+            <h2><span class="icon">🔑</span> Claude Usage by User</h2>
+            <div class="user-row">
+                <span class="user-name">GANE ROGER</span>
+                <span class="user-spend">$393</span>
             </div>
-            <div class="metric-row">
-                <span class="metric-label">User Sign-ins</span>
-                <span class="metric-value">1</span>
+            <div class="user-row">
+                <span class="user-name">Sai Kiran</span>
+                <span class="user-spend">$235</span>
             </div>
-            <div class="metric-row">
-                <span class="metric-label">Chat Threads Created</span>
-                <span class="metric-value">~8</span>
+            <div class="user-row">
+                <span class="user-name">Rini Rathore</span>
+                <span class="user-spend">$123</span>
             </div>
-            <div class="metric-row">
-                <span class="metric-label">Chat Messages Sent</span>
-                <span class="metric-value">~18</span>
+            <div class="user-row">
+                <span class="user-name">Priya Chaurasiya</span>
+                <span class="user-spend">$83</span>
             </div>
-            <div class="metric-row">
-                <span class="metric-label">Chat Streams Completed</span>
-                <span class="metric-value">14</span>
+            <div class="user-row">
+                <span class="user-name">Shubhranshu Jha</span>
+                <span class="user-spend">$4</span>
             </div>
-            <div class="metric-row">
-                <span class="metric-label">User Identifications</span>
-                <span class="metric-value">0</span>
-            </div>
-        </div>
-
-        <!-- LinkedIn Analytics -->
-        <div class="card">
-            <h2><span class="icon">🔗</span> LinkedIn Company Page</h2>
-            
-            <div class="metric-row">
-                <span class="metric-label">Total Followers</span>
-                <span class="metric-value">165</span>
-            </div>
-            <div class="metric-row">
-                <span class="metric-label">Search Appearances (7d)</span>
-                <span class="metric-value positive">337 <span class="badge badge-green">+42%</span></span>
-            </div>
-            <div class="metric-row">
-                <span class="metric-label">New Followers (7d)</span>
-                <span class="metric-value positive">6 <span class="badge badge-green">+50%</span></span>
-            </div>
-            <div class="metric-row">
-                <span class="metric-label">Post Impressions (7d)</span>
-                <span class="metric-value">158 <span class="badge badge-green">+13%</span></span>
-            </div>
-            <div class="metric-row">
-                <span class="metric-label">Page Visitors (7d)</span>
-                <span class="metric-value">31 <span class="badge badge-green">+6%</span></span>
-            </div>
-        </div>
-
-        <!-- GitHub Activity -->
-        <div class="card">
-            <h2><span class="icon">🐙</span> GitHub Activity</h2>
-            
-            <div class="github-commit">
-                <span class="repo">ubik-workflows</span>
-                <div>fix(email-analyze): add recipients column + gen_random_uuid</div>
-                <span class="date">Jun 8, 2026</span>
-            </div>
-            <div class="github-commit">
-                <span class="repo">ubik-webapp</span>
-                <div>Staging → Main: Meetings folders + left-nav improvements</div>
-                <span class="date">Jun 6, 2026</span>
-            </div>
-            <div class="github-commit">
-                <span class="repo">ubik-meetings</span>
-                <div>Silent NSIS auto-update on Windows</div>
-                <span class="date">Jun 4, 2026</span>
-            </div>
-            
-            <div class="metric-row" style="margin-top: 12px;">
-                <span class="metric-label">Active Repos</span>
-                <span class="metric-value">3</span>
+            <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between;">
+                <span style="color: #94a3b8;">21 API Keys Active</span>
+                <span style="color: #f59e0b; font-weight: 600;">$839 Total</span>
             </div>
         </div>
 
         <!-- OpenAI Usage -->
         <div class="card">
-            <h2><span class="icon">🤖</span> OpenAI Usage (June)</h2>
-            
+            <h2><span class="icon">🤖</span> OpenAI Usage (Current Period)</h2>
+            <div class="metric-row">
+                <span class="metric-label">Organization</span>
+                <span class="metric-value">Ubik Enterprise v0</span>
+            </div>
             <div class="metric-row">
                 <span class="metric-label">Total Spend</span>
-                <span class="metric-value">$0.00</span>
+                <span class="metric-value positive">$0.00</span>
             </div>
             <div class="metric-row">
                 <span class="metric-label">Total Tokens</span>
-                <span class="metric-value">12.2M</span>
+                <span class="metric-value">12,238,651</span>
             </div>
             <div class="metric-row">
                 <span class="metric-label">Total Requests</span>
                 <span class="metric-value">3,385</span>
             </div>
             <div class="metric-row">
-                <span class="metric-label">Primary User</span>
-                <span class="metric-value">Shubhranshu Jha</span>
+                <span class="metric-label">Period</span>
+                <span class="metric-value">05/24/26 - 06/08/26</span>
+            </div>
+        </div>
+
+        <!-- LinkedIn Analytics -->
+        <div class="card">
+            <h2><span class="icon">💼</span> LinkedIn Company Page</h2>
+            <div class="metric-row">
+                <span class="metric-label">Total Followers</span>
+                <span class="metric-value">165</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Search Appearances</span>
+                <span class="metric-value positive">337 <span class="badge badge-green">+42.2%</span></span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">New Followers</span>
+                <span class="metric-value positive">6 <span class="badge badge-green">+50%</span></span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Post Impressions</span>
+                <span class="metric-value positive">158 <span class="badge badge-green">+12.7%</span></span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Page Visitors</span>
+                <span class="metric-value positive">31 <span class="badge badge-green">+6.1%</span></span>
+            </div>
+            <div class="progress-bar" style="margin-top: 16px;">
+                <div class="progress-fill" style="width: 16.5%; background: linear-gradient(90deg, #0077b5, #00a0dc);"></div>
+            </div>
+            <div style="text-align: center; color: #64748b; font-size: 0.75rem; margin-top: 8px;">165 / 1,000 followers goal</div>
+        </div>
+
+        <!-- GitHub Activity -->
+        <div class="card">
+            <h2><span class="icon">🐙</span> GitHub Activity (Recent)</h2>
+            <div class="github-commit">
+                <span class="repo">ubik-webapp</span> — Merge PR #132<br>
+                <span class="date">Jun 9, 2026 • c97d131</span>
+            </div>
+            <div class="github-commit">
+                <span class="repo">ubik-webapp</span> — Meeting/transcript<br>
+                <span class="date">Jun 8, 2026 • 38a482e</span>
+            </div>
+            <div class="github-commit">
+                <span class="repo">ubik-workflows</span> — Email analyze fixes<br>
+                <span class="date">Jun 8, 2026 • 30c2650</span>
+            </div>
+            <div class="github-commit">
+                <span class="repo">ubik-meetings</span> — Auto-update fixes<br>
+                <span class="date">Jun 4, 2026 • 10e17e1</span>
+            </div>
+            <div class="metric-row" style="margin-top: 12px;">
+                <span class="metric-label">3 Active Repos</span>
+                <span class="metric-value badge badge-blue">ubik-webapp, ubik-meetings, ubik-workflows</span>
+            </div>
+        </div>
+
+        <!-- OpenRouter Credits -->
+        <div class="card">
+            <h2><span class="icon">⚡</span> OpenRouter Credits</h2>
+            <div style="text-align: center; padding: 20px 0;">
+                <div class="big-number">$9,876</div>
+                <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 8px;">Credits Remaining</div>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Last Purchase</span>
+                <span class="metric-value">$3,000</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Purchase Date</span>
+                <span class="metric-value">Apr 16, 2026</span>
+            </div>
+            <div class="metric-row">
+                <span class="metric-label">Total Credits Added</span>
+                <span class="metric-value">~$3,600</span>
+            </div>
+            <div style="margin-top: 12px; padding: 12px; background: rgba(52, 211, 153, 0.1); border-radius: 8px; text-align: center;">
+                <span style="color: #34d399; font-size: 0.85rem;">Auto Top-Up: Disabled</span>
             </div>
         </div>
 
         <!-- Key Insights -->
-        <div class="card" style="grid-column: span 2;">
-            <h2><span class="icon">💡</span> Key Insights & Recommendations</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
-                <div style="padding: 16px; background: rgba(52, 211, 153, 0.1); border-radius: 12px;">
-                    <h3 style="color: #34d399; margin-bottom: 8px;">✅ Strong Progress</h3>
-                    <ul style="color: #94a3b8; font-size: 0.9rem; padding-left: 16px;">
-                        <li>4.5% conversion rate (14 value events from 311 discovery)</li>
-                        <li>LinkedIn search appearances up 42% (337 this week)</li>
-                        <li>Active development across all 3 repos</li>
-                        <li>UBIK Early Access launching for seafood importers</li>
-                    </ul>
-                </div>
-                <div style="padding: 16px; background: rgba(245, 158, 11, 0.1); border-radius: 12px;">
-                    <h3 style="color: #f59e0b; margin-bottom: 8px;">⚠️ Attention Needed</h3>
-                    <ul style="color: #94a3b8; font-size: 0.9rem; padding-left: 16px;">
-                        <li>Low activation rate: 1 sign-in from 311 page views</li>
-                        <li>Zero retention events tracked ($identify = 0)</li>
-                        <li>LinkedIn followers (165) vs search appearances (337) gap</li>
-                        <li>OpenAI tokens high (12.2M) but $0 spend</li>
-                    </ul>
-                </div>
-                <div style="padding: 16px; background: rgba(96, 165, 250, 0.1); border-radius: 12px;">
-                    <h3 style="color: #60a5fa; margin-bottom: 8px;">🎯 Action Items</h3>
-                    <ul style="color: #94a3b8; font-size: 0.9rem; padding-left: 16px;">
-                        <li><strong>Dev Team:</strong> Add retention tracking ($identify events)</li>
-                        <li><strong>Marketing:</strong> Convert search appearances to followers</li>
-                        <li><strong>Product:</strong> Investigate low activation rate</li>
-                        <li><strong>Ops:</strong> Monitor GANE ROGER Claude usage ($393)</li>
-                    </ul>
-                </div>
+        <div class="card">
+            <h2><span class="icon">💡</span> Key Insights</h2>
+            <div class="insight-card">
+                <h4>🎯 Low Activation Rate</h4>
+                <p>Only 2 users activated from 303 page views (0.66%). Consider improving onboarding flow and value proposition clarity.</p>
+            </div>
+            <div class="insight-card">
+                <h4>📈 Strong Value Conversion</h4>
+                <p>12 of 21 engaged users reached value stage (57%). Once users engage, they find value. Focus on engagement triggers.</p>
+            </div>
+            <div class="insight-card">
+                <h4>💰 Credit Burn Rate</h4>
+                <p>Claude spend ~$839. Total credits $11,907. At current rate, ~14 months runway remaining. Monitor Sai Kiran's usage.</p>
             </div>
         </div>
     </div>
 
     <div class="footer">
-        <p>UBIK CEO Dashboard • Auto-updates every 6 hours • <a href="https://github.com/ubik-solarpunk/ceo-dashboard" style="color: #60a5fa;">View on GitHub</a></p>
-        <p style="margin-top: 8px;">Data sources: Claude, OpenRouter, OpenAI, PostHog, LinkedIn, GitHub</p>
+        <p>Dashboard: <a href="https://ubik-solarpunk.github.io/ceo-dashboard/" style="color: #60a5fa;">ubik-solarpunk.github.io/ceo-dashboard</a></p>
+        <p style="margin-top: 8px;">Auto-updates every 6 hours • Powered by Hermes Agent</p>
     </div>
 </body>
 </html>
