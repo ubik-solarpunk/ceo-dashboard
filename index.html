@@ -86,7 +86,7 @@
 <div class="header">
   <h1>⬡ UBIK CEO DASHBOARD</h1>
   <div class="meta">
-    <div id="timestamp">JUN 16, 2026 • 06:05 IST</div>
+    <div id="timestamp">JUN 16, 2026 • 12:02 IST</div>
     <div>Auto-updates every 6h <span class="pulse" style="color:#00e676">●</span></div>
   </div>
 </div>
@@ -157,38 +157,38 @@
 <div class="grid">
   <div class="card full-width">
     <h2><span class="icon">🔻</span> User Journey Funnel</h2>
-    <div class="alert green">✅ Strong Monday — 2,558 events from 46 users in 24h (up from 1,985 last cycle). 7d conversion rate at 4.10% (69 value events from 1,681 discovery). Chat engagement solid: 8 threads, 12 messages, 11 streams in 24h. Today (Jun 16): 573 events already, 5 value events, 2.92% conversion. Business intent signals: 5 CTA clicks, 4 pricing views, 3 downloads in 7d.</div>
+    <div class="alert green">✅ Strong Monday — 2,159 events from 47 users in 24h. 7d conversion rate at 3.86% (65 value events from 1,683 discovery). Chat engagement solid: 8 threads, 12 messages, 11 streams in 24h. Today (Jun 16): 982 events already, 6 streams, 2.27% conversion. Business intent signals: 5 CTA clicks, 4 pricing views, 3 downloads in 7d.</div>
     <div style="display:flex;gap:40px;flex-wrap:wrap">
       <div style="flex:1;min-width:300px">
         <div style="font-size:13px;color:#00d4ff;margin-bottom:10px">24-Hour Funnel</div>
         <div class="funnel-bar">
           <span class="flabel">Discovery</span>
           <div class="bar"><div class="fill disc" style="width:100%"></div></div>
-          <span class="fval">663</span>
+          <span class="fval">484</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Activation</span>
           <div class="bar"><div class="fill act" style="width:100%"></div></div>
-          <span class="fval">991</span>
+          <span class="fval">945</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Engagement</span>
-          <div class="bar"><div class="fill eng" style="width:36%"></div></div>
-          <span class="fval">351</span>
+          <div class="bar"><div class="fill eng" style="width:50%"></div></div>
+          <span class="fval">237</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Value</span>
-          <div class="bar"><div class="fill val" style="width:1.8%"></div></div>
-          <span class="fval">12</span>
+          <div class="bar"><div class="fill val" style="width:2.3%"></div></div>
+          <span class="fval">11</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Retention</span>
           <div class="bar"><div class="fill ret" style="width:0%"></div></div>
-          <span class="fval">11*</span>
+          <span class="fval">0</span>
         </div>
         <div class="conversion-box">
-          <div class="pct">1.81%</div>
-          <div class="desc">Conversion Rate (Value / Discovery) • 24h • *11 returning users (7+ days)</div>
+          <div class="pct">2.27%</div>
+          <div class="desc">Conversion Rate (Value / Discovery) • 24h</div>
         </div>
       </div>
       <div style="flex:1;min-width:300px">
@@ -196,22 +196,22 @@
         <div class="funnel-bar">
           <span class="flabel">Discovery</span>
           <div class="bar"><div class="fill disc" style="width:100%"></div></div>
-          <span class="fval">1,681</span>
+          <span class="fval">1,683</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Activation</span>
           <div class="bar"><div class="fill act" style="width:100%"></div></div>
-          <span class="fval">2,068</span>
+          <span class="fval">2,223</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Engagement</span>
-          <div class="bar"><div class="fill eng" style="width:62%"></div></div>
-          <span class="fval">1,037</span>
+          <div class="bar"><div class="fill eng" style="width:60.6%"></div></div>
+          <span class="fval">1,019</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Value</span>
-          <div class="bar"><div class="fill val" style="width:4.1%"></div></div>
-          <span class="fval">69</span>
+          <div class="bar"><div class="fill val" style="width:3.9%"></div></div>
+          <span class="fval">65</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Retention</span>
@@ -219,13 +219,13 @@
           <span class="fval">—</span>
         </div>
         <div class="conversion-box">
-          <div class="pct">4.10%</div>
+          <div class="pct">3.86%</div>
           <div class="desc">Conversion Rate (Value / Discovery) • 7d</div>
         </div>
       </div>
     </div>
     <div style="font-size:10px;color:#666;margin-top:12px">
-      <b>Definitions:</b> Discovery=page views, first visits • Activation=session validated, sign-ins, opt-ins • Engagement=chat thread created, messages sent, screen time • Value=stream completed, downloads • Retention=returns (7+ days), subscriptions, upgrades<br>
+      <b>Definitions:</b> Discovery=page views, CTA clicks, pricing views, downloads • Activation=session validated, sign-ins, identify, opt-ins • Engagement=chat thread created, messages sent, screen time • Value=stream completed • Retention=returns (7+ days), subscriptions, upgrades<br>
       <b>Note:</b> Activation > Discovery because session_validated fires on every session check (automated), not just new sign-ups. True first-time activation is lower.
     </div>
   </div>
@@ -235,25 +235,26 @@
 <div class="grid">
   <div class="card">
     <h2><span class="icon">📊</span> PostHog — 24h Snapshot</h2>
-    <div class="metric"><span class="label">Total Events</span><span class="value blue">2,558</span></div>
-    <div class="metric"><span class="label">Unique Users</span><span class="value blue">46</span></div>
-    <div class="metric"><span class="label">Events / User</span><span class="value" style="font-size:14px">55.6</span></div>
+    <div class="metric"><span class="label">Total Events</span><span class="value blue">2,159</span></div>
+    <div class="metric"><span class="label">Unique Users</span><span class="value blue">47</span></div>
+    <div class="metric"><span class="label">Sessions</span><span class="value" style="font-size:14px">125</span></div>
+    <div class="metric"><span class="label">Events / User</span><span class="value" style="font-size:14px">45.9</span></div>
     <div class="section-divider"></div>
     <table>
       <tr><th>Event</th><th>Count</th></tr>
-      <tr><td>session_validated</td><td>828</td></tr>
-      <tr><td>$pageview</td><td>663</td></tr>
-      <tr><td>screen_time</td><td>331</td></tr>
-      <tr><td>$web_vitals</td><td>329</td></tr>
-      <tr><td>$opt_in</td><td>133</td></tr>
-      <tr><td>$set</td><td>118</td></tr>
-      <tr><td>user_signed_in</td><td>26</td></tr>
-      <tr><td>$exception</td><td>17</td></tr>
+      <tr><td>session_validated</td><td>797</td></tr>
+      <tr><td>$pageview</td><td>486</td></tr>
+      <tr><td>$web_vitals</td><td>322</td></tr>
+      <tr><td>screen_time</td><td>220</td></tr>
+      <tr><td>$opt_in</td><td>123</td></tr>
+      <tr><td>$set</td><td>109</td></tr>
+      <tr><td>$exception</td><td>25</td></tr>
+      <tr><td>user_signed_in</td><td>25</td></tr>
       <tr><td>chat_message_sent</td><td>12</td></tr>
       <tr><td>chat_stream_completed</td><td>11</td></tr>
       <tr><td>chat_thread_created</td><td>8</td></tr>
       <tr><td>$autocapture</td><td>8</td></tr>
-      <tr><td>$identify</td><td>4</td></tr>
+      <tr><td>$identify</td><td>5</td></tr>
       <tr><td>user_signed_out</td><td>2</td></tr>
       <tr><td>cta_clicked</td><td>1</td></tr>
       <tr><td>pricing_viewed</td><td>1</td></tr>
@@ -266,52 +267,52 @@
   <div class="card">
     <h2><span class="icon">📈</span> 7-Day Trend</h2>
     <div class="sparkline">
-      <div class="bar" style="height:74%" title="Jun 9: 972 events, 27 users"></div>
+      <div class="bar" style="height:57%" title="Jun 9: 747 events, 22 users"></div>
       <div class="bar" style="height:100%" title="Jun 10: 1,319 events, 20 users"></div>
       <div class="bar" style="height:61%" title="Jun 11: 809 events, 15 users"></div>
       <div class="bar" style="height:22%" title="Jun 12: 294 events, 15 users"></div>
       <div class="bar" style="height:3%" title="Jun 13: 39 events, 6 users"></div>
       <div class="bar" style="height:2%" title="Jun 14: 26 events, 7 users"></div>
       <div class="bar" style="height:89%" title="Jun 15: 1,985 events, 27 users"></div>
-      <div class="bar" style="height:43%" title="Jun 16: 573 events, 26 users (partial)"></div>
+      <div class="bar" style="height:74%" title="Jun 16: 982 events, 33 users (partial)"></div>
     </div>
     <div style="display:flex;justify-content:space-between;font-size:9px;color:#666;margin-top:4px">
       <span>Jun 9</span><span>Jun 10</span><span>Jun 11</span><span>Jun 12</span><span>Jun 13</span><span>Jun 14</span><span>Jun 15</span><span>Jun 16</span>
     </div>
     <table style="margin-top:12px">
       <tr><th>Day</th><th>Events</th><th>Users</th><th>Chat</th><th>Streams</th><th>Trend</th></tr>
-      <tr><td>Jun 9</td><td>972</td><td>27</td><td>24</td><td>27</td><td>—</td></tr>
-      <tr><td>Jun 10</td><td>1,319</td><td>20</td><td>25</td><td>19</td><td><span class="tag green">+35.7%</span></td></tr>
-      <tr><td>Jun 11</td><td>809</td><td>15</td><td>8</td><td>10</td><td><span class="tag red">-38.7%</span></td></tr>
-      <tr><td>Jun 12</td><td>294</td><td>15</td><td>2</td><td>1</td><td><span class="tag red">-63.7%</span></td></tr>
+      <tr><td>Jun 9</td><td>747</td><td>22</td><td>11</td><td>25</td><td>—</td></tr>
+      <tr><td>Jun 10</td><td>1,319</td><td>20</td><td>16</td><td>19</td><td><span class="tag green">+76.6%</span></td></tr>
+      <tr><td>Jun 11</td><td>809</td><td>15</td><td>4</td><td>8</td><td><span class="tag red">-38.7%</span></td></tr>
+      <tr><td>Jun 12</td><td>294</td><td>15</td><td>1</td><td>1</td><td><span class="tag red">-63.7%</span></td></tr>
       <tr><td>Jun 13</td><td>39</td><td>6</td><td>0</td><td>0</td><td><span class="tag red">-86.7%</span></td></tr>
       <tr><td>Jun 14</td><td>26</td><td>7</td><td>0</td><td>0</td><td><span class="tag red">-33.3%</span></td></tr>
-      <tr><td>Jun 15</td><td>1,985</td><td>27</td><td>8</td><td>7</td><td><span class="tag green">+7,534%</span></td></tr>
-      <tr><td>Jun 16</td><td>573</td><td>26</td><td>4</td><td>5</td><td><span class="tag blue">partial</span></td></tr>
+      <tr><td>Jun 15</td><td>1,985</td><td>27</td><td>5</td><td>6</td><td><span class="tag green">+7,534%</span></td></tr>
+      <tr><td>Jun 16</td><td>982</td><td>33</td><td>4</td><td>6</td><td><span class="tag blue">partial</span></td></tr>
     </table>
-    <div style="font-size:11px;color:#888;margin-top:8px">7d Total: 6,017 events • 7d Peak: Jun 10 (1,319)</div>
-    <div class="alert green" style="margin-top:8px">🚀 Weekday pattern confirmed: 6,017 events in 7d, 93 unique users. Mon-Fri avg ~1,200 vs weekend avg ~33. Jun 16 already at 573 events with 26 users before noon.</div>
+    <div style="font-size:11px;color:#888;margin-top:8px">7d Total: 6,201 events • 94 unique users • 402 sessions</div>
+    <div class="alert green" style="margin-top:8px">🚀 Weekday pattern confirmed: 6,201 events in 7d, 94 unique users. Mon-Fri avg ~1,100 vs weekend avg ~33. Jun 16 already at 982 events with 33 users before noon — on track for 2,000+ day.</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">🏢</span> Activity by User</h2>
     <div style="font-size:12px;color:#888;margin-bottom:6px">24h — Top Users by Events</div>
     <table style="margin-top:6px">
-      <tr><th>User ID (partial)</th><th>Events</th><th>Pageviews</th><th>Chat</th></tr>
-      <tr><td>676d5f44...</td><td>589</td><td>142</td><td>4</td></tr>
-      <tr><td>b30fc6fa...</td><td>521</td><td>204</td><td>7</td></tr>
-      <tr><td>3586ad77...</td><td>462</td><td>82</td><td>0</td></tr>
-      <tr><td>30f8ac10...</td><td>212</td><td>69</td><td>0</td></tr>
-      <tr><td>a386258e...</td><td>209</td><td>38</td><td>4</td></tr>
-      <tr><td>317f7a46...</td><td>179</td><td>16</td><td>0</td></tr>
-      <tr><td>625a833a...</td><td>86</td><td>26</td><td>0</td></tr>
-      <tr><td>4245f0db...</td><td>65</td><td>17</td><td>5</td></tr>
+      <tr><th>User ID (partial)</th><th>Events</th><th>Pageviews</th><th>Chat</th><th>Streams</th></tr>
+      <tr><td>3586ad77...</td><td>582</td><td>90</td><td>0</td><td>0</td></tr>
+      <tr><td>b30fc6fa...</td><td>445</td><td>126</td><td>2</td><td>3</td></tr>
+      <tr><td>676d5f44...</td><td>321</td><td>68</td><td>3</td><td>3</td></tr>
+      <tr><td>a386258e...</td><td>217</td><td>40</td><td>2</td><td>2</td></tr>
+      <tr><td>30f8ac10...</td><td>180</td><td>61</td><td>0</td><td>0</td></tr>
+      <tr><td>317f7a46...</td><td>149</td><td>5</td><td>0</td><td>0</td></tr>
+      <tr><td>4245f0db...</td><td>59</td><td>16</td><td>1</td><td>3</td></tr>
+      <tr><td>5fae1986...</td><td>24</td><td>5</td><td>0</td><td>0</td></tr>
     </table>
     <div class="section-divider"></div>
     <div style="font-size:12px;color:#888;margin-bottom:6px">Business Intent Signals (7d)</div>
     <table>
       <tr><th>Event</th><th>Count</th></tr>
-      <tr><td>user_signed_in</td><td>44</td></tr>
+      <tr><td>user_signed_in</td><td>46</td></tr>
       <tr><td>cta_clicked</td><td>5</td></tr>
       <tr><td>pricing_viewed</td><td>4</td></tr>
       <tr><td>download_clicked</td><td>3</td></tr>
@@ -322,8 +323,8 @@
     <table>
       <tr><th>Metric</th><th>Count</th></tr>
       <tr><td>Chat Threads</td><td>41</td></tr>
-      <tr><td>Messages Sent</td><td>69</td></tr>
-      <tr><td>Streams Completed</td><td>66</td></tr>
+      <tr><td>Messages Sent</td><td>68</td></tr>
+      <tr><td>Streams Completed</td><td>65</td></tr>
     </table>
   </div>
 </div>
@@ -352,26 +353,24 @@
   <div class="card">
     <h2><span class="icon">🐙</span> GitHub — solarpunk-tech</h2>
     <div style="font-size:12px;color:#888;margin-bottom:8px">Recent Commits (7d)</div>
+    <div class="commit"><span class="date">Jun 16</span><span class="author">shubh</span><span class="msg">Merge PR #25: WF2 workflow/SLA separation</span></div>
+    <div class="commit"><span class="date">Jun 16</span><span class="author">shubh</span><span class="msg">WF2 packaging: separate workflow from SLA state</span></div>
     <div class="commit"><span class="date">Jun 15</span><span class="author">roger</span><span class="msg">Merge PR #24: fix/wf2-fullthread-cc-sla</span></div>
     <div class="commit"><span class="date">Jun 15</span><span class="author">shubh</span><span class="msg">fix(packaging): pre-deploy hardening, reopen-window anchor</span></div>
     <div class="commit"><span class="date">Jun 15</span><span class="author">shubh</span><span class="msg">fix(wf2): full-thread authoritative detection</span></div>
-    <div class="commit"><span class="date">Jun 15</span><span class="author">sai</span><span class="msg">Merge PR #23: feat/packaging-sources-settings</span></div>
-    <div class="commit"><span class="date">Jun 15</span><span class="author">shubh</span><span class="msg">feat(packaging): admin/manager/source role model</span></div>
-    <div class="commit"><span class="date">Jun 12</span><span class="author">sai</span><span class="msg">fix(tasks): add /api prefix to task routes</span></div>
-    <div class="commit"><span class="date">Jun 11</span><span class="author">shubh</span><span class="msg">Merge PR #21: fix/assign-org-on-signin</span></div>
     <div class="commit"><span class="date">Jun 9</span><span class="author">sai</span><span class="msg">Merge PR #132: staging → main</span></div>
     <div class="section-divider"></div>
-    <div style="font-size:12px;color:#888;margin-bottom:6px">Open Issues: 11 total</div>
-    <div style="font-size:11px;color:#ccc">ubik-webapp: 9 open — #135 status filter, #134 trade radar, #119 SOC2</div>
+    <div style="font-size:12px;color:#888;margin-bottom:6px">Open Issues: 13 total</div>
+    <div style="font-size:11px;color:#ccc">ubik-webapp: 9 open — #135 status filter, #134 trade radar, #119 SOC2, #104 seafood chat</div>
     <div style="font-size:11px;color:#ccc">ubik-workflows: 3 open — #20 seafood API, #16 SOC2, #14 market backend</div>
     <div style="font-size:11px;color:#ccc">ubik-meetings: 1 open — #5 branding + Store</div>
     <div class="section-divider"></div>
-    <div style="font-size:11px;color:#888">7d Contributor Activity</div>
+    <div style="font-size:11px;color:#888">All-Time Contributors</div>
     <table style="margin-top:4px">
-      <tr><th>Repo</th><th>Commits (7d)</th><th>Top Contributor</th></tr>
-      <tr><td>ubik-workflows</td><td>22</td><td>sai (12), shubh (8)</td></tr>
-      <tr><td>ubik-meetings</td><td>4</td><td>shubh + priya (2 each)</td></tr>
-      <tr><td>ubik-webapp</td><td>1</td><td>sai (1)</td></tr>
+      <tr><th>Repo</th><th>Top Contributors</th><th>Open PRs</th></tr>
+      <tr><td>ubik-webapp</td><td>sai (93), roger (12), priya (8)</td><td>5</td></tr>
+      <tr><td>ubik-workflows</td><td>sai (70), shubh (25), roger (1)</td><td>3</td></tr>
+      <tr><td>ubik-meetings</td><td>priya (27), shubh (17), sai (14)</td><td>1</td></tr>
     </table>
   </div>
 
@@ -399,10 +398,10 @@
     <div style="font-size:11px;color:#888">7d Dev Activity</div>
     <table style="margin-top:4px">
       <tr><th>Dev</th><th>Commits</th><th>Repos</th></tr>
-      <tr><td>sai</td><td>13</td><td>webapp, workflows</td></tr>
-      <tr><td>shubh</td><td>10</td><td>workflows, meetings</td></tr>
+      <tr><td>shubh</td><td>5</td><td>workflows, meetings</td></tr>
+      <tr><td>roger</td><td>2</td><td>workflows</td></tr>
+      <tr><td>sai</td><td>2</td><td>webapp</td></tr>
       <tr><td>priya</td><td>2</td><td>meetings</td></tr>
-      <tr><td>roger</td><td>1</td><td>workflows</td></tr>
     </table>
   </div>
 </div>
@@ -410,8 +409,8 @@
 <!-- FOOTER -->
 <div style="text-align:center;padding:20px;font-size:10px;color:#555;border-top:1px solid #2a2a4a;margin-top:20px">
   <div>UBIK CEO Dashboard • Auto-updated every 6 hours • <a href="https://ubik-solarpunk.github.io/ceo-dashboard/" style="color:#00d4ff">ubik-solarpunk.github.io/ceo-dashboard</a></div>
-  <div style="margin-top:4px">Data: Claude + OpenRouter + OpenAI + PostHog + LinkedIn + GitHub • Last refresh: Jun 16, 2026 06:05 IST</div>
-  <div style="margin-top:4px;color:#666">⚠ Chrome CDP offline — Claude, OpenAI & LinkedIn from last scrape • OpenRouter + PostHog + GitHub data live</div>
+  <div style="margin-top:4px">Data: Claude + OpenRouter + OpenAI + PostHog + LinkedIn + GitHub • Last refresh: Jun 16, 2026 12:02 IST</div>
+  <div style="margin-top:4px;color:#666">⚠ Chrome CDP offline — Claude, OpenAI & LinkedIn from last scrape • PostHog + GitHub data live</div>
 </div>
 
 </body>
