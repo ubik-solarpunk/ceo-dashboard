@@ -86,7 +86,7 @@
 <div class="header">
   <h1>⬡ UBIK CEO DASHBOARD</h1>
   <div class="meta">
-    <div id="timestamp">JUN 18, 2026 • 00:06 IST</div>
+    <div id="timestamp">JUN 18, 2026 • 06:04 IST</div>
     <div>Auto-updates every 6h <span class="pulse" style="color:#00e676">●</span></div>
   </div>
 </div>
@@ -150,14 +150,14 @@
   <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px">Total API Credits Available</div>
   <div style="font-size:32px;font-weight:800;background:linear-gradient(90deg,#00e676,#00d4ff,#7b2ff7);-webkit-background-clip:text;-webkit-text-fill-color:transparent">$4,851.12</div>
   <div style="font-size:11px;color:#888;margin-top:4px">Claude $1,622 + OpenRouter $2,980 + OpenAI $250 (remaining budget)</div>
-  <div style="font-size:9px;color:#666;margin-top:4px">⚠ Chrome CDP (port 9225) offline — Claude, OpenRouter & OpenAI from last scrape. PostHog + GitHub live.</div>
+  <div style="font-size:9px;color:#666;margin-top:4px">⚠ Chrome CDP (port 9225) offline — Claude, OpenRouter & OpenAI from last scrape. PostHog API key invalid this cycle — PostHog from last live run. GitHub live.</div>
 </div>
 
 <!-- USER JOURNEY FUNNEL -->
 <div class="grid">
   <div class="card full-width">
     <h2><span class="icon">🔻</span> User Journey Funnel</h2>
-    <div class="alert amber">📉 Conversion eased to 1.55% (from 2.30%) as the 24h window rolled past Jun 16's chat-heavy evening — value events 7→4. Jun 17 closed complete at 898 events / 15 users (up from 695 partial at last run). Exception count steady at 44 (5.5x vs 8 two runs ago). Chat engagement light: 2 threads, 4 messages, 4 streams — one power user (8d86a281) drove all 8 chat events. 7d conversion at 1.98%.</div>
+    <div class="alert amber">📉 Conversion at 1.55% (24h) / 1.98% (7d) — carried forward from last live PostHog run (00:06 IST). PostHog API key (phx_…) returned authentication_failed this cycle — key may have been rotated. Values below are from Jun 17 complete day: 898 events / 15 users. No new GitHub commits since last run (Jun 17 18:59 IST). Overnight quiet period — team IST-based, activity resumes ~09:00 IST.</div>
     <div style="display:flex;gap:40px;flex-wrap:wrap">
       <div style="flex:1;min-width:300px">
         <div style="font-size:13px;color:#00d4ff;margin-bottom:10px">24-Hour Funnel</div>
@@ -235,6 +235,7 @@
 <div class="grid">
   <div class="card">
     <h2><span class="icon">📊</span> PostHog — 24h Snapshot</h2>
+    <div style="font-size:9px;color:#ff8a80;margin-bottom:8px">⚠ PostHog API key invalid this cycle — data from last live run (00:06 IST)</div>
     <div class="metric"><span class="label">Total Events</span><span class="value blue">898</span></div>
     <div class="metric"><span class="label">Unique Users</span><span class="value blue">15</span></div>
     <div class="metric"><span class="label">Events / User</span><span class="value" style="font-size:14px">59.9</span></div>
@@ -282,7 +283,7 @@
       <tr><td>Jun 17</td><td>898</td><td>15</td><td>6</td><td>4</td><td><span class="tag red">-48.8%</span></td></tr>
     </table>
     <div style="font-size:11px;color:#888;margin-top:8px">7d Total: 5,806 events • 7d unique users: 77 • Jun 17 now complete (was partial at last run)</div>
-    <div class="alert blue" style="margin-top:8px">📊 Jun 17 closed at 898 events / 15 users — a quiet day vs Jun 16's 1,755/40. Conversion dipped to 1.55% (24h) as chat streams fell 11→4. Exception count holds at 44 (unchanged from last run, still elevated). WF2 workflow commits continue (20 in 7d, all ubik-workflows). 19 open PRs across 3 repos; Trade Radar (#147) + OpenFGA authz (#145) lead webapp.</div>
+    <div class="alert blue" style="margin-top:8px">📊 No change since last run (00:06 IST). Jun 17 closed at 898 events / 15 users — a quiet day vs Jun 16's 1,755/40. Conversion at 1.55% (24h). Exception count holds at 44 (unchanged). WF2 workflow commits: 20 in 7d (all ubik-workflows, no new since Jun 17 18:59 IST). 19 open PRs across 3 repos; Trade Radar (#147) + OpenFGA authz (#145) lead webapp. PostHog API key needs rotation — monitoring degraded.</div>
   </div>
 
   <div class="card">
@@ -443,8 +444,8 @@
 <!-- FOOTER -->
 <div style="text-align:center;padding:20px;font-size:10px;color:#555;border-top:1px solid #2a2a4a;margin-top:20px">
   <div>UBIK CEO Dashboard • Auto-updated every 6 hours • <a href="https://ubik-solarpunk.github.io/ceo-dashboard/" style="color:#00d4ff">ubik-solarpunk.github.io/ceo-dashboard</a></div>
-  <div style="margin-top:4px">Data: Claude + OpenRouter + OpenAI + PostHog + LinkedIn + GitHub + Linear • Last refresh: Jun 18, 2026 00:06 IST</div>
-  <div style="margin-top:4px;color:#666">⚠ Chrome CDP offline — Claude, OpenRouter, OpenAI & LinkedIn from last scrape • PostHog + GitHub live • Linear from last sync</div>
+  <div style="margin-top:4px">Data: Claude + OpenRouter + OpenAI + PostHog + LinkedIn + GitHub + Linear • Last refresh: Jun 18, 2026 06:04 IST</div>
+  <div style="margin-top:4px;color:#666">⚠ Chrome CDP offline (Claude, OpenRouter, OpenAI, LinkedIn from last scrape) • PostHog API key invalid (from last live run) • GitHub live • Linear from last sync</div>
 </div>
 
 </body>
