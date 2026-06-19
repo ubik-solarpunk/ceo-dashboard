@@ -86,7 +86,7 @@
 <div class="header">
   <h1>⬡ UBIK CEO DASHBOARD</h1>
   <div class="meta">
-    <div id="timestamp">JUN 19, 2026 • 00:07 IST</div>
+    <div id="timestamp">JUN 19, 2026 • 06:04 IST</div>
     <div>Auto-updates every 6h <span class="pulse" style="color:#00e676">●</span></div>
   </div>
 </div>
@@ -112,7 +112,7 @@
       <tr><td>PR review</td><td>$5.00</td><td><span class="status-dot active"></span></td></tr>
       <tr><td>Other (6 keys)</td><td>$1.03</td><td><span class="status-dot active"></span></td></tr>
     </table>
-    <div style="font-size:9px;color:#555;margin-top:8px">⚠ Chrome CDP (port 9225) offline — Claude credits from last scrape. PostHog + GitHub + OpenRouter + Linear LIVE.</div>
+    <div style="font-size:9px;color:#555;margin-top:8px">⚠ Chrome CDP (port 9225) offline — Claude credits from last scrape (2nd consecutive stale cycle). OpenRouter + GitHub + Linear LIVE.</div>
   </div>
 
   <div class="card">
@@ -130,7 +130,7 @@
       <tr><td>jclaw-hermes</td><td>$0.00</td><td>$100</td></tr>
       <tr><td>Hemanth</td><td>$0.00</td><td>unlimited</td></tr>
     </table>
-    <div style="font-size:9px;color:#69f0ae;margin-top:8px">✅ OpenRouter LIVE this cycle (API credits endpoint) — spend flat at $915.38, no new burn</div>
+    <div style="font-size:9px;color:#69f0ae;margin-top:8px">✅ OpenRouter LIVE this cycle (API credits endpoint) — spend flat at $915.38, 0 burn since last cycle</div>
   </div>
 
   <div class="card">
@@ -141,7 +141,7 @@
     <div class="metric"><span class="label">Total Tokens</span><span class="value" style="font-size:14px">26.3M</span></div>
     <div class="metric"><span class="label">Total Requests</span><span class="value" style="font-size:14px">3,217</span></div>
     <div class="metric"><span class="label">Primary User</span><span class="value" style="font-size:13px">Shubhranshu Jha</span></div>
-    <div style="font-size:9px;color:#555;margin-top:8px">⚠ OpenAI from last scrape (Chrome CDP offline this cycle)</div>
+    <div style="font-size:9px;color:#555;margin-top:8px">⚠ OpenAI API key invalid + Chrome CDP offline — from last scrape (2nd stale cycle)</div>
   </div>
 </div>
 
@@ -150,17 +150,17 @@
   <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px">Total API Credits Available</div>
   <div style="font-size:32px;font-weight:800;background:linear-gradient(90deg,#00e676,#00d4ff,#7b2ff7);-webkit-background-clip:text;-webkit-text-fill-color:transparent">$4,851.12</div>
   <div style="font-size:11px;color:#888;margin-top:4px">Claude $1,622 + OpenRouter $2,980 + OpenAI $250 (remaining budget)</div>
-  <div style="font-size:9px;color:#666;margin-top:4px">⚠ Chrome CDP (port 9225) offline — Claude & OpenAI from last scrape. PostHog + GitHub + OpenRouter + Linear LIVE this cycle. LinkedIn from last scrape.</div>
+  <div style="font-size:9px;color:#666;margin-top:4px">⚠ Chrome CDP (port 9225) offline 2nd cycle — Claude & OpenAI from last scrape. PostHog API key EXPIRED — analytics frozen. OpenRouter + GitHub + Linear LIVE this cycle.</div>
 </div>
 
 <!-- USER JOURNEY FUNNEL -->
 <div class="grid">
   <div class="card full-width">
     <h2><span class="icon">🔻</span> User Journey Funnel</h2>
-    <div class="alert amber">⚠ PostHog + GitHub + OpenRouter + Linear LIVE this cycle. 24h: 1,642 events, 21 users, 0 exceptions. Conversion at 0.00% (24h) / 1.23% (7d) — value stage FLATLINED: 0 stream completions in 24h despite 507 pageviews and 1 chat thread. Markets feature now primary engagement driver: 40 market events (19 range + 15 species + 6 ask_ubik). 7d: 6,639 events, 91 users. Linear LIVE: 80 open issues (32 In Review, 24 Todo, 13 In Progress, 11 Backlog). WF2 milestone 8 issues in review by Ganesh. SOC2 compliance hardening shipped (workflows #16 + webapp #119). Seafood NOAA repair + WF2 schema upgrades merged. 41 open PRs (26 webapp, 14 workflows, 1 meetings). Chrome CDP offline — Claude & OpenAI from last scrape.</div>
+    <div class="alert amber">⚠ PostHog API key EXPIRED (phx_ key rejected by both app.posthog.com and us.posthog.com) — funnel data frozen from last live scrape (Jun 19 00:07 IST). OpenRouter + GitHub + Linear LIVE this cycle. 24h (frozen): 1,642 events, 21 users, 0 exceptions. Conversion at 0.00% (24h) / 1.23% (7d) — value stage FLATLINED: 0 stream completions. Markets feature primary engagement driver: 40 market events (19 range + 15 species + 6 ask_ubik). Linear: 65 open issues (down from 80 — 15 closed this cycle!). 32 In Review (review bottleneck), 14 In Progress, 12 Todo, 7 Backlog. WF2 milestone 8 issues still in review by Ganesh. SOC2 compliance shipped. Seafood NOAA repair + WF2 schema upgrades merged. 41 open PRs (26 webapp, 14 workflows, 1 meetings). Chrome CDP offline 2nd cycle — Claude, OpenAI, LinkedIn from last scrape. PostHog API key needs regeneration at us.posthog.com/project/settings/user-api-keys.</div>
     <div style="display:flex;gap:40px;flex-wrap:wrap">
       <div style="flex:1;min-width:300px">
-        <div style="font-size:13px;color:#00d4ff;margin-bottom:10px">24-Hour Funnel</div>
+        <div style="font-size:13px;color:#00d4ff;margin-bottom:10px">24-Hour Funnel ⏸ (frozen)</div>
         <div class="funnel-bar">
           <span class="flabel">Discovery</span>
           <div class="bar"><div class="fill disc" style="width:100%"></div></div>
@@ -188,11 +188,11 @@
         </div>
         <div class="conversion-box">
           <div class="pct">0.00%</div>
-          <div class="desc">Conversion Rate (Value / Discovery) • 24h</div>
+          <div class="desc">Conversion Rate (Value / Discovery) • 24h ⏸ frozen</div>
         </div>
       </div>
       <div style="flex:1;min-width:300px">
-        <div style="font-size:13px;color:#00e676;margin-bottom:10px">7-Day Funnel 🎯</div>
+        <div style="font-size:13px;color:#00e676;margin-bottom:10px">7-Day Funnel 🎯 ⏸ (frozen)</div>
         <div class="funnel-bar">
           <span class="flabel">Discovery</span>
           <div class="bar"><div class="fill disc" style="width:100%"></div></div>
@@ -220,13 +220,13 @@
         </div>
         <div class="conversion-box">
           <div class="pct">1.23%</div>
-          <div class="desc">Conversion Rate (Value / Discovery) • 7d</div>
+          <div class="desc">Conversion Rate (Value / Discovery) • 7d ⏸ frozen</div>
         </div>
       </div>
     </div>
     <div style="font-size:10px;color:#666;margin-top:12px">
       <b>Definitions:</b> Discovery=$pageview, first_visit • Activation=session_validated, $opt_in, user_signed_in • Engagement=chat_thread_created, chat_message_sent, screen_time, markets_range_changed, markets_ask_ubik_clicked, markets_species_selected • Value=chat_stream_completed • Retention=user_returned (not yet implemented)<br>
-      <b>Note:</b> Activation > Discovery because session_validated fires on every session check (automated), not just new sign-ups. True first-time activation is lower.
+      <b>Note:</b> Activation > Discovery because session_validated fires on every session check (automated), not just new sign-ups. True first-time activation is lower. PostHog data frozen — API key expired.
     </div>
   </div>
 </div>
@@ -235,7 +235,7 @@
 <div class="grid">
   <div class="card">
     <h2><span class="icon">📊</span> PostHog — 24h Snapshot</h2>
-    <div style="font-size:9px;color:#69f0ae;margin-bottom:8px">✅ LIVE this cycle — PostHog API (HogQL query)</div>
+    <div style="font-size:9px;color:#ff5252;margin-bottom:8px">⚠ STALE — PostHog API key expired (phx_ rejected). Data frozen from Jun 19 00:07 IST scrape.</div>
     <div class="metric"><span class="label">Total Events</span><span class="value blue">1,642</span></div>
     <div class="metric"><span class="label">Unique Users</span><span class="value blue">21</span></div>
     <div class="metric"><span class="label">Events / User</span><span class="value" style="font-size:14px">78.2</span></div>
@@ -255,10 +255,12 @@
       <tr><td>chat_message_sent</td><td>1</td></tr>
       <tr><td>chat_thread_created</td><td>1</td></tr>
     </table>
+    <div style="font-size:9px;color:#ff5252;margin-top:8px">⚠ Regenerate API key at us.posthog.com/project/settings/user-api-keys to restore live analytics</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">📈</span> 7-Day Trend</h2>
+    <div style="font-size:9px;color:#ff5252;margin-bottom:4px">⚠ STALE — PostHog API key expired</div>
     <div class="sparkline">
       <div class="bar" style="height:41%" title="Jun 11: 809 events, 15 users"></div>
       <div class="bar" style="height:15%" title="Jun 12: 294 events, 15 users"></div>
@@ -283,13 +285,14 @@
       <tr><td>Jun 17</td><td>898</td><td>15</td><td>6</td><td>4</td><td><span class="tag red">-48.8%</span></td></tr>
       <tr><td>Jun 18</td><td>1,639</td><td>21</td><td>2</td><td>0</td><td><span class="tag green">+82.5%</span></td></tr>
     </table>
-    <div style="font-size:11px;color:#888;margin-top:8px">7d Total: 6,639 events • 7d unique users: 91 • Jun 18 full day</div>
-    <div class="alert amber" style="margin-top:8px">⚠ Value stage at 0 for Jun 18 — 0 stream completions despite 1,639 events and 2 chat messages. Chat engagement dropped: only 1 thread + 1 message (vs 7d avg of ~3/day). Markets feature accelerating: 40 market interaction events in 24h (up from 22 last cycle). Jun 18 events +82.5% vs Jun 17 — traffic rebounding but NOT converting to chat value.</div>
+    <div style="font-size:11px;color:#888;margin-top:8px">7d Total: 6,639 events • 7d unique users: 91 • Jun 18 full day (frozen)</div>
+    <div class="alert amber" style="margin-top:8px">⚠ PostHog API key expired — analytics data frozen. No new data since last scrape. Value stage at 0 for Jun 18. Chrome CDP also offline — 4 of 6 data sources now stale. Action needed: regenerate PostHog API key + restart Chrome on port 9225.</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">🏢</span> Activity by User</h2>
-    <div style="font-size:12px;color:#888;margin-bottom:6px">24h — Top Users by Events</div>
+    <div style="font-size:9px;color:#ff5252;margin-bottom:6px">⚠ STALE — PostHog API key expired</div>
+    <div style="font-size:12px;color:#888;margin-bottom:6px">24h — Top Users by Events (frozen)</div>
     <table style="margin-top:6px">
       <tr><th>User ID (partial)</th><th>Events</th><th>Chat</th></tr>
       <tr><td>b30fc6fa...</td><td>907</td><td>2 ⭐</td></tr>
@@ -304,7 +307,7 @@
       <tr><td>019ed941...</td><td>3</td><td>0</td></tr>
     </table>
     <div class="section-divider"></div>
-    <div style="font-size:12px;color:#888;margin-bottom:6px">Business Intent Signals (7d)</div>
+    <div style="font-size:12px;color:#888;margin-bottom:6px">Business Intent Signals (7d, frozen)</div>
     <table>
       <tr><th>Event</th><th>Count</th></tr>
       <tr><td>user_signed_in</td><td>43</td></tr>
@@ -317,7 +320,7 @@
       <tr><td>pricing_viewed</td><td>1</td></tr>
     </table>
     <div class="section-divider"></div>
-    <div style="font-size:12px;color:#888;margin-bottom:6px">7d Chat Metrics</div>
+    <div style="font-size:12px;color:#888;margin-bottom:6px">7d Chat Metrics (frozen)</div>
     <table>
       <tr><th>Metric</th><th>Count</th></tr>
       <tr><td>Chat Threads</td><td>16</td></tr>
@@ -331,6 +334,7 @@
 <div class="grid">
   <div class="card">
     <h2><span class="icon">🔗</span> LinkedIn — Solarpunk</h2>
+    <div style="font-size:9px;color:#ff5252;margin-bottom:6px">⚠ STALE — Chrome CDP offline (2nd cycle)</div>
     <div class="row" style="margin-bottom:12px">
       <div class="metric"><span class="label">Followers</span><span class="value blue">167</span></div>
     </div>
@@ -345,12 +349,13 @@
     <div style="font-size:11px;color:#888">Latest Post (3w ago)</div>
     <div style="font-size:11px;color:#ccc;margin-top:4px">We can debate whether hustle culture marked a shift… — Seafood industry, digital transformation, and why operational excellence has limits.</div>
     <div style="font-size:10px;color:#888;margin-top:4px">8 reactions • 2 reposts • Early Access launching soon</div>
-    <div style="font-size:9px;color:#555;margin-top:8px">⚠ LinkedIn data from last Chrome-scraped run</div>
+    <div style="font-size:9px;color:#555;margin-top:8px">⚠ LinkedIn data from last Chrome-scraped run (2nd stale cycle)</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">🐙</span> GitHub — solarpunk-tech</h2>
-    <div style="font-size:12px;color:#888;margin-bottom:8px">Recent Commits (Jun 18)</div>
+    <div style="font-size:9px;color:#69f0ae;margin-bottom:8px">✅ LIVE this cycle (gh CLI)</div>
+    <div style="font-size:12px;color:#888;margin-bottom:8px">Recent Commits (Jun 18 — last activity)</div>
     <div class="commit"><span class="date">Jun 18</span><span class="author">sai</span><span class="msg">Merge PR #119: soc2-type2-changes (webapp security audit)</span></div>
     <div class="commit"><span class="date">Jun 18</span><span class="author">sai</span><span class="msg">fix(security): clear dependency audit — pin protobufjs (webapp)</span></div>
     <div class="commit"><span class="date">Jun 18</span><span class="author">sai</span><span class="msg">ci(deploy): drop Zep sync services; keep Neo4j/Graphiti (#48)</span></div>
@@ -359,22 +364,24 @@
     <div class="commit"><span class="date">Jun 18</span><span class="author">sai</span><span class="msg">fix(seafood): repair NOAA FOSS + RSS — Trade Radar data (#34)</span></div>
     <div class="commit"><span class="date">Jun 18</span><span class="author">shubh</span><span class="msg">feat(wf2): richer full-thread schema — typed deadlines, HANDED_OFF</span></div>
     <div class="section-divider"></div>
-    <div style="font-size:12px;color:#888;margin-bottom:6px">Open PRs: 41 total (26 webapp, 14 workflows, 1 meetings)</div>
-    <div style="font-size:11px;color:#ccc">ubik-webapp: 26 open — mostly dep bumps (#162-#165), #119 soc2 merged today</div>
+    <div style="font-size:12px;color:#888;margin-bottom:6px">Open PRs: 41 total (26 webapp, 14 workflows, 1 meetings) — unchanged</div>
+    <div style="font-size:11px;color:#ccc">ubik-webapp: 26 open — dep bumps (#162-#165), #119 soc2 merged Jun 18</div>
     <div style="font-size:11px;color:#ccc">ubik-workflows: 14 open — #46-#42 dep updates, #33 deploy docs, #16 SOC2 merged</div>
     <div style="font-size:11px;color:#ccc">ubik-meetings: 1 open — #5 branding + Store</div>
     <div class="section-divider"></div>
-    <div style="font-size:11px;color:#888">7d Contributor Activity</div>
+    <div style="font-size:11px;color:#888">7d Contributor Activity (Jun 12-19)</div>
     <table style="margin-top:4px">
       <tr><th>Repo</th><th>Commits</th><th>Top Contributors</th><th>Open PRs</th></tr>
       <tr><td>ubik-workflows</td><td>31</td><td>shubh(22), sai(8), roger(1)</td><td>14</td></tr>
       <tr><td>ubik-meetings</td><td>0</td><td>—</td><td>1</td></tr>
       <tr><td>ubik-webapp</td><td>2</td><td>sai(2)</td><td>26</td></tr>
     </table>
+    <div class="alert blue" style="margin-top:8px">ℹ No new commits since Jun 18. 41 PRs unchanged. Dev activity quiet this cycle — likely post-SOC2 push cooldown.</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">⚡</span> API Cost Breakdown by User</h2>
+    <div style="font-size:9px;color:#ff5252;margin-bottom:6px">⚠ Claude & OpenAI stale (Chrome CDP offline). OpenRouter LIVE.</div>
     <table>
       <tr><th>User</th><th>Claude</th><th>OR</th><th>Total</th></tr>
       <tr><td>Sai Kiran</td><td>$479.04</td><td>—</td><td>$479</td></tr>
@@ -386,13 +393,13 @@
     </table>
     <div class="section-divider"></div>
     <div style="font-size:11px;color:#888">Total API Spend: ~$2,163 across all providers</div>
-    <div style="font-size:10px;color:#666;margin-top:4px">Claude: $1,248 • OpenRouter: $915 • OpenAI: $0.03</div>
+    <div style="font-size:10px;color:#666;margin-top:4px">Claude: $1,248 (stale) • OpenRouter: $915.38 (LIVE, flat) • OpenAI: $0.03 (stale)</div>
     <div class="section-divider"></div>
     <div style="font-size:11px;color:#888">Credit Burn Rate</div>
-    <div style="font-size:10px;color:#ccc;margin-top:4px">Claude: ~$1,248/mo → ~39 days to $1,622 remaining</div>
-    <div style="font-size:10px;color:#ccc">OpenRouter: ~$915 lifetime → flat since last cycle (0 burn)</div>
+    <div style="font-size:10px;color:#ccc;margin-top:4px">Claude: ~$1,248/mo → ~39 days to $1,622 remaining (stale)</div>
+    <div style="font-size:10px;color:#ccc">OpenRouter: ~$915 lifetime → FLAT 2nd cycle (0 burn) ✅</div>
     <div style="font-size:10px;color:#ccc">Total runway: ~$4,851 → ~3.5 months at current spend</div>
-    <div class="alert amber" style="margin-top:8px">⚠ Claude credits at risk of exhaustion before Jul 1 reset. $1,622 remaining at ~$42/day burn → ~39 days. OpenRouter flat — no new spend this cycle. Consider reducing non-essential Claude usage or preemptive top-up.</div>
+    <div class="alert green" style="margin-top:8px">✅ OpenRouter spend flat at $915.38 — zero burn for 2nd consecutive cycle. Total credits stable at $4,851. Claude burn rate stale (Chrome CDP offline).</div>
     <div class="section-divider"></div>
     <div style="font-size:11px;color:#888">7d Dev Activity</div>
     <table style="margin-top:4px">
@@ -407,8 +414,8 @@
 <!-- LINEAR -->
 <div class="grid">
   <div class="card full-width">
-    <h2><span class="icon">📋</span> Linear — 80 Open Issues (4 Teams)</h2>
-    <div class="alert blue">✅ Linear LIVE this cycle (GraphQL API). 80 open issues: 32 In Review, 24 Todo, 13 In Progress, 11 Backlog. WF2 milestone in final review — 8 issues (PREN-203 to PREN-210) assigned to Ganesh, all "In Review". Trade Radar (PREN-199, #200) in review by Shubhranshu. SOC2 compliance (PREN-175, #214-216) In Progress. 5 marketing/SEO issues (PREN-217 to PREN-221) unassigned in Todo. Rini working on Zoho integration + SOC2 infra. 29 issues unassigned — capacity gap.</div>
+    <h2><span class="icon">📋</span> Linear — 65 Open Issues (was 80 — 15 closed this cycle! 🔻)</h2>
+    <div class="alert green">✅ Linear LIVE this cycle (GraphQL API). 65 open issues (down from 80 — 15 closed!). 32 In Review, 14 In Progress, 12 Todo, 7 Backlog. WF2 milestone 8 issues still in review by Ganesh (PREN-203 to PREN-210). SOC2 compliance (PREN-175) In Progress by Shubhranshu. Trade Radar (PREN-199, #200) in review by Shubhranshu. Rini working on Zoho integration + SOC2 infra (PREN-214/215/216). 5 marketing/SEO issues (PREN-217 to PREN-221) unassigned in Todo. 25 issues unassigned — capacity gap narrowing (was 29). Billing subtasks (PREN-149-158) mostly unassigned — Razorpay integration at risk.</div>
     <div style="display:flex;gap:40px;flex-wrap:wrap">
       <div style="flex:1;min-width:300px">
         <div style="font-size:13px;color:#7b2ff7;margin-bottom:8px">In Review (32)</div>
@@ -424,28 +431,35 @@
           <tr><td>PREN-203</td><td>WF2: Domain-allowlist 403 on dashboards</td><td>Ganesh</td></tr>
           <tr><td>PREN-200</td><td>Seafood market-data API (NOAA FOSS)</td><td>Shubhranshu</td></tr>
           <tr><td>PREN-199</td><td>Trade radar — seafood intelligence terminal</td><td>Shubhranshu</td></tr>
-          <tr><td>PREN-131</td><td>Meetings Webapp UI Improvements</td><td>Priya</td></tr>
-          <tr><td>PREN-123</td><td>Meeting App V1 Customer Release — AZ Gems</td><td>Priya</td></tr>
-          <tr><td>PREN-8</td><td>Meetings Revamp</td><td>Shubhranshu</td></tr>
-          <tr><td colspan="3" style="color:#666;text-align:center">+18 more In Review (analytics, billing, PostHog, hardening)</td></tr>
+          <tr><td>PREN-172</td><td>UI Cleanup on /Meetings - Webapp</td><td>Shubhranshu</td></tr>
+          <tr><td>PREN-171</td><td>Microsoft App - Verified Publisher</td><td>Shubhranshu</td></tr>
+          <tr><td>PREN-164</td><td>Phase 5.2-5.3: Inventory read endpoints</td><td>Rini</td></tr>
+          <tr><td>PREN-185</td><td>Multiple Notification even app downloaded</td><td>Priya</td></tr>
+          <tr><td>PREN-198</td><td>Meetings — June Week 2</td><td>Priya</td></tr>
+          <tr><td>PREN-188</td><td>ubik-workflows — backend API hardening</td><td>Unassigned</td></tr>
+          <tr><td>PREN-187</td><td>the-ubik-landing — legal pages + accuracy</td><td>Unassigned</td></tr>
+          <tr><td>PREN-179</td><td>ubik-webapp — web hardening + privacy UX</td><td>Unassigned</td></tr>
+          <tr><td colspan="3" style="color:#666;text-align:center">+14 more In Review (billing subtasks, analytics, PostHog, auth)</td></tr>
         </table>
       </div>
       <div style="flex:1;min-width:300px">
-        <div style="font-size:13px;color:#ffc107;margin-bottom:8px">In Progress (13)</div>
+        <div style="font-size:13px;color:#ffc107;margin-bottom:8px">In Progress (14)</div>
         <table>
           <tr><th>ID</th><th>Title</th><th>Assignee</th></tr>
           <tr><td>PREN-175</td><td>SOC 2 Type 2 Compliance — Readiness → Pentest</td><td>Shubhranshu</td></tr>
+          <tr><td>PREN-148</td><td>Razorpay Payment Gateway & Billing Journey</td><td>Shubhranshu</td></tr>
+          <tr><td>PREN-152</td><td>Billing: Razorpay Dashboard setup</td><td>Unassigned</td></tr>
+          <tr><td>PREN-181</td><td>Phase 5 — Owner-only security toggles</td><td>Unassigned</td></tr>
+          <tr><td>PREN-182</td><td>Phase 6 — Threat model, playbooks, pentest</td><td>Unassigned</td></tr>
           <tr><td>PREN-216</td><td>Infrastructure Inventory</td><td>Rini</td></tr>
           <tr><td>PREN-215</td><td>Sanitized Inputs</td><td>Rini</td></tr>
           <tr><td>PREN-214</td><td>Comp AI</td><td>Rini</td></tr>
           <tr><td>PREN-197</td><td>Zoho login issues</td><td>Rini</td></tr>
           <tr><td>PREN-186</td><td>Zoho Integrations</td><td>Rini</td></tr>
-          <tr><td>PREN-148</td><td>Razorpay Payment Gateway & Billing Journey</td><td>Shubhranshu</td></tr>
-          <tr><td>PREN-198</td><td>Meetings — June Week 2</td><td>Priya</td></tr>
-          <tr><td>GRO-5</td><td>Solarpunk: 100 days of content</td><td>Shubhranshu</td></tr>
-          <tr><td colspan="3" style="color:#666;text-align:center">+4 more (billing subtasks, security phases)</td></tr>
+          <tr><td>PREN-116</td><td>Zoho Integration- Architecture Flow</td><td>Rini</td></tr>
+          <tr><td colspan="3" style="color:#666;text-align:center">+3 more (analytics, meetings, content)</td></tr>
         </table>
-        <div style="font-size:13px;color:#888;margin-top:16px;margin-bottom:8px">Todo (24) — Key Items</div>
+        <div style="font-size:13px;color:#888;margin-top:16px;margin-bottom:8px">Todo (12) — Key Items</div>
         <table>
           <tr><th>ID</th><th>Title</th></tr>
           <tr><td>PREN-221</td><td>[Trust] Strengthen proof points + security positioning</td></tr>
@@ -454,20 +468,21 @@
           <tr><td>PREN-218</td><td>[CTA] Fix /try handoff (pricing/tier intent)</td></tr>
           <tr><td>PREN-217</td><td>[SEO] Migrate landing to SSR/SSG</td></tr>
           <tr><td>PREN-202</td><td>PostHog instrumentation — Trade radar (FE + BE)</td></tr>
-          <tr><td colspan="2" style="color:#666;text-align:center">+18 more Todo (Zoho phases, PostHog backend, billing, desktop)</td></tr>
+          <tr><td colspan="2" style="color:#666;text-align:center">+6 more Todo (Zoho phases, inventory, desktop, Ask Ubik)</td></tr>
         </table>
+        <div style="font-size:13px;color:#555;margin-top:12px;margin-bottom:4px">Backlog (7) — Billing v2 + seafood expansion</div>
       </div>
     </div>
     <div class="section-divider"></div>
-    <div style="font-size:11px;color:#888">By Assignee: Unassigned 29 • Shubhranshu 15 • Rini 14 • Ganesh 9 • Priya 7 • Sai 6</div>
+    <div style="font-size:11px;color:#888">By Assignee: Unassigned 25 • Rini 14 • Shubhranshu 12 • Ganesh 8 • Priya 4 • Sai 2 | 🔻 15 issues closed since last cycle (was 80 → 65)</div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <div style="text-align:center;padding:20px;font-size:10px;color:#555;border-top:1px solid #2a2a4a;margin-top:20px">
   <div>UBIK CEO Dashboard • Auto-updated every 6 hours • <a href="https://ubik-solarpunk.github.io/ceo-dashboard/" style="color:#00d4ff">ubik-solarpunk.github.io/ceo-dashboard</a></div>
-  <div style="margin-top:4px">Data: Claude + OpenRouter + OpenAI + PostHog + LinkedIn + GitHub + Linear • Last refresh: Jun 19, 2026 00:07 IST</div>
-  <div style="margin-top:4px;color:#666">✅ PostHog + GitHub + OpenRouter + Linear LIVE • ⚠ Chrome CDP offline (Claude, OpenAI, LinkedIn from last scrape)</div>
+  <div style="margin-top:4px">Data: Claude + OpenRouter + OpenAI + PostHog + LinkedIn + GitHub + Linear • Last refresh: Jun 19, 2026 06:04 IST</div>
+  <div style="margin-top:4px;color:#69f0ae">✅ OpenRouter + GitHub + Linear LIVE • <span style="color:#ff5252">⚠ Chrome CDP offline 2nd cycle (Claude, OpenAI, LinkedIn stale) • PostHog API key EXPIRED (analytics frozen)</span></div>
 </div>
 
 </body>
