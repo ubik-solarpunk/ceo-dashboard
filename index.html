@@ -51,7 +51,7 @@
   .trend-up{color:#00e676;font-size:11px}
   .trend-down{color:#ff5252;font-size:11px}
   .sparkline{display:flex;align-items:flex-end;gap:2px;height:40px;margin-top:8px}
-  .sparkline .bar{width:calc(100%/8);background:linear-gradient(180deg,#00d4ff,#7b2ff7);border-radius:2px 2px 0 0;min-width:8px;opacity:0.8}
+  .sparkline .bar{width:calc(100%/9);background:linear-gradient(180deg,#00d4ff,#7b2ff7);border-radius:2px 2px 0 0;min-width:8px;opacity:0.8}
   .sparkline .bar:hover{opacity:1}
   .full-width{grid-column:1/-1}
   .row{display:flex;gap:20px;flex-wrap:wrap}
@@ -86,7 +86,7 @@
 <div class="header">
   <h1>⬡ UBIK CEO DASHBOARD</h1>
   <div class="meta">
-    <div id="timestamp">JUN 23, 2026 • 12:09 IST</div>
+    <div id="timestamp">JUN 23, 2026 • 18:13 IST</div>
     <div>Auto-updates every 6h <span class="pulse" style="color:#00e676">●</span></div>
   </div>
 </div>
@@ -112,12 +112,12 @@
       <tr><td>PR review</td><td>$5.00</td><td><span class="status-dot active"></span></td></tr>
       <tr><td>Other (6 keys)</td><td>$1.03</td><td><span class="status-dot active"></span></td></tr>
     </table>
-    <div style="font-size:9px;color:#ff5252;margin-top:8px">⚠ Chrome CDP (port 9225) offline — 19th consecutive stale cycle. Claude credits frozen from Jun 19 00:07 IST scrape. OpenRouter ✅LIVE this cycle. PostHog ✅LIVE this cycle. Linear ✅LIVE. GitHub ✅LIVE.</div>
+    <div style="font-size:9px;color:#ff5252;margin-top:8px">⚠ Chrome CDP (port 9225) offline — 20th consecutive stale cycle. Claude credits frozen from Jun 19 00:07 IST scrape. OpenRouter ✅LIVE this cycle. PostHog ✅LIVE this cycle. Linear ✅LIVE. GitHub ✅LIVE.</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">🔄</span> OpenRouter Credits</h2>
-    <div style="font-size:9px;color:#69f0ae;margin-bottom:4px">✅ LIVE this cycle — OpenRouter API (credits endpoint) — Jun 23 12:09 IST</div>
+    <div style="font-size:9px;color:#69f0ae;margin-bottom:4px">✅ LIVE this cycle — OpenRouter API (credits endpoint) — Jun 23, 18:13 IST</div>
     <div class="big-num blue">$2,978.25</div>
     <div class="sub">Remaining Balance • Org: Solarpunk</div>
     <div class="metric"><span class="label">Total Loaded</span><span class="value" style="font-size:14px">$3,895</span></div>
@@ -142,7 +142,7 @@
     <div class="metric"><span class="label">Total Tokens</span><span class="value" style="font-size:14px">26.3M</span></div>
     <div class="metric"><span class="label">Total Requests</span><span class="value" style="font-size:14px">3,217</span></div>
     <div class="metric"><span class="label">Primary User</span><span class="value" style="font-size:13px">Shubhranshu Jha</span></div>
-    <div style="font-size:9px;color:#ff5252;margin-top:8px">⚠ OpenAI STALE — Chrome CDP offline (19th cycle) AND API key in .env is invalid (401). Double-blind this cycle. Rotate key + restart Chrome to restore.</div>
+    <div style="font-size:9px;color:#ff5252;margin-top:8px">⚠ OpenAI STALE — Chrome CDP offline (20th cycle) AND API key in .env is invalid (401). Double-blind this cycle. Rotate key + restart Chrome to restore.</div>
   </div>
 </div>
 
@@ -151,36 +151,36 @@
   <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px">Total API Credits Available</div>
   <div style="font-size:32px;font-weight:800;background:linear-gradient(90deg,#00e676,#00d4ff,#7b2ff7);-webkit-background-clip:text;-webkit-text-fill-color:transparent">$4,849.75</div>
   <div style="font-size:11px;color:#888;margin-top:4px">Claude $1,621.53 (stale) + OpenRouter $2,978.25 (✅LIVE) + OpenAI $249.97 (stale, remaining budget)</div>
-  <div style="font-size:9px;color:#666;margin-top:4px">⚠ Chrome CDP (port 9225) offline 19th cycle — Claude + OpenAI stale. OpenRouter ✅LIVE via API. PostHog ✅LIVE this cycle. Linear ✅LIVE (API). GitHub ✅LIVE.</div>
+  <div style="font-size:9px;color:#666;margin-top:4px">⚠ Chrome CDP (port 9225) offline 20th cycle — Claude + OpenAI stale. OpenRouter ✅LIVE via API. PostHog ✅LIVE this cycle. Linear ✅LIVE (API). GitHub ✅LIVE.</div>
 </div>
 
 <!-- USER JOURNEY FUNNEL -->
 <div class="grid">
   <div class="card full-width">
     <h2><span class="icon">🔻</span> User Journey Funnel</h2>
-    <div class="alert green">✅ PostHog LIVE this cycle — phx_ project API key working for HogQL queries. AI generation remains strong: $ai_generation at 531 in 24h (up from 505 last cycle, +5%). Total events 24h: 1,723. Unique users: 19. 1 exception detected (streak of zero-exception days broken after Jun 18-22 run). GitHub: 90 commits (7d), PR #58 merged today (packaging fix). Linear: WF2 cluster COMPLETED (PREN-203 to PREN-210 all done) — major milestone! 50 issues total (unchanged count, but composition shifted). OpenRouter LIVE: $2,978.25 (unchanged). Chrome CDP offline 19th cycle.</div>
+    <div class="alert green">✅ PostHog LIVE this cycle — phx_ project API key working for HogQL queries. AI generation remains strong: $ai_generation at 525 in 24h (down from 531 last cycle, -1%). Total events 24h: 1,759. Unique users: 25 (up from 19, +32%). 6 exceptions detected (up from 1). GitHub: 90 commits (7d), PR #58 merged today (packaging fix). Linear: 70 active issues (up from 50, +20 — backlog growth from new Todo/Backlog items). OpenRouter LIVE: $2,978.25 (unchanged). Chrome CDP offline 20th cycle.</div>
     <div style="display:flex;gap:40px;flex-wrap:wrap">
       <div style="flex:1;min-width:300px">
-        <div style="font-size:13px;color:#00e676;margin-bottom:10px">24-Hour Funnel ✅ LIVE — Jun 23 12:09 IST</div>
+        <div style="font-size:13px;color:#00e676;margin-bottom:10px">24-Hour Funnel ✅ LIVE — Jun 23, 18:13 IST</div>
         <div class="funnel-bar">
           <span class="flabel">Discovery</span>
-          <div class="bar"><div class="fill disc" style="width:13%"></div></div>
-          <span class="fval">138</span>
+          <div class="bar"><div class="fill disc" style="width:16%"></div></div>
+          <span class="fval">165</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Activation</span>
-          <div class="bar"><div class="fill act" style="width:31%"></div></div>
-          <span class="fval">318</span>
+          <div class="bar"><div class="fill act" style="width:34%"></div></div>
+          <span class="fval">343</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Engagement</span>
-          <div class="bar"><div class="fill eng" style="width:10%"></div></div>
-          <span class="fval">103</span>
+          <div class="bar"><div class="fill eng" style="width:12%"></div></div>
+          <span class="fval">124</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Value</span>
           <div class="bar"><div class="fill val" style="width:100%"></div></div>
-          <span class="fval">1,033 🚀</span>
+          <span class="fval">985 🚀</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Retention</span>
@@ -188,31 +188,31 @@
           <span class="fval">0</span>
         </div>
         <div class="conversion-box">
-          <div class="pct">748.6%</div>
-          <div class="desc">Conversion Rate (Value / Discovery) • 24h ✅LIVE • Jun 23 12:09 IST • Value = $ai_generation (531) + $ai_trace_summary (258) + $ai_generation_summary (244) = 1,033 • Note: >100% because $ai_generation fires per-request, not per-user — each page view generates ~7.5 AI outputs avg</div>
+          <div class="pct">597.0%</div>
+          <div class="desc">Conversion Rate (Value / Discovery) • 24h ✅LIVE • Jun 23, 18:13 IST • Value = $ai_generation (525) + $ai_trace_summary (234) + $ai_generation_summary (226) = 985 • Note: >100% because $ai_generation fires per-request, not per-user — each page view generates ~6.0 AI outputs avg</div>
         </div>
       </div>
       <div style="flex:1;min-width:300px">
-        <div style="font-size:13px;color:#00e676;margin-bottom:10px">7-Day Funnel ✅ LIVE — Jun 23 12:09 IST</div>
+        <div style="font-size:13px;color:#00e676;margin-bottom:10px">7-Day Funnel ✅ LIVE — Jun 23, 18:13 IST</div>
         <div class="funnel-bar">
           <span class="flabel">Discovery</span>
-          <div class="bar"><div class="fill disc" style="width:76%"></div></div>
-          <span class="fval">2,009</span>
+          <div class="bar"><div class="fill disc" style="width:75%"></div></div>
+          <span class="fval">2009</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Activation</span>
           <div class="bar"><div class="fill act" style="width:100%"></div></div>
-          <span class="fval">2,630</span>
+          <span class="fval">2674</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Engagement</span>
-          <div class="bar"><div class="fill eng" style="width:48%"></div></div>
-          <span class="fval">1,267</span>
+          <div class="bar"><div class="fill eng" style="width:47%"></div></div>
+          <span class="fval">1278</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Value</span>
-          <div class="bar"><div class="fill val" style="width:55%"></div></div>
-          <span class="fval">1,458</span>
+          <div class="bar"><div class="fill val" style="width:61%"></div></div>
+          <span class="fval">1637</span>
         </div>
         <div class="funnel-bar">
           <span class="flabel">Retention</span>
@@ -220,14 +220,14 @@
           <span class="fval">0</span>
         </div>
         <div class="conversion-box">
-          <div class="pct">72.6%</div>
-          <div class="desc">Conversion Rate (Value / Discovery) • 7d ✅LIVE • Jun 23 12:09 IST • Value = $ai_generation (714) + $ai_trace_summary (375) + $ai_generation_summary (369) = 1,458</div>
+          <div class="pct">81.5%</div>
+          <div class="desc">Conversion Rate (Value / Discovery) • 7d ✅LIVE • Jun 23, 18:13 IST • Value = $ai_generation (802) + $ai_trace_summary (418) + $ai_generation_summary (417) = 1637</div>
         </div>
       </div>
     </div>
     <div style="font-size:10px;color:#666;margin-top:12px">
       <b>Definitions:</b> Discovery=$pageview + pricing_viewed • Activation=session_validated, user_signed_in, $identify, $opt_in • Engagement=screen_time, $set • Value=$ai_generation + $ai_trace_summary + $ai_generation_summary (completed AI tasks) • Retention=user_returned (not yet implemented)<br>
-      <b>Note:</b> PostHog ✅LIVE this cycle — phx_ project API key working for HogQL queries. 24h: 1,723 events, 19 users, 1 exception (streak broken after Jun 18-22 zero-exception run). $ai_generation: 531 in 24h (+5% from 505 last cycle). 7d: 8,666 events, 60 users. AI generation is the dominant value signal — users generating 7.5 AI outputs per page view (24h). Jun 23 partial: 737 events, 265 AI gen so far.
+      <b>Note:</b> PostHog ✅LIVE this cycle — phx_ project API key working for HogQL queries. 24h: 1,759 events, 25 users (+32% from 19), 6 exceptions. $ai_generation: 525 in 24h (-1% from 531). 7d: 8,915 events, 65 users (+8% from 60). AI generation is the dominant value signal — users generating 6.0 AI outputs per page view (24h). Jun 23 partial: 1,271 events, 353 AI gen, 6 exc.
     </div>
   </div>
 </div>
@@ -236,104 +236,108 @@
 <div class="grid">
   <div class="card">
     <h2><span class="icon">📊</span> PostHog — 24h Snapshot</h2>
-    <div style="font-size:9px;color:#69f0ae;margin-bottom:8px">✅ LIVE this cycle — phx_ API key working for HogQL queries. Jun 23 12:09 IST.</div>
-    <div class="metric"><span class="label">Total Events</span><span class="value blue">1,723</span></div>
-    <div class="metric"><span class="label">Unique Users</span><span class="value blue">19</span></div>
-    <div class="metric"><span class="label">Events / User</span><span class="value" style="font-size:14px">90.7</span></div>
-    <div class="metric"><span class="label">Exceptions</span><span class="value amber" style="font-size:14px">1 ⚠️</span></div>
+    <div style="font-size:9px;color:#69f0ae;margin-bottom:8px">✅ LIVE this cycle — phx_ API key working for HogQL queries. Jun 23, 18:13 IST.</div>
+    <div class="metric"><span class="label">Total Events</span><span class="value blue">1,759</span></div>
+    <div class="metric"><span class="label">Unique Users</span><span class="value blue">25</span></div>
+    <div class="metric"><span class="label">Events / User</span><span class="value" style="font-size:14px">70.4</span></div>
+    <div class="metric"><span class="label">Exceptions</span><span class="value amber" style="font-size:14px">6 ⚠️</span></div>
     <div class="section-divider"></div>
     <table>
       <tr><th>Event</th><th>Count (24h)</th><th>Count (7d)</th></tr>
-      <tr><td>$ai_generation</td><td>531 🚀</td><td>714</td></tr>
-      <tr><td>$ai_trace_summary</td><td>258</td><td>375</td></tr>
-      <tr><td>$ai_generation_summary</td><td>244</td><td>369</td></tr>
-      <tr><td>session_validated</td><td>242</td><td>2,083</td></tr>
-      <tr><td>$pageview</td><td>137</td><td>2,007</td></tr>
-      <tr><td>$web_vitals</td><td>124</td><td>925</td></tr>
-      <tr><td>$opt_in</td><td>65</td><td>508</td></tr>
-      <tr><td>screen_time</td><td>52</td><td>814</td></tr>
-      <tr><td>$set</td><td>50</td><td>453</td></tr>
-      <tr><td>user_signed_in</td><td>10</td><td>30</td></tr>
-      <tr><td>$identify</td><td>3</td><td>8</td></tr>
-      <tr><td>user_signed_out</td><td>3</td><td>6</td></tr>
+      <tr><td>$ai_generation</td><td>525 🚀</td><td>802</td></tr>
+      <tr><td>session_validated</td><td>261</td><td>2114</td></tr>
+      <tr><td>$ai_trace_summary</td><td>234</td><td>418</td></tr>
+      <tr><td>$ai_generation_summary</td><td>226</td><td>417</td></tr>
+      <tr><td>$pageview</td><td>165</td><td>2007</td></tr>
+      <tr><td>$web_vitals</td><td>125</td><td>931</td></tr>
+      <tr><td>$opt_in</td><td>66</td><td>524</td></tr>
+      <tr><td>screen_time</td><td>65</td><td>808</td></tr>
+      <tr><td>$set</td><td>59</td><td>470</td></tr>
+      <tr><td>user_signed_in</td><td>13</td><td>30</td></tr>
+      <tr><td>$exception</td><td>6 ⚠️</td><td>130</td></tr>
+      <tr><td>$identify</td><td>3</td><td>6</td></tr>
+      <tr><td>user_signed_out</td><td>3</td><td>4</td></tr>
       <tr><td>packaging_sla_status_changed</td><td>2</td><td>3</td></tr>
-      <tr><td>$exception</td><td>1 ⚠️</td><td>125</td></tr>
-      <tr><td>pricing_viewed</td><td>1</td><td>2</td></tr>
-      <tr><td>chat_thread_created</td><td>0</td><td>40</td></tr>
-      <tr><td>chat_message_sent</td><td>0</td><td>53</td></tr>
-      <tr><td>chat_stream_completed</td><td>0</td><td>33</td></tr>
-      <tr><td>markets_species_selected</td><td>0</td><td>49</td></tr>
-      <tr><td>markets_range_changed</td><td>0</td><td>32</td></tr>
+      <tr><td>markets_species_selected</td><td>2</td><td>51</td></tr>
+      <tr><td>chat_message_sent</td><td>1</td><td>54</td></tr>
+      <tr><td>markets_range_changed</td><td>1</td><td>33</td></tr>
+      <tr><td>chat_thread_created</td><td>1</td><td>41</td></tr>
+      <tr><td>chat_stream_completed</td><td>1</td><td>34</td></tr>
+      <tr><td>markets_tab_changed</td><td>0</td><td>26</td></tr>
+      <tr><td>markets_ask_ubik_clicked</td><td>0</td><td>7</td></tr>
+      <tr><td>pricing_viewed</td><td>0</td><td>2</td></tr>
     </table>
-    <div style="font-size:9px;color:#69f0ae;margin-top:8px">✅ PostHog LIVE this cycle (phx_ key working). $ai_generation remains strong: 531 in 24h (+5% from 505). Exception streak broken: 1 exception in 24h after 5 consecutive zero-exception days (Jun 18-22). 7d exceptions: 125 (down from 132). Pricing viewed: 1 (24h), 2 (7d). Trade Radar: 114 events (7d). User growth: 19 (24h), 60 (7d).</div>
+    <div style="font-size:9px;color:#69f0ae;margin-top:8px">✅ PostHog LIVE this cycle (phx_ key working). $ai_generation: 525 in 24h (-1% from 531). Exceptions: 6 in 24h (up from 1). 7d exceptions: 130 (down from 132). Pricing viewed: 0 (24h), 2 (7d). Trade Radar: 114 events (7d). User growth: 25 (24h, +32%), 65 (7d, +8%). New: markets_askbar_submitted (2 in 7d), compare_backlink_clicked (1 in 7d).</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">📈</span> 7-Day Trend</h2>
-    <div style="font-size:9px;color:#69f0ae;margin-bottom:4px">✅ LIVE this cycle — PostHog API working. Jun 23 12:09 IST.</div>
+    <div style="font-size:9px;color:#69f0ae;margin-bottom:4px">✅ LIVE this cycle — PostHog API working. Jun 23, 18:13 IST.</div>
     <div class="sparkline">
-      <div class="bar" style="height:100%" title="Jun 16: 1,755 events, 40 users"></div>
-      <div class="bar" style="height:51%" title="Jun 17: 898 events, 15 users, 44 exc ⚠️"></div>
-      <div class="bar" style="height:93%" title="Jun 18: 1,639 events, 21 users, 0 exc ✅"></div>
-      <div class="bar" style="height:82%" title="Jun 19: 1,440 events, 15 users, 80 exc ⚠️"></div>
-      <div class="bar" style="height:61%" title="Jun 20: 1,076 events, 23 users, 74 AI gen, 0 exc ✅"></div>
-      <div class="bar" style="height:29%" title="Jun 21: 511 events, 12 users, 52 AI gen, 0 exc ✅"></div>
-      <div class="bar" style="height:91%" title="Jun 22: 1,593 events, 15 users, 323 AI gen, 0 exc ✅"></div>
-      <div class="bar" style="height:42%" title="Jun 23*: 737 events, 16 users, 265 AI gen, 1 exc ⚠️ (partial)"></div>
+      <div class="bar" style="height:25%" title="Jun 15: 439 events, 13 users, 0 AI gen, 0 exc"></div>
+      <div class="bar" style="height:100%" title="Jun 16: 1755 events, 44 users, 0 AI gen, 8 exc ⚠️"></div>
+      <div class="bar" style="height:51%" title="Jun 17: 898 events, 15 users, 0 AI gen, 44 exc ⚠️"></div>
+      <div class="bar" style="height:93%" title="Jun 18: 1639 events, 21 users, 0 AI gen, 0 exc ✅"></div>
+      <div class="bar" style="height:82%" title="Jun 19: 1440 events, 16 users, 0 AI gen, 80 exc ⚠️"></div>
+      <div class="bar" style="height:61%" title="Jun 20: 1076 events, 24 users, 74 AI gen, 0 exc ✅"></div>
+      <div class="bar" style="height:29%" title="Jun 21: 511 events, 14 users, 52 AI gen, 0 exc ✅"></div>
+      <div class="bar" style="height:90%" title="Jun 22: 1593 events, 19 users, 323 AI gen, 0 exc ✅"></div>
+      <div class="bar" style="height:72%" title="Jun 23*: 1271 events, 22 users, 353 AI gen, 6 exc ⚠️ (partial)"></div>
     </div>
     <div style="display:flex;justify-content:space-between;font-size:9px;color:#666;margin-top:4px">
-      <span>Jun 16</span><span>Jun 17</span><span>Jun 18</span><span>Jun 19</span><span>Jun 20</span><span>Jun 21</span><span>Jun 22</span><span>Jun 23*</span>
+      <span>Jun 15</span><span>Jun 16</span><span>Jun 17</span><span>Jun 18</span><span>Jun 19</span><span>Jun 20</span><span>Jun 21</span><span>Jun 22</span><span>Jun 23*</span>
     </div>
     <table style="margin-top:12px">
       <tr><th>Day</th><th>Events</th><th>Users</th><th>AI Gen</th><th>Exc</th></tr>
-      <tr><td>Jun 16</td><td>1,755</td><td>40</td><td>—</td><td>8 ⚠️</td></tr>
+      <tr><td>Jun 15</td><td>439</td><td>13</td><td>—</td><td>0 ✅</td></tr>
+      <tr><td>Jun 16</td><td>1,755</td><td>44</td><td>—</td><td>8 ⚠️</td></tr>
       <tr><td>Jun 17</td><td>898</td><td>15</td><td>—</td><td>44 ⚠️</td></tr>
       <tr><td>Jun 18</td><td>1,639</td><td>21</td><td>—</td><td>0 ✅</td></tr>
-      <tr><td>Jun 19</td><td>1,440</td><td>15</td><td>—</td><td>80 ⚠️</td></tr>
-      <tr><td>Jun 20</td><td>1,076</td><td>23</td><td>74</td><td>0 ✅</td></tr>
-      <tr><td>Jun 21</td><td>511</td><td>12</td><td>52</td><td>0 ✅</td></tr>
-      <tr><td>Jun 22</td><td>1,593</td><td>15</td><td>323 🚀</td><td>0 ✅</td></tr>
-      <tr><td>Jun 23*</td><td>737</td><td>16</td><td>265</td><td>1 ⚠️</td></tr>
+      <tr><td>Jun 19</td><td>1,440</td><td>16</td><td>—</td><td>80 ⚠️</td></tr>
+      <tr><td>Jun 20</td><td>1,076</td><td>24</td><td>74</td><td>0 ✅</td></tr>
+      <tr><td>Jun 21</td><td>511</td><td>14</td><td>52</td><td>0 ✅</td></tr>
+      <tr><td>Jun 22</td><td>1,593</td><td>19</td><td>323 🚀</td><td>0 ✅</td></tr>
+      <tr><td>Jun 23*</td><td>1,271</td><td>22</td><td>353 🚀</td><td>6 ⚠️</td></tr>
     </table>
-    <div style="font-size:11px;color:#888;margin-top:8px">7d Total: 8,666 events • 60 unique users • *Jun 23 partial (12h in) • AI generation trending strong: Jun 22 (323) + Jun 23 partial (265) = 588 and counting • Peak day: Jun 16 (1,755 events, 40 users) • Exception streak broken: Jun 23 has 1 exception after 5 consecutive zero days (Jun 18-22) • Jun 19 spike: 80 exceptions (investigated, resolved)</div>
-    <div class="alert green" style="margin-top:8px">✅ PostHog LIVE this cycle — phx_ API key working for HogQL queries. AI GENERATION STAYS STRONG: $ai_generation 531 in 24h (+5% from 505). Total events 1,723 (24h). Users 19 (24h). 1 exception (streak broken). Linear MILESTONE: WF2 cluster (PREN-203 to PREN-210) COMPLETED — 8 issues closed! New billing issues added (PREN-148-154). OpenRouter LIVE: $2,978.25 (unchanged). GitHub LIVE: 90 commits (7d), PR #58 merged today. Chrome CDP offline 19th cycle.</div>
+    <div style="font-size:11px;color:#888;margin-top:8px">7d Total: 8,915 events • 65 unique users • *Jun 23 partial (18h in) • AI generation trending strong: Jun 22 (323) + Jun 23 partial (353) = 676 and counting • Peak day: Jun 16 (1,755 events, 44 users) • Exception trend: 6 on Jun 23 (up from 1) • Jun 19 spike: 80 exceptions (investigated, resolved)</div>
+    <div class="alert green" style="margin-top:8px">✅ PostHog LIVE this cycle — phx_ API key working. AI GENERATION TREND: $ai_generation 525 in 24h (-1% from 531). Total events 1,759 (24h, +2% from 1,723). Users 25 (24h, +32% from 19). 6 exceptions (up from 1). 7d: 8,915 events (+3%), 65 users (+8%). Linear: 70 active issues (+20 from 50) — backlog growing. OpenRouter LIVE: $2,978.25 (unchanged). GitHub LIVE: 90 commits (7d), PR #58 merged today. Chrome CDP offline 20th cycle.</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">🏢</span> Activity by User</h2>
-    <div style="font-size:9px;color:#69f0ae;margin-bottom:6px">✅ LIVE this cycle — PostHog API working. Jun 23 12:09 IST.</div>
+    <div style="font-size:9px;color:#69f0ae;margin-bottom:6px">✅ LIVE this cycle — PostHog API working. Jun 23, 18:13 IST.</div>
     <div style="font-size:12px;color:#888;margin-bottom:6px">24h — Top Users by Events (non-system)</div>
     <table style="margin-top:6px">
       <tr><th>User ID</th><th>Events</th><th>AI Gen</th><th>Sessions</th></tr>
-      <tr><td>6f55e344 (AI power user)</td><td>287</td><td>287 🚀</td><td>0</td></tr>
-      <tr><td>3e57dedf (multi-session)</td><td>157</td><td>0</td><td>57</td></tr>
-      <tr><td>49a68d5e (multi-session)</td><td>153</td><td>0</td><td>53</td></tr>
-      <tr><td>0c609285 (mixed usage)</td><td>148</td><td>65</td><td>18</td></tr>
-      <tr><td>30212be5 (AI heavy)</td><td>148</td><td>140 🚀</td><td>1</td></tr>
-      <tr><td>498f828f (session-heavy)</td><td>131</td><td>17</td><td>54</td></tr>
-      <tr><td>b219a13d (sessions)</td><td>72</td><td>4</td><td>32</td></tr>
-      <tr><td>00caeb91 (light)</td><td>50</td><td>1</td><td>7</td></tr>
+      <tr><td>bec72963 (AI power user)</td><td>283</td><td>283 🚀</td><td>0</td></tr>
+      <tr><td>317f7a46 (multi-session)</td><td>257</td><td>0</td><td>100</td></tr>
+      <tr><td>trace_summary_362008 (system)</td><td>234</td><td>0</td><td>0</td></tr>
+      <tr><td>generation_summary_362008 (system)</td><td>226</td><td>0</td><td>0</td></tr>
+      <tr><td>b30fc6fa (mixed usage)</td><td>170</td><td>17</td><td>72</td></tr>
+      <tr><td>4245f0db (AI heavy)</td><td>146</td><td>138 🚀</td><td>1</td></tr>
+      <tr><td>a386258e (mixed usage)</td><td>142</td><td>57</td><td>20</td></tr>
+      <tr><td>625a833a (session-heavy)</td><td>84</td><td>1</td><td>15</td></tr>
     </table>
     <div class="section-divider"></div>
     <div style="font-size:12px;color:#888;margin-bottom:6px">Geographic Distribution (24h $pageview)</div>
     <table>
       <tr><th>Country</th><th>Cities</th><th>Users</th></tr>
-      <tr><td>India</td><td>Pune, Visakhapatnam, Hyderabad, Chennai, Bengaluru, Mumbai, Surat, Vadodara</td><td>17</td></tr>
+      <tr><td>India</td><td>Chennai, Bengaluru, Ahmedabad, Pune, Hyderabad, Surat, Visakhapatnam, Vadodara, Mumbai</td><td>22</td></tr>
       <tr><td>United States</td><td>Washington, Lake Oswego OR</td><td>2</td></tr>
     </table>
     <div class="section-divider"></div>
     <div style="font-size:12px;color:#888;margin-bottom:6px">7d Chat + Trade Radar Metrics</div>
     <table>
       <tr><th>Metric</th><th>24h</th><th>7d</th></tr>
-      <tr><td>$ai_generation</td><td>531 🚀</td><td>714</td></tr>
-      <tr><td>Chat Threads</td><td>0</td><td>40</td></tr>
-      <tr><td>Messages Sent</td><td>0</td><td>53</td></tr>
-      <tr><td>Streams Completed</td><td>0</td><td>33</td></tr>
-      <tr><td>Trade Radar: Species Selected</td><td>0</td><td>49</td></tr>
-      <tr><td>Trade Radar: Range Changed</td><td>0</td><td>32</td></tr>
+      <tr><td>$ai_generation</td><td>525 🚀</td><td>802</td></tr>
+      <tr><td>Chat Threads</td><td>1</td><td>41</td></tr>
+      <tr><td>Messages Sent</td><td>1</td><td>54</td></tr>
+      <tr><td>Streams Completed</td><td>1</td><td>34</td></tr>
+      <tr><td>Trade Radar: Species Selected</td><td>2</td><td>51</td></tr>
+      <tr><td>Trade Radar: Range Changed</td><td>1</td><td>33</td></tr>
       <tr><td>Trade Radar: Tab Changed</td><td>0</td><td>26</td></tr>
       <tr><td>Trade Radar: Ask Ubik Clicked</td><td>0</td><td>7</td></tr>
-      <tr><td>Pricing Viewed</td><td>1</td><td>2</td></tr>
+      <tr><td>Pricing Viewed</td><td>0</td><td>2</td></tr>
       <tr><td>Packaging SLA Status Changed</td><td>2</td><td>3</td></tr>
     </table>
   </div>
@@ -343,7 +347,7 @@
 <div class="grid">
   <div class="card">
     <h2><span class="icon">🔗</span> LinkedIn — Solarpunk</h2>
-    <div style="font-size:9px;color:#ff5252;margin-bottom:6px">⚠ STALE — Chrome CDP offline (19th cycle)</div>
+    <div style="font-size:9px;color:#ff5252;margin-bottom:6px">⚠ STALE — Chrome CDP offline (20th cycle)</div>
     <div class="row" style="margin-bottom:12px">
       <div class="metric"><span class="label">Followers</span><span class="value blue">167</span></div>
     </div>
@@ -358,12 +362,12 @@
     <div style="font-size:11px;color:#888">Latest Post (3w ago)</div>
     <div style="font-size:11px;color:#ccc;margin-top:4px">We can debate whether hustle culture marked a shift… — Seafood industry, digital transformation, and why operational excellence has limits.</div>
     <div style="font-size:10px;color:#888;margin-top:4px">8 reactions • 2 reposts • Early Access launching soon</div>
-    <div style="font-size:9px;color:#ff5252;margin-top:8px">⚠ LinkedIn data from last Chrome-scraped run (19th stale cycle)</div>
+    <div style="font-size:9px;color:#ff5252;margin-top:8px">⚠ LinkedIn data from last Chrome-scraped run (20th stale cycle)</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">🐙</span> GitHub — solarpunk-tech</h2>
-    <div style="font-size:9px;color:#69f0ae;margin-bottom:8px">✅ LIVE this cycle (gh CLI) — Jun 23 12:09 IST</div>
+    <div style="font-size:9px;color:#69f0ae;margin-bottom:8px">✅ LIVE this cycle (gh CLI) — Jun 23, 18:13 IST</div>
     <div style="font-size:12px;color:#888;margin-bottom:8px">Recent Commits (Jun 22-23 — packaging fix + seafood data + market revamp)</div>
     <div class="commit"><span class="date">Jun 23</span><span class="author">sai</span><span class="msg">Merge PR #58: fix(packaging) owner/status editable (workflows)</span></div>
     <div class="commit"><span class="date">Jun 23</span><span class="author">ubik</span><span class="msg">fix(packaging): allow any packaging user to change Owner and SLA status</span></div>
@@ -387,12 +391,12 @@
       <tr><td>ubik-workflows</td><td>38</td><td>shubh(24), sai(8), priya(3), roger(2)</td><td>15</td></tr>
       <tr><td>ubik-meetings</td><td>0</td><td>—</td><td>1</td></tr>
     </table>
-    <div class="alert green" style="margin-top:8px">✅ Dev activity LIVE — 90 commits in 7d (+2 from 88). PR #58 merged TODAY (packaging tracker owner/status fix by Roger). PR #57 merged Jun 22 (seafood market data revamp by Priya). Key open PRs: #54+#180 (token/cost tracking, PREN-226), #175 (Tasks & Inbox revamp by Sai), #53 (WF2 cross-thread candidate-close).</div>
+    <div class="alert green" style="margin-top:8px">✅ Dev activity LIVE — 90 commits in 7d (unchanged). PR #58 merged TODAY (packaging tracker owner/status fix by Roger). PR #57 merged Jun 22 (seafood market data revamp by Priya). Key open PRs: #54+#180 (token/cost tracking, PREN-226), #175 (Tasks & Inbox revamp by Sai), #53 (WF2 cross-thread candidate-close).</div>
   </div>
 
   <div class="card">
     <h2><span class="icon">⚡</span> API Cost Breakdown by User</h2>
-    <div style="font-size:9px;color:#ff5252;margin-bottom:6px">⚠ Claude + OpenAI stale (Chrome CDP offline 19th cycle). OpenRouter ✅LIVE. PostHog ✅LIVE. Linear ✅LIVE. GitHub ✅LIVE.</div>
+    <div style="font-size:9px;color:#ff5252;margin-bottom:6px">⚠ Claude + OpenAI stale (Chrome CDP offline 20th cycle). OpenRouter ✅LIVE. PostHog ✅LIVE. Linear ✅LIVE. GitHub ✅LIVE.</div>
     <table>
       <tr><th>User</th><th>Claude</th><th>OR</th><th>Total</th></tr>
       <tr><td>Sai Kiran</td><td>$479.04</td><td>—</td><td>$479</td></tr>
@@ -410,7 +414,7 @@
     <div style="font-size:10px;color:#ccc;margin-top:4px">Claude: ~$1,248/mo → ~39 days to $1,622 remaining (stale)</div>
     <div style="font-size:10px;color:#ccc">OpenRouter: $916.75 lifetime (✅LIVE — no new spend)</div>
     <div style="font-size:10px;color:#ccc">Total runway: ~$4,850 → ~3.5 months at current spend</div>
-    <div class="alert green" style="margin-top:8px">✅ PostHog LIVE this cycle — phx_ API key working. AI GENERATION STAYS STRONG: $ai_generation 531 in 24h (+5% from 505). 1,723 events, 19 users. 1 exception (streak broken after 5 zero-exception days). Linear MILESTONE: WF2 cluster (PREN-203-210) COMPLETED — 8 issues closed! New billing issues added (PREN-148-154). OpenRouter LIVE: $2,978.25 (unchanged). GitHub LIVE: 90 commits (7d), PR #58 merged today. Chrome CDP offline 19th cycle — Claude + OpenAI + LinkedIn stale. Total credits $4,849.75.</div>
+    <div class="alert green" style="margin-top:8px">✅ PostHog LIVE this cycle — phx_ API key working. AI GENERATION: $ai_generation 525 in 24h (-1% from 531). 1,759 events, 25 users (+32%). 6 exceptions (up from 1). Linear: 70 active issues (+20 from 50 — backlog growth). OpenRouter LIVE: $2,978.25 (unchanged). GitHub LIVE: 90 commits (7d), PR #58 merged today. Chrome CDP offline 20th cycle — Claude + OpenAI + LinkedIn stale. Total credits $4,849.75.</div>
     <div class="section-divider"></div>
     <div style="font-size:11px;color:#888">7d Dev Activity</div>
     <table style="margin-top:4px">
@@ -426,11 +430,11 @@
 <!-- LINEAR -->
 <div class="grid">
   <div class="card full-width">
-    <h2><span class="icon">📋</span> Linear — 50 Issues (✅ LIVE via Linear API — 10 In Review, 14 In Progress + 14 Todo + 11 Backlog + 1 Canceled = 50 total non-done)</h2>
-    <div class="alert blue">✅ Linear LIVE this cycle — direct API query. MAJOR CHANGE: WF2 cluster (PREN-203 to PREN-210, 8 issues) ALL COMPLETED since last cycle — Ganesh's work merged! New issues added: Billing subtasks (PREN-148-154, Razorpay), PREN-147 (Phase 3 writer), PREN-139 (Desktop notifications). By assignee: Unassigned 24, Rini 11, Shubhranshu 9, Priya 4, Ganesh 1, Hemanth 1. In Review: 10 (down from 16). In Progress: 14 (up from 12). PREN-226 (token/cost tracking) In Progress by Shubhranshu — PR #54 + #180 on GitHub. PREN-148 (Razorpay billing) In Progress by Shubhranshu. PREN-175 (SOC 2 Type 2) In Progress.</div>
+    <h2><span class="icon">📋</span> Linear — 70 Active Issues (✅ LIVE via Linear API — 13 In Review, 17 In Progress, 22 Todo, 18 Backlog = 70 active + 59 Canceled + 3 Duplicate = 132 total non-done)</h2>
+    <div class="alert blue">✅ Linear LIVE this cycle — direct API query with pagination. MAJOR CHANGE: Active issues grew from 50 to 70 (+20). In Review: 10→13 (+3), In Progress: 14→17 (+3), Todo: 14→22 (+8), Backlog: 11→18 (+7). New In Progress: GRO-5 (Solarpunk: 100 days of content) by Shubhranshu. WF2 cluster (PREN-203 to PREN-210) remains COMPLETED. By assignee: Unassigned 40, Rini 33, Shubhranshu 22, Priya 14, Ganesh 9, Hemanth 8, Sai 6. PREN-226 (token/cost tracking) In Progress by Shubhranshu — PR #54 + #180 on GitHub. PREN-148 (Razorpay billing) In Progress. PREN-175 (SOC 2 Type 2) In Progress.</div>
     <div style="display:flex;gap:40px;flex-wrap:wrap">
       <div style="flex:1;min-width:300px">
-        <div style="font-size:13px;color:#7b2ff7;margin-bottom:8px">In Review (10) — Key Items</div>
+        <div style="font-size:13px;color:#7b2ff7;margin-bottom:8px">In Review (13) — Key Items</div>
         <table>
           <tr><th>ID</th><th>Title</th><th>Assignee</th></tr>
           <tr><td>PREN-234</td><td>WF2: Notify new owner by email on task reassignment (FE)</td><td>Shubhranshu</td></tr>
@@ -443,10 +447,13 @@
           <tr><td>PREN-151</td><td>Billing subtask: backend APIs, trial state, Razorpay webhooks</td><td>Unassigned</td></tr>
           <tr><td>PREN-150</td><td>Billing subtask: webapp polish and Workspace invoice follow-up</td><td>Unassigned</td></tr>
           <tr><td>PREN-149</td><td>Billing subtask: locale pricing catalog and Razorpay plan mapping</td><td>Unassigned</td></tr>
+          <tr><td>PREN-59</td><td>Email Code Cleanup — Ubik (EC2)</td><td>Rini</td></tr>
+          <tr><td>PREN-40</td><td>Review basic UI suggestions and changes from PREN-27</td><td>Sai</td></tr>
+          <tr><td>PREN-35</td><td>Auth Service — Final Revamp</td><td>Rini</td></tr>
         </table>
       </div>
       <div style="flex:1;min-width:300px">
-        <div style="font-size:13px;color:#ffc107;margin-bottom:8px">In Progress (14) — Key Items</div>
+        <div style="font-size:13px;color:#ffc107;margin-bottom:8px">In Progress (17) — Key Items</div>
         <table>
           <tr><th>ID</th><th>Title</th><th>Assignee</th></tr>
           <tr><td>PREN-226</td><td>Wire token/cost tracking into chat_stream_completed PostHog event</td><td>Shubhranshu</td></tr>
@@ -461,10 +468,13 @@
           <tr><td>PREN-182</td><td>Phase 6 — Threat model, incident playbooks, evidence automation</td><td>Unassigned</td></tr>
           <tr><td>PREN-181</td><td>Phase 5 — Owner-only security toggles (GitHub / Workspace / GCP)</td><td>Unassigned</td></tr>
           <tr><td>PREN-175</td><td>SOC 2 Type 2 Compliance — Readiness → Pentest → Audit</td><td>Shubhranshu</td></tr>
-          <tr><td>PREN-152</td><td>Billing subtask: Razorpay Dashboard setup for Operator and Workspace</td><td>Unassigned</td></tr>
+          <tr><td>PREN-152</td><td>Billing subtask: Razorpay Dashboard setup</td><td>Unassigned</td></tr>
           <tr><td>PREN-148</td><td>Razorpay Payment Gateway & Billing Journey</td><td>Shubhranshu</td></tr>
+          <tr><td>PREN-116</td><td>Zoho Integration — Architecture Flow</td><td>Rini</td></tr>
+          <tr><td>GRO-21</td><td>Recall AI Credits & Usage Tracker</td><td>Shubhranshu</td></tr>
+          <tr><td>GRO-5</td><td>Solarpunk: 100 days of content</td><td>Shubhranshu</td></tr>
         </table>
-        <div style="font-size:13px;color:#888;margin-top:16px;margin-bottom:8px">Todo (14) + Backlog (11) — Key Items</div>
+        <div style="font-size:13px;color:#888;margin-top:16px;margin-bottom:8px">Todo (22) + Backlog (18) — Key Items</div>
         <table>
           <tr><th>ID</th><th>Title</th><th>Assignee</th></tr>
           <tr><td>PREN-233</td><td>WF2: Connected / linked email threads on a task (FE + BE)</td><td>Hemanth</td></tr>
@@ -479,19 +489,19 @@
           <tr><td>PREN-147</td><td>Phase 3: writer worker drains erp_write_queue to Zoho</td><td>Rini</td></tr>
           <tr><td>PREN-139</td><td>Desktop: Upcoming-meeting notifications PRD + Windows</td><td>Shubhranshu</td></tr>
         </table>
-        <div style="font-size:13px;color:#555;margin-top:12px;margin-bottom:4px">Backlog (11): PREN-232 ($ai_cost_usd property), PREN-231 (error tracking dashboard), PREN-230 (LLM eval scores), PREN-229 (surveys), PREN-224 (image prompt editing), PREN-158 (billing-owner transfer), PREN-157 (invoice auto-sync), PREN-156 (GCP Secret Manager), PREN-155 (SOC2 considerations), PREN-154 (payment-retry recovery), PREN-153 (Razorpay international activation)</div>
+        <div style="font-size:13px;color:#555;margin-top:12px;margin-bottom:4px">Backlog: PREN-232 ($ai_cost_usd property to $ai_generation events) • PREN-231 (Error tracking dashboard tile) • PREN-230 (LLM eval scores into PostHog) • PREN-229 (PostHog surveys on Trade Radar / Market Intel) • PREN-224 (Image prompt editing and regeneration flow) • PREN-158 (Billing v2: billing-owner transfer UI + backend) • PREN-157 (Billing v2: Workspace invoice auto-sync) • PREN-156 (Billing: GCP Secret Manager seed + first deploy) • PREN-155 (Billing: SOC2 Type 2 considerations review) • PREN-154 (Billing: payment-retry recovery flow) • PREN-153 (Razorpay international payments activation)</div>
       </div>
     </div>
     <div class="section-divider"></div>
-    <div style="font-size:11px;color:#888">By Assignee: Unassigned 24 • Rini 11 • Shubhranshu 9 • Priya 4 • Ganesh 1 • Hemanth 1 | ✅ 50 total non-done issues. BREAKTHROUGH: WF2 cluster (PREN-203 to PREN-210, 8 issues) ALL COMPLETED — Ganesh's WF2 work shipped! In Review dropped 16→10, In Progress rose 12→14. New: Billing subtasks (PREN-148-154, Razorpay), PREN-147 (Phase 3), PREN-139 (Desktop). PREN-226 (token/cost tracking) In Progress — PR #54 + #180. PREN-148 (Razorpay billing) In Progress by Shubhranshu. PREN-175 (SOC 2 Type 2) In Progress. Seafood market intelligence: Comtrade + pink salmon shipped via PR #57.</div>
+    <div style="font-size:11px;color:#888">By Assignee: Unassigned 40 • Rini 33 • Shubhranshu 22 • Priya 14 • Ganesh 9 • Hemanth 8 • Sai 6 | ✅ 70 active issues + 59 Canceled (mostly IVE archive) + 3 Duplicate = 132 total non-done. CHANGE: Active grew 50→70 (+20). In Review 10→13, In Progress 14→17, Todo 14→22, Backlog 11→18. New: GRO-5 (100 days of content). WF2 cluster remains COMPLETED. PREN-226 (token/cost tracking) In Progress — PR #54 + #180. PREN-148 (Razorpay billing) In Progress. PREN-175 (SOC 2 Type 2) In Progress. Seafood market intelligence: Comtrade + pink salmon shipped via PR #57.</div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <div style="text-align:center;padding:20px;font-size:10px;color:#555;border-top:1px solid #2a2a4a;margin-top:20px">
   <div>UBIK CEO Dashboard • Auto-updated every 6 hours • <a href="https://ubik-solarpunk.github.io/ceo-dashboard/" style="color:#00d4ff">ubik-solarpunk.github.io/ceo-dashboard</a></div>
-  <div style="margin-top:4px">Data: Claude + OpenRouter + OpenAI + PostHog + LinkedIn + GitHub + Linear • Last refresh: Jun 23, 2026 12:09 IST</div>
-  <div style="margin-top:4px;color:#69f0ae">✅ PostHog + OpenRouter + Linear + GitHub LIVE • <span style="color:#ff5252">⚠ Chrome CDP offline 19th cycle (Claude, OpenAI, LinkedIn stale)</span></div>
+  <div style="margin-top:4px">Data: Claude + OpenRouter + OpenAI + PostHog + LinkedIn + GitHub + Linear • Last refresh: Jun 23, 18:13 IST</div>
+  <div style="margin-top:4px;color:#69f0ae">✅ PostHog + OpenRouter + Linear + GitHub LIVE • <span style="color:#ff5252">⚠ Chrome CDP offline 20th cycle (Claude, OpenAI, LinkedIn stale)</span></div>
 </div>
 </body>
 </html>
